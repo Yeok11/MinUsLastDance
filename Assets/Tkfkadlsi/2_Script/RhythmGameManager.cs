@@ -14,11 +14,15 @@ public class RhythmGameManager : MonoBehaviour
     //Queue의 [0]번째 노트에서만 판정을 처리한다.
 
     public UnityEvent turnChangeEvent = new UnityEvent();
-    public int nodeCount = 0;
+    private int noteCount = 0;
 
     public void NoteProcessHandle()
     {
-        
+        noteCount++;
+        if(noteCount == 16)
+        {
+            turnChangeEvent?.Invoke();
+        }
     }
 
     private void Awake()
