@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class Rhythm : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    GameObject poorNote, note, r_Note;
+
+    public int bpm;
+
+    public int[] remark;
+
+    private void Start()
     {
-        
+        remark = new int[] { 1, 0, 0, 0, 1, 0, 0, 2, 1, 0, 0, 0, 1, 0, 2, 0 };
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        StartCoroutine(RhythmCorutine());
+    }
+
+    private IEnumerator RhythmCorutine()
+    {
+        switch (remark)
+        {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+
+        yield return new WaitForSeconds(60 / bpm);
     }
 }
