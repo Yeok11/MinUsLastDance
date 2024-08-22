@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class Shy_Deck : MonoBehaviour
 {
-    public List<Shy_TileSO> deck;
+    public List<Shy_TileSO> tileDeck;
+    public List<Shy_DiceSO> diceDeck;
+
+   
 }
