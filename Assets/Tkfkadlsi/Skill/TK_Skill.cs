@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class TK_Skill : MonoBehaviour
+public abstract class TK_Skill : ScriptableObject
 {
-    [Range(1, 3)] protected int skillLevel;
-    protected bool isCanUse = false;
+    [SerializeField] [Range(1, 3)] protected int skillLevel = 1;
+    [SerializeField] private bool isCanUse = false;
+    [SerializeField] private int[] LevelValue = new int[3];
 
     public void SkillUnlock()
     {
@@ -17,9 +18,9 @@ public abstract class TK_Skill : MonoBehaviour
         return isCanUse;
     }
 
-    public virtual bool UseSkill()
+    public virtual bool UseSkill(Shy_Player player)
     {
-        if(isCanUse == false)
+        if(GetUseable() == false)
         {
             return false;
         }
@@ -29,5 +30,10 @@ public abstract class TK_Skill : MonoBehaviour
     public virtual void SkillLevelUp()
     {
         skillLevel++;
+    }
+
+    protected int GetLevelValue(int level)
+    {
+        return LevelValue[level-1];
     }
 }
