@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TK_BuffSkill : TK_Skill
 {
-    protected SkillStack buffType;
+    protected TK_SkillStack buffType;
     protected float buffAmount;
 
     public override bool UseSkill()

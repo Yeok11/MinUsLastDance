@@ -1,4 +1,4 @@
-public enum SkillStack
+public enum TK_SkillStackType
 {
     Wild,
     Mana
