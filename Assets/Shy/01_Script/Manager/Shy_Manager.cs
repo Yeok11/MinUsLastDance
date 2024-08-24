@@ -14,21 +14,4 @@ public class Shy_Manager : MonoBehaviour
         }
         instance = this;
     }
-
-
-    public int actionPoint;
-    public int ActionPoint
-    {
-        get => actionPoint;
-        set => actionPoint = maxActionPoint < value ? maxActionPoint : value;
-    }
-    public int maxActionPoint;
-
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            ActionPoint += 1;
-        }
-    }
 }
