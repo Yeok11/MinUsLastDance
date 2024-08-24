@@ -6,4 +6,5 @@ using UnityEngine;
 public class Shy_DiceSO : ScriptableObject
 {
     public List<int> eyes = new List<int>(6);
+    public int cost;
 }
