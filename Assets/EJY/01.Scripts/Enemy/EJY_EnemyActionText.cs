@@ -3,21 +3,18 @@ using UnityEngine;
 
 public class EnemyActionText : MonoBehaviour
 {
-    [SerializeField] private Enemy _enemy;
     private TextMeshProUGUI _actionText;
-    private float _attack;
-    private float _barrier;
+    public float _attack;
+    public float _barrier;
     
     private void Awake()
     {
         _actionText = GetComponent<TextMeshProUGUI>();
-        _enemy = GetComponent<Enemy>();
     }
 
     private void Start()
     {
-        _attack = _enemy.Attack;
-        _barrier = _enemy.Barrier;
+        _actionText.text = "";
     }
 
     public void ActionMark(EnemyActionType type)
