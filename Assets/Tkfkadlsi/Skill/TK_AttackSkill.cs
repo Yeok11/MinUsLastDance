@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TK_AttackSkill : TK_Skill
 {
-    protected List<Enemy> targets = new List<Enemy>();
+    protected List<EJY_Enemy> targets = new List<EJY_Enemy>();
 
     public override bool UseSkill(Shy_Player player)
     {

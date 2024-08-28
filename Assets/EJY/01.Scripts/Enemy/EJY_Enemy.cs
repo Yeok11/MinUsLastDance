@@ -11,32 +11,33 @@ public enum EnemyActionType
 }
 
 [RequireComponent(typeof(Health))]
-public abstract class Enemy : MonoBehaviour, IPointerClickHandler
+public abstract class EJY_Enemy : MonoBehaviour, IPointerClickHandler
 {
+    public int speed;
     protected float _attack;
     public float Attack => _attack;
     protected float _barrier;
     public float Barrier => _barrier;
+    protected int _target;
     protected EnemyActionType _actionType;
 
     protected bool _isDead;
 
+    protected GameObject[] _targets;
+
     [SerializeField] protected EnemyStatSO _enemyStat;
 
     public Health HealthCompo {  get; protected set; }
-    public EnemyActionText EnemyTextCompo { get; protected set; }
 
     protected virtual void Awake()
     {
         HealthCompo = GetComponent<Health>();
-        EnemyTextCompo = transform.Find("ActionText").gameObject.GetComponent<EnemyActionText>();
         Initialize();
     }
 
     protected virtual void Start()
     {
-        EnemyTextCompo._attack = _attack;
-        EnemyTextCompo._barrier = _barrier;
+        _targets = new GameObject[_target];
         EnemyAction();
     }
 
@@ -47,6 +48,8 @@ public abstract class Enemy : MonoBehaviour, IPointerClickHandler
         HealthCompo._maxHp = _enemyStat._hp;
         HealthCompo._addBarrier = _enemyStat._barrier;
         _attack = _enemyStat._attack;
+        _target = _enemyStat._targets;
+        speed = _enemyStat._speed;
         Reset();
     }
 
@@ -60,7 +63,7 @@ public abstract class Enemy : MonoBehaviour, IPointerClickHandler
     {
         _actionType = (EnemyActionType)Random.Range(0, 3);
 
-        EnemyTextCompo.ActionMark(_actionType);
+        Debug.Log(_actionType);
 
         switch (_actionType)
         {
