@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,7 +15,13 @@ public class Shy_Dice : MonoBehaviour, IPointerClickHandler
         diceManager = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Dice>();
         dice = Shy_Manager.instance.gameObject.GetComponentInChildren<Shy_Deck>().diceDeck[transform.GetSiblingIndex()];
 
+        DiceSet();
+    }
+
+    private void DiceSet()
+    {
         value = dice.eyes[0];
+        GetComponentInChildren<TextMeshProUGUI>().text = dice.cost.ToString();
     }
 
     private void Roll()
