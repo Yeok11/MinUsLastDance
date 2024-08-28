@@ -27,48 +27,62 @@ public class Ahahau_Move : MonoBehaviour
         _x = Input.GetAxisRaw("Horizontal");
         _y = Input.GetAxisRaw("Vertical");
 
-        if (Ahahau_GameManager.Instance.playerMoveOn)
+        if (Ahahau_GameManager.Instance.playerClick)
         {
-            Ahahau_GameManager.Instance.playerMoveOn = false;
+            Ahahau_GameManager.Instance.playerClick = false;
             print("클릭됌");
             if (_battle.MovePoint > 0)
             {
                 print("movepoint 있음");
                 ColorChange();
             }
+            else print("movepoint 없음");
         }
         if (_colorChange)
         {
-            if (_x != 0 || _y != 0)
+            ClickMove();
+            KeyMove();
+        }
+    }
+    private void KeyMove()
+    {
+        if (_x != 0 || _y != 0)
+        {
+            _intX = Mathf.FloorToInt(_x);
+            _intY = Mathf.FloorToInt(_y);
+            _nextIndex += _intX -= (_intY * 7);
+            if (_nextIndex >= 0 && _nextIndex <= 48 && boredImages[_nextIndex].color == Color.green)
             {
-                _intX = Mathf.FloorToInt(_x);
-                _intY = Mathf.FloorToInt(_y);
-                _nextIndex += _intX -= (_intY * 7);
-                if (_nextIndex >= 0 && _nextIndex <= 48 && boredImages[_nextIndex].color == Color.green)
-                {
-                    Debug.Log("_nextIndex:" + _nextIndex);
-                    _currentIndex = _nextIndex;
-                    Movement();
-                    _colorChange = false;
-                }
-                else
-                {
-                    _nextIndex = _currentIndex;
-                }
+                _currentIndex = _nextIndex;
+                Movement();
+            }
+            else
+            {
+                _nextIndex = _currentIndex;
+            }
+        }
+    }
+    private void ClickMove()
+    {
+        if (Ahahau_GameManager.Instance.tileClick)
+        {
+            if (boredImages[Ahahau_GameManager.Instance.tileIndex].color == Color.green)
+            {
+                _currentIndex = Ahahau_GameManager.Instance.tileIndex;
+                Movement();
             }
         }
     }
 
     private void Movement()
     {
+        _colorChange = false;
         transform.position = boredImages[_currentIndex].transform.position;
         _battle.MovePoint--;
         ClearColor();
     }
     private void ColorChange()
     {
-        boredImages[_currentIndex].color = Color.green;
-
         if (_currentIndex % 7 != 0)
             boredImages[_currentIndex - 1].color = Color.green;
 
@@ -89,5 +103,5 @@ public class Ahahau_Move : MonoBehaviour
             boredImages[i].color = Color.white;
         }
     }
-
+    
 }

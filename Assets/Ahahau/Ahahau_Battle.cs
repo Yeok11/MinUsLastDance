@@ -26,7 +26,7 @@ public class Ahahau_Battle : MonoBehaviour
 
     private void Awake()
     {
-        MovePoint = 1;
+        MovePoint = 99;
     }
 
     private void Update()
