@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GetPosition")]
-public class PlayerPositionSO : ScriptableObject
+public class EJD_PlayerPositionSO : ScriptableObject
 {
     public float xPos = 0;
     public float yPos = 0;

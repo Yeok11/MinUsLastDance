@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StageSpawner : MonoBehaviour
+public class EJD_StageSpawner : MonoBehaviour
 {
-    //순서 고임 해결 하기
+    //순서 꼬임 해결 하기
 
     private int boardXlen = 6, boardYlen = 6;
     private int[,] board;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestMove : MonoBehaviour
+public class EJD_TestMove : MonoBehaviour
 {
     public Vector2 moveDir;
 

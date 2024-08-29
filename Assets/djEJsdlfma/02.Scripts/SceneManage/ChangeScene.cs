@@ -20,7 +20,7 @@ public class ChangeScene : MonoBehaviour
 
     public Vector3 playerPostion;
     [SerializeField]
-    private PlayerPositionSO playerPos;
+    private EJD_PlayerPositionSO playerPos;
 
     public enum Scene
     {None ,Goal, Enemy, Shop}
@@ -46,22 +46,22 @@ public class ChangeScene : MonoBehaviour
         playerPos.xPos = this.gameObject.transform.position.x;
         playerPos.yPos = this.gameObject.transform.position.y;
 
-        ChangeManager();
+        //ChangeManager();
     }
 
-    
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (collision.gameObject.CompareTag("Enemy") && playerPos.isOut == true) ChkWhatScene = Scene.Enemy;
+        if (other.gameObject.CompareTag("Enemy") && playerPos.isOut == true) ChkWhatScene = Scene.Enemy;
 
-        else if (collision.gameObject.CompareTag("Shop") && playerPos.isOut == true) ChkWhatScene = Scene.Shop;
+        else if (other.gameObject.CompareTag("Shop") && playerPos.isOut == true) ChkWhatScene = Scene.Shop;
 
-        else if (collision.gameObject.CompareTag("Goal") && playerPos.isOut == true) ChkWhatScene = Scene.Goal;
+        else if (other.gameObject.CompareTag("Goal") && playerPos.isOut == true) ChkWhatScene = Scene.Goal;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         playerPos.isOut = true;
         ChkWhatScene = Scene.None;
