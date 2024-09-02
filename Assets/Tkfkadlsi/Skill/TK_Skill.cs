@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class TK_Skill : ScriptableObject
+public enum ESkillType
 {
+
+}
+
+public abstract class TK_Skill : MonoBehaviour
+{
+    public ESkillType skillType;
     [SerializeField] [Range(1, 3)] protected int skillLevel = 1;
     [SerializeField] private bool isCanUse = false;
     [SerializeField] private int[] LevelValue = new int[3];
@@ -13,18 +19,18 @@ public abstract class TK_Skill : ScriptableObject
         isCanUse = true;
     }
 
-    public bool GetUseable()
+    public virtual bool CanUseSkill(Shy_Player player)
     {
-        return isCanUse;
-    }
-
-    public virtual bool UseSkill(Shy_Player player)
-    {
-        if(GetUseable() == false)
+        if(isCanUse == false)
         {
             return false;
         }
         return true;
+    }
+
+    public virtual void UseSkill(Shy_Player player, List<EJY_Enemy> targets)
+    {
+
     }
 
     public virtual void SkillLevelUp()

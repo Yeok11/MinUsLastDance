@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class TK_BuffSkill : TK_Skill
 {
-    [SerializeField] protected TK_SkillStack buffType;
+    [SerializeField] protected Shy_Stack buffStack;
 
-    public override bool UseSkill(Shy_Player player)
+    public override bool CanUseSkill(Shy_Player player)
     {
-        return base.UseSkill(player);
+        return base.CanUseSkill(player);
     }
 
     public override void SkillLevelUp()
     {
         base.SkillLevelUp();
+    }
+
+    public override void UseSkill(Shy_Player player, List<EJY_Enemy> targets)
+    {
+        base.UseSkill(player, targets);
+        player.stacks.Add(buffStack);
     }
 }
