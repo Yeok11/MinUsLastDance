@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeScene : MonoBehaviour
+public class EJD_ChangeScene : MonoBehaviour
 {
     /*보드에 미리 정해둔 배치대로 벽, 길, 적, 상점, 도착지점, 플레이어가 배치될 거임.
     (표시는 지금 안 정했으니까 색깔만으로 구분 해놓으삼)

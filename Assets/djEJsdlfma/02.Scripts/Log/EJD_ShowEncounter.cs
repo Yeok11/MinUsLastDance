@@ -22,6 +22,8 @@ public class EJD_ShowEncounter : MonoBehaviour
     [SerializeField] private GameObject[] _selectionPos;
     [SerializeField] private TMP_Text _encounterStroy;
 
+    private int a;
+
     public string Show(string tag)
     {
         s = tag;
@@ -44,7 +46,8 @@ public class EJD_ShowEncounter : MonoBehaviour
                 break;
         }
         _encounterStroy.text = log;
-        CreateSelection();
+        if (a < 1)
+            CreateSelection();
     }
 
     public void CreateSelection()
@@ -52,9 +55,12 @@ public class EJD_ShowEncounter : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             GameObject selection = Instantiate(_selection);
+            selection.name = $"{i}";
             selection.transform.SetParent(_selectionPos[i].transform);
             selection.transform.position = _selectionPos[i].transform.position;
             selection.SetActive(true);
+
         }
+        a++;
     }
 }

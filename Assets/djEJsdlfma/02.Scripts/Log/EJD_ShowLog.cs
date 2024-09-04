@@ -6,7 +6,7 @@ public class EJD_ShowLog : MonoBehaviour
 {
     private EJD_ShowEncounter _showEncounter;
 
-    [SerializeField] private GameObject testEncounter;
+    [SerializeField] public GameObject testEncounter;
 
     string s;
 
@@ -17,17 +17,11 @@ public class EJD_ShowLog : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         testEncounter.SetActive(true);
         Debug.Log($"{other.tag}");
         _showEncounter.Show(other.tag);
 
         _showEncounter.LogManage(s);
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        testEncounter.SetActive(false);
     }
 
 }
