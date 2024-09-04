@@ -19,19 +19,19 @@ public class Ahahau_Battle : MonoBehaviour
             _playerCardUse[index] = value;
         }
     }
-    public bool PlayerTurn { get; set; }
+    public bool playerTurn { get; set; }
 
     private bool turn;
-    public int MovePoint { get; set; }
+    
 
     private void Awake()
     {
-        MovePoint = 99;
+       a_PlayerMove.instance.movePoint = 99;
     }
 
     private void Update()
     {
-        if (PlayerTurn && turn)
+        if (playerTurn && turn)
         {
             playerDack.Add(addDack[Random.Range(0, addDack.Count)]);
             playerDack.Add(addDack[Random.Range(0, addDack.Count)]);
@@ -40,21 +40,21 @@ public class Ahahau_Battle : MonoBehaviour
         }
 
 
-        if (MovePoint <= 0)
+        if (a_PlayerMove.instance.movePoint <= 0)
         {
-            PlayerTurn = false;
+            playerTurn = false;
         }
         if (_playerCardUse[0] == true && playerDack[0] >= playerDack.Count)
         {
-            MovePoint += playerDack[0];
+            a_PlayerMove.instance.movePoint += playerDack[0];
         }
         if (_playerCardUse[1] == true && playerDack[1] >= playerDack.Count)
         {
-            MovePoint += playerDack[1];
+            a_PlayerMove.instance.movePoint += playerDack[1];
         }
         if (_playerCardUse[2] == true && playerDack[2] >= playerDack.Count)
         {
-            MovePoint += playerDack[2];
+            a_PlayerMove.instance.movePoint += playerDack[2];
         }
     }
 

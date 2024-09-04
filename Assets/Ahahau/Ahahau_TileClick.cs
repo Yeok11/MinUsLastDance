@@ -7,15 +7,11 @@ using UnityEngine.Windows;
 
 public class Ahahau_TileClick : MonoBehaviour, IPointerClickHandler
 {
-    private string tileName;
-    private string tileNum;
+    public int tileNum;
+
     public void OnPointerClick(PointerEventData eventData)
     {
-        tileName = gameObject.name;
-        tileNum = Regex.Replace(tileName, @"\D", "");
-        Ahahau_GameManager.Instance.tileIndex = int.Parse(tileNum);
-        Ahahau_GameManager.Instance.tileIndex--;
-
-        Ahahau_GameManager.Instance.tileClick = true;
+        a_PlayerMove.instance.PlayerMoveToInt(tileNum);
+        print("tileNum:" +  tileNum);
     }
 }
