@@ -2,29 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class TK_Skill : ScriptableObject
+public enum ESkillType
 {
+    Point_Shoot,
+}
+
+public abstract class TK_Skill : MonoBehaviour
+{
+    public ESkillType skillType;
+    [SerializeField] private TK_SkillConst skillConst;
     [SerializeField] [Range(1, 3)] protected int skillLevel = 1;
     [SerializeField] private bool isCanUse = false;
-    [SerializeField] private int[] LevelValue = new int[3];
 
     public void SkillUnlock()
     {
         isCanUse = true;
     }
 
-    public bool GetUseable()
+    public virtual bool CanUseSkill(Shy_Player player)
     {
-        return isCanUse;
-    }
-
-    public virtual bool UseSkill(Shy_Player player)
-    {
-        if(GetUseable() == false)
+        if(isCanUse == false)
         {
             return false;
         }
         return true;
+    }
+
+    public virtual void UseSkill(Shy_Player player, EJY_Enemy target)
+    {
+
     }
 
     public virtual void SkillLevelUp()
@@ -32,8 +38,8 @@ public abstract class TK_Skill : ScriptableObject
         skillLevel++;
     }
 
-    protected int GetLevelValue(int level)
+    protected float GetValue(int level, Shy_Player player)
     {
-        return LevelValue[level-1];
+        return skillConst.GetValue(level, player);
     }
 }

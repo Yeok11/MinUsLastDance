@@ -1,3 +1,4 @@
+using EJY;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ using UnityEngine.UI;
 public class Shy_Tile : MonoBehaviour, IPointerClickHandler
 {
     public Shy_TileSO skillData;
+    public Skilldata_SO enemySkillData;
     internal Shy_Manager_Tile tileManager;
 
     public void UpdateImage()
@@ -20,21 +22,27 @@ public class Shy_Tile : MonoBehaviour, IPointerClickHandler
             childImg.sprite = skillData.image;
     }
 
-    public void UsedTile()
+    public void SettingTile()
     {
         Debug.Log(gameObject.name + "타일 리셋");
         tileManager.TileSetting(this);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    private void ActTile()
     {
         if (skillData == null)
         {
             Debug.Log("skill이 없습니다.");
             return;
         }
-        //Debug.Log(skillData.tileName);
+
         skillData.effect.ActSkill();
-        UsedTile();
+        SettingTile();
+    }
+
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        ActTile();   
     }
 }
