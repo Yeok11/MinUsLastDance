@@ -5,8 +5,6 @@ public class EnemyStatSO : ScriptableObject
 {
     public int level = 1;
     public float _hp;
-    public float _attack;
-    public float _barrier;
-    public int _targets;
+    public int _damage;
     public int _speed;
 }
