@@ -11,7 +11,7 @@ public class TK_PlayerSkillManager : MonoBehaviour
     private void Awake()
     {
         player = GetComponent<Shy_Player>();
-        TK_Skill[] skillarray = GetComponents<TK_Skill>();
+        TK_Skill[] skillarray = GetComponentsInChildren<TK_Skill>();
 
         foreach (TK_Skill skill in skillarray)
         {
@@ -23,7 +23,7 @@ public class TK_PlayerSkillManager : MonoBehaviour
     {
         if(skillDic[skill].CanUseSkill(player))
         {
-            skillDic[skill].UseSkill(player, new List<EJY_Enemy>());
+            skillDic[skill].UseSkill(player, Targetting._target);
         }
     }
 }

@@ -16,9 +16,9 @@ public class TK_BuffSkill : TK_Skill
         base.SkillLevelUp();
     }
 
-    public override void UseSkill(Shy_Player player, List<EJY_Enemy> targets)
+    public override void UseSkill(Shy_Player player, EJY_Enemy target)
     {
-        base.UseSkill(player, targets);
+        base.UseSkill(player, target);
         player.stacks.Add(buffStack);
     }
 }

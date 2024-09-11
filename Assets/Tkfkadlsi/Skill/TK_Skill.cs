@@ -4,15 +4,15 @@ using UnityEngine;
 
 public enum ESkillType
 {
-
+    Point_Shoot,
 }
 
 public abstract class TK_Skill : MonoBehaviour
 {
     public ESkillType skillType;
+    [SerializeField] private TK_SkillConst skillConst;
     [SerializeField] [Range(1, 3)] protected int skillLevel = 1;
     [SerializeField] private bool isCanUse = false;
-    [SerializeField] private int[] LevelValue = new int[3];
 
     public void SkillUnlock()
     {
@@ -28,7 +28,7 @@ public abstract class TK_Skill : MonoBehaviour
         return true;
     }
 
-    public virtual void UseSkill(Shy_Player player, List<EJY_Enemy> targets)
+    public virtual void UseSkill(Shy_Player player, EJY_Enemy target)
     {
 
     }
@@ -38,8 +38,8 @@ public abstract class TK_Skill : MonoBehaviour
         skillLevel++;
     }
 
-    protected int GetLevelValue(int level)
+    protected float GetValue(int level, Shy_Player player)
     {
-        return LevelValue[level-1];
+        return skillConst.GetValue(level, player);
     }
 }

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TK_AttackSkill : TK_Skill
 {
-    [SerializeField] protected float damage;
-    protected List<EJY_Enemy> targets = new List<EJY_Enemy>();
+    protected float damage;
 
     public override bool CanUseSkill(Shy_Player player)
     {
@@ -17,16 +16,13 @@ public class TK_AttackSkill : TK_Skill
         base.SkillLevelUp();
     }
 
-    public override void UseSkill(Shy_Player player, List<EJY_Enemy> targets)
+    public override void UseSkill(Shy_Player player, EJY_Enemy target)
     {
-        base.UseSkill(player, targets);
+        base.UseSkill(player, target);
     }
 
-    protected void Attack()
+    protected void Attack(EJY_Enemy target)
     {
-        targets.ForEach(e =>
-        {
-            e.HealthCompo.TakeDamage(damage);
-        });
+        target.HealthCompo.TakeDamage(damage);
     }
 }
