@@ -24,7 +24,6 @@ public class Shy_Manager_Tile : MonoBehaviour
 
         //40%확률로 기본 타일
         int r = Random.Range(0, 100);
-        Debug.Log(r);
         if (r < _randPer || tileSOList.Count == 0)
         {
             ChangeTileSkill(_targetTile, null);

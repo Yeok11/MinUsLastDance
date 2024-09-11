@@ -17,7 +17,9 @@ public class Shy_Manager_Dice : MonoBehaviour
     [Header("이동력")]
     public int movePoint = 0;
 
-    [SerializeField, Header("텍스트")] private TextMeshProUGUI text_actionPoint;
+    [Header("텍스트")]
+    [SerializeField] private TextMeshProUGUI text_actionPoint;
+    [SerializeField] private TextMeshProUGUI text_movePoint;
     private Shy_Player player;
 
     private void Awake()
@@ -29,6 +31,7 @@ public class Shy_Manager_Dice : MonoBehaviour
     public void Update_PointSign()
     {
         text_actionPoint.SetText(ActionPoint + " / " + maxActionPoint);
+        text_movePoint.SetText("MP : " + movePoint);
     }
 
     private void Update()
