@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
         if (_currentBarrier > 0)
         {
             OnBarrierHitEvent?.Invoke();
-            _currentHp -= damage;
+            _currentBarrier -= damage;
             if (_currentBarrier < 0) _currentHp += _currentBarrier;
         }
 

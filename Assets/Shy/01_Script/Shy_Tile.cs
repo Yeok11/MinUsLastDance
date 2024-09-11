@@ -1,3 +1,4 @@
+using EJY;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ using UnityEngine.UI;
 public class Shy_Tile : MonoBehaviour, IPointerClickHandler
 {
     public Shy_TileSO skillData;
+    public Skilldata_SO enemySkillData;
     internal Shy_Manager_Tile tileManager;
 
     public void UpdateImage()
