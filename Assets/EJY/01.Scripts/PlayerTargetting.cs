@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using UnityEngine;
 
-public class Targetting : MonoBehaviour
+public class PlayerTargetting : MonoBehaviour
 {
     static public  EJY_Enemy _target { get; private set; } = null;
 
