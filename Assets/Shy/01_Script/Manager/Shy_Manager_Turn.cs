@@ -13,7 +13,7 @@ public class Shy_Manager_Turn : MonoBehaviour
     public void Start()
     {
         manager_E = transform.parent.GetComponentInChildren<Shy_Manager_Enemy>();
-        enemys = manager_E.SetEnemy(2);
+        //enemys = manager_E.SetEnemy(2);
         SetTurn();
     }
 

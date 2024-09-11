@@ -4,8 +4,13 @@ using UnityEngine;
 
 namespace EJY
 {
-    public class Skill_Barrier : Skill_Direct
+    public class Skill_Barrier : Skill_Stack
     {
+        public override void Awake()
+        {
+            target = GetComponentInParent<Shy_Character>();
+        }
+
         public override bool CanUseSkill()
         {
             return true;
@@ -13,7 +18,7 @@ namespace EJY
 
         public override void SkillEffect()
         {
-
+            target.stacks.Add(stackPrefab);
         }
     }
 }

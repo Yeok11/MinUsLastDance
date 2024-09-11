@@ -2,13 +2,11 @@ using EJY;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using static PlayerTargetting;
-using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Health))]
-public abstract class EJY_Enemy : MonoBehaviour, IPointerClickHandler
+public abstract class EJY_Enemy : Shy_Character, IPointerClickHandler
 {
     #region Ω∫≈»
     public int _level;
@@ -19,12 +17,10 @@ public abstract class EJY_Enemy : MonoBehaviour, IPointerClickHandler
     protected float _barrier;
     #endregion
 
-    protected Skill[] _enemySkill;
+    [SerializeField]protected Skill[] _enemySkill;
 
     [SerializeField] protected EnemyStatSO _enemyStat;
-    public EnemyStatSO stat;
-
-    public Health HealthCompo {  get; protected set; }
+    internal EnemyStatSO stat;
 
     protected virtual void Awake()
     {
@@ -44,10 +40,7 @@ public abstract class EJY_Enemy : MonoBehaviour, IPointerClickHandler
         speed = _enemyStat._speed;
     }
 
-    protected abstract void EnemyAttack();
-
-
-    protected abstract void EnemySkill();
+    protected abstract void EnemyAction();
 
 
 

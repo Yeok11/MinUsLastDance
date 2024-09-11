@@ -9,6 +9,7 @@ public class PointShootSkill : TK_AttackSkill
         //여기서 데미지 계산 후 Attack
         base.UseSkill(player, target);
         damage = GetValue(skillLevel, player);
+        Debug.Log(damage);
         Attack(target);
     }
 }

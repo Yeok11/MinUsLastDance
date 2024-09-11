@@ -7,15 +7,21 @@ public class Stack_ElectricShield : Shy_Stack_Effect
     public override void Init()
     {
         actionType = STACKACTION_TYPE.DEFEND;
+        life = 2;
     }
 
-    public override void OnDestroy()
+    public override bool IsDestroy()
     {
-        base.OnDestroy();
+        return base.IsDestroy();
     }
 
     public override void OnEffect()
     {
-        base.OnEffect();
+        Debug.Log("OnEffect");
+    }
+
+    public override void DestroyEvent()
+    {
+        Debug.Log("good");
     }
 }
