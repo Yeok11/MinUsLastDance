@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Shy/01_Script/Manager/02.Scripts/SceneManage/EJD_ChangeScene.cs.meta
+guid: 2aa8fbd004e11bf4192279ec2c5ac983
+========
+guid: caeef5afd7c8e5645b8430eb430b9700
+>>>>>>>> upstream/main:Assets/Shy/01_Script/Manager/Shy_Manager_Tile.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

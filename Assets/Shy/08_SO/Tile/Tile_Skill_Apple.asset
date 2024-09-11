@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 524a7e4351f6d694da537ca3fa29d10a, type: 3}
+  m_Name: Tile_Skill_Apple
+  m_EditorClassIdentifier: 
+  tileName: Apple
+  effect: {fileID: 982365012620472126, guid: 242cd0c61ab4930488552314d34ee291, type: 3}
+  image: {fileID: 21300000, guid: 7b70c90f5fb7ee54b9d3dd862c3123c9, type: 3}
