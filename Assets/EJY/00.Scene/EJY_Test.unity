@@ -747,6 +747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemys: []
   player: {fileID: 0}
+  enemySkills: []
 --- !u!1001 &248845856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1548,14 +1549,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stacks:
-  - stackName: Mana
-    cnt: 0
-    type: 1
-    obj: {fileID: 1467886460251834672, guid: 7eab6a2434874f94995f6b50d0e34865, type: 3}
-  - stackName: Hunt
-    cnt: 0
-    type: 0
-    obj: {fileID: 2163705826374853571, guid: 02272d696fe9d954ab2b217cc20e0f3e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &507974262
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,7 +3989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4523127543917134643, guid: a8f835cc8ffe12b42a5e3f79357f99a3, type: 3}
+  - {fileID: 0}
   bossPrefabs: []
   enemyPos:
   - {fileID: 1857575640}
@@ -4047,7 +4042,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1118730586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4119d9e3281a98544a4fe126f1936841, type: 3}
+  m_Script: {fileID: 11500000, guid: 8507487e18f073e408c87d0ccb8d07b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1165511777
@@ -8212,6 +8207,7 @@ MonoBehaviour:
   maxActionPoint: 10
   movePoint: 0
   text_actionPoint: {fileID: 194538732}
+  text_movePoint: {fileID: 1034018532}
 --- !u!114 &2147370923 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -4094243003402918582, guid: aac413f6da3a46143819b72960cda66c, type: 3}
@@ -8466,19 +8462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65455ca358417b14d8ea2ee7ad281cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 0
-  _currentHp: 0
-  _addBarrier: 0
-  _currentBarrier: 0
-  OnBarrierHitEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDirectHitEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeadEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &4769494519443888177
 MonoBehaviour:
   m_ObjectHideFlags: 0

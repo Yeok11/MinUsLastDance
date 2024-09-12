@@ -22,6 +22,8 @@ public class Shy_Manager_Dice : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text_movePoint;
     private Shy_Player player;
 
+
+
     private void Awake()
     {
         player = transform.parent.GetComponentInChildren<Shy_Player>();

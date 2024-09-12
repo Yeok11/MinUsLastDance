@@ -9,30 +9,38 @@ public class Shy_Dice : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Shy_DiceSO dice;
     private Shy_Manager_Dice diceManager;
     public int value;
+    internal int bonusValue;
 
     private void Start()
     {
         diceManager = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Dice>();
         dice = Shy_Manager.instance.gameObject.GetComponentInChildren<Shy_Deck>().diceDeck[transform.GetSiblingIndex()];
 
-        DiceSet();
+        DiceInit();
     }
 
-    private void DiceSet()
+    private void DiceInit()
     {
         value = dice.eyes[0];
+        bonusValue = 0;
         GetComponentInChildren<TextMeshProUGUI>().text = dice.cost.ToString();
     }
 
-    private void Roll()
+    private void Roll(bool _useCost = true)
     {
-        diceManager.ActionPoint -= dice.cost;
+        if(_useCost)
+            diceManager.ActionPoint -= dice.cost;
 
         int num = Random.Range(0, 6);
 
         value = dice.eyes[num];
 
-        diceManager.movePoint += value;
+        value += bonusValue;
+
+        if(value <= 0)
+        {
+            value = 1;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -40,6 +48,7 @@ public class Shy_Dice : MonoBehaviour, IPointerClickHandler
         Debug.Log("click dice : " + gameObject.name);
         if (diceManager.ActionPoint >= dice.cost && diceManager.movePoint == 0)
         {
+            diceManager.movePoint += value;
             Roll();
         }
         else

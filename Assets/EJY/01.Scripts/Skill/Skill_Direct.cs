@@ -7,7 +7,6 @@ namespace EJY
 {
     public abstract class Skill_Direct : Skill
     {
-        protected float _damage;
     }
 
 }

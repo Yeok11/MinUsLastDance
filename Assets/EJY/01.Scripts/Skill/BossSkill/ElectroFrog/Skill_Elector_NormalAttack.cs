@@ -6,10 +6,6 @@ namespace EJY
 {
     public class Skill_Elector_NormalAttack : Skill_Direct
     {
-        private void Start()
-        {
-            _damage = 22;
-        }
         public override bool CanUseSkill()
         {
             return true;
@@ -17,7 +13,8 @@ namespace EJY
 
         public override void SkillEffect()
         {
-            _playHealth.TakeDamage(_damage);
+            float damage = 22;
+            _playHealth.TakeDamage(damage);
         }
     }
 }

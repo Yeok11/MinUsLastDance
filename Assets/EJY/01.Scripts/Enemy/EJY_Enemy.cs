@@ -27,6 +27,8 @@ public abstract class EJY_Enemy : Shy_Character, IPointerClickHandler
         stat = ScriptableObject.CreateInstance<EnemyStatSO>();
         stat = _enemyStat;
         stat.LevelUp(_level);
+        stat.SetDamage();
+        stat.SetHP();
         Initialize();
     }
 
