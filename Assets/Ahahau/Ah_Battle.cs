@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ahahau_Battle : MonoBehaviour
+public class Ah_Battle : MonoBehaviour
 {
     [SerializeField] private List<int> addDack = new List<int>();
     private List<int> playerDack = new List<int>();
