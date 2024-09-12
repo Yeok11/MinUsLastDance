@@ -1549,14 +1549,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stacks:
-  - stackName: Mana
-    cnt: 0
-    type: 1
-    obj: {fileID: 1467886460251834672, guid: 7eab6a2434874f94995f6b50d0e34865, type: 3}
-  - stackName: Hunt
-    cnt: 0
-    type: 0
-    obj: {fileID: 2163705826374853571, guid: 02272d696fe9d954ab2b217cc20e0f3e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &507974262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,8 +2597,8 @@ GameObject:
   m_Component:
   - component: {fileID: 744014048}
   - component: {fileID: 744014050}
-  - component: {fileID: 744014049}
   - component: {fileID: 744014051}
+  - component: {fileID: 744014052}
   m_Layer: 0
   m_Name: TestDumy
   m_TagString: Untagged
@@ -2627,24 +2621,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &744014049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744014047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7f01d754fdb804b85a5cde620f4d8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _level: 0
-  speed: 0
-  _enemyStat: {fileID: 11400000, guid: e237f384ce16af849a2c31f71201689d, type: 2}
-  _targetCount: 5
-  _: {fileID: 0}
-  skill: {fileID: 744014051}
 --- !u!114 &744014050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2659,7 +2635,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 0
   _currentHp: 0
-  _addBarrier: 0
   _currentBarrier: 0
   OnBarrierHitEvent:
     m_PersistentCalls:
@@ -2684,6 +2659,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roopValue: 5
   lifeValue: 5
+--- !u!114 &744014052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744014047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e451270b7b46834bb20ff6b025b8cdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stacks: []
+  _level: 0
+  speed: 0
+  _enemySkill: []
+  _enemyStat: {fileID: 0}
 --- !u!1 &799618426
 GameObject:
   m_ObjectHideFlags: 0
@@ -4121,7 +4113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4523127543917134643, guid: a8f835cc8ffe12b42a5e3f79357f99a3, type: 3}
+  - {fileID: 0}
   bossPrefabs: []
   enemyPos:
   - {fileID: 1857575640}
@@ -8340,6 +8332,7 @@ MonoBehaviour:
   maxActionPoint: 10
   movePoint: 0
   text_actionPoint: {fileID: 194538732}
+  text_movePoint: {fileID: 0}
 --- !u!114 &2147370923 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -4094243003402918582, guid: aac413f6da3a46143819b72960cda66c, type: 3}
@@ -8703,7 +8696,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHp: 0
   _currentHp: 0
-  _addBarrier: 0
   _currentBarrier: 0
   OnBarrierHitEvent:
     m_PersistentCalls:
@@ -8726,12 +8718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7f01d754fdb804b85a5cde620f4d8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: 0
-  speed: 0
-  _enemyStat: {fileID: 11400000, guid: e19d68ab8d11a624aa77a152bcadc896, type: 2}
-  _targetCount: 0
-  _: {fileID: 0}
-  skill: {fileID: 0}
 --- !u!224 &7332157203662539163
 RectTransform:
   m_ObjectHideFlags: 0

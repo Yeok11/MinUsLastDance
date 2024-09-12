@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace EJY
 {
-    public class Skill_Barrier : Skill_Stack
+    public class Skill_BarrierElectro : Skill_Stack
     {
+        protected float weightBarrier;
         public override void Awake()
         {
             target = GetComponentInParent<Shy_Character>();
@@ -19,6 +20,11 @@ namespace EJY
         public override void SkillEffect()
         {
             target.stacks.Add(stackPrefab);
+
+            //방어력 계산
+            weightBarrier = 30 + (target.HealthCompo._maxHp - target.HealthCompo._currentHp) * 0.15f; 
+
+            target.HealthCompo.GetBarrier(weightBarrier);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace EJY
 {
-    public class Skill_TileAction_Electric : Skill_Involved
+    public class Skill_InvolvedTile_Electric : Skill_Involved
     {
         public int roopValue = 5;
         public int lifeValue = 2;
@@ -40,11 +40,6 @@ namespace EJY
         }
 
         public override void SkillEffect()
-        {
-            //플레이어한테 데미지 5였나?
-        }
-
-        public void FirstSkill()
         {
             _playHealth.TakeDamage(10);
         }
