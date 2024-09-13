@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Stack_ElectricShield : Shy_Stack_Effect
 {
-    public override void Init()
+    public override Shy_Stack_Effect Init(Transform _target)
     {
-        actionType = STACKACTION_TYPE.DEFEND;
-        life = 2;
+        Shy_Stack_Effect s =  Instantiate(this, _target);
+        s.actionType = STACKACTION_TYPE.DEFEND;
+        s.life = 2;
+
+        return s;
     }
 
     public override bool IsDestroy()
@@ -24,4 +27,6 @@ public class Stack_ElectricShield : Shy_Stack_Effect
     {
         Debug.Log("good");
     }
+
+   
 }
