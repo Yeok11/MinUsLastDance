@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace EJY
 {
-    public class Skill_TileAction_Electric : Skill_Involved
+    public class Skill_InvolvedTile_Electric : Skill_Involved
     {
         public int roopValue = 5;
         public int lifeValue = 2;

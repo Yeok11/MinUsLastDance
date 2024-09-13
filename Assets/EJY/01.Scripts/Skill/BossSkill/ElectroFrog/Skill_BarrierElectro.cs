@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace EJY
 {
-    public class Skill_Barrier : Skill_Stack
+    public class Skill_BarrierElectro : Skill_Stack
     {
+        protected float weightBarrier;
         public override void Awake()
         {
             target = GetComponentInParent<Shy_Character>();

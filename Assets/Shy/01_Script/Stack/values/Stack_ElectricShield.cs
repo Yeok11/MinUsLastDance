@@ -21,11 +21,12 @@ public class Stack_ElectricShield : Shy_Stack_Effect
     public override void OnEffect()
     {
         Debug.Log("OnEffect");
+        _playerHealth.TakeDamage(_replactionDamage);
     }
 
     public override void DestroyEvent()
     {
-        Debug.Log("good");
+        _enemyHealth._currentBarrier = 0;
     }
 
    
