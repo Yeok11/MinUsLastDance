@@ -242,6 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 701244385}
   - component: {fileID: 701244384}
+  - component: {fileID: 701244386}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -274,9 +275,22 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1806645041}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &701244386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701244383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ef73c3d9c469149bbcf9c86f5c349c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &964058098
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,6 +549,186 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1806645040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1806645041}
+  - component: {fileID: 1806645046}
+  - component: {fileID: 1806645045}
+  - component: {fileID: 1806645044}
+  - component: {fileID: 1806645043}
+  - component: {fileID: 1806645042}
+  - component: {fileID: 1806645048}
+  - component: {fileID: 1806645047}
+  m_Layer: 0
+  m_Name: HuntSkills
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1806645041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806645040}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 701244385}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1806645042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806645040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12ae5a1f1c4d674294f4ee64f70bfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 0
+  skillConst:
+    UseStack: 0
+    ValueFormula: []
+  skillLevel: 1
+  isCanUse: 0
+--- !u!114 &1806645043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806645040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e5db4f02e227f4aab17968f0147acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 0
+  skillConst:
+    UseStack: 1
+    ValueFormula:
+    - 3 + N(Player)
+    - 7 + N(Player)*1.3f
+    - 11 + N(Player) * 2.4f
+  skillLevel: 1
+  isCanUse: 0
+--- !u!114 &1806645044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806645040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0b21e0fe69c2c4ba30af8aa8fac455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 0
+  skillConst:
+    UseStack: 1
+    ValueFormula:
+    - 5
+    - 8
+    - 12
+  skillLevel: 1
+  isCanUse: 0
+--- !u!114 &1806645045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806645040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f8242a76e270d84cb925e55b4b03e68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 0
+  skillConst:
+    UseStack: 1
+    ValueFormula:
+    - 
+    - 
+    - 
+  skillLevel: 1
+  isCanUse: 0
+--- !u!114 &1806645046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806645040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074a68e19df5eb94cafdb0caa5bf8599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 0
+  skillConst:
+    UseStack: 1
+    ValueFormula:
+    - 3+N(plsyer)*0.8f
+    - 5+N(player)*1.15f
+    - 10+N(player)*1.55f
+  skillLevel: 1
+  isCanUse: 0
+--- !u!114 &1806645047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806645040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f273355f8bac045a6e42dbfa41a403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 0
+  skillConst:
+    UseStack: 1
+    ValueFormula: []
+  skillLevel: 1
+  isCanUse: 0
+  enemy: []
+--- !u!114 &1806645048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806645040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c1db3538b845143817a174915a2f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillType: 0
+  skillConst:
+    UseStack: 1
+    ValueFormula:
+    - 1+N(player) *1.2f
+    - 4+N(player)*1.75f
+    - 6+N(player)*3.8f
+  skillLevel: 1
+  isCanUse: 0
 --- !u!1 &1871559615
 GameObject:
   m_ObjectHideFlags: 0
