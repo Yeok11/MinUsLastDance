@@ -18,6 +18,6 @@ namespace EJY
 
         public abstract bool CanUseSkill();
 
-        public abstract void SkillEffect();
+        public abstract void UseSkill();
     }
 }

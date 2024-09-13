@@ -8,6 +8,16 @@ namespace EJY
     {
         protected override void EnemyAction()
         {
+            if(_enemySkill[1].CanUseSkill())
+            {
+                _enemySkill[1].UseSkill();
+            }
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+                EnemyAction();
         }
     }
 }

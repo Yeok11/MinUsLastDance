@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace EJY
 {
-    public class Skill_Barrier : Skill_Stack
+    public class Skill_PasiveS : Skill_Stack
     {
         public override void Awake()
         {
@@ -22,5 +22,3 @@ namespace EJY
         }
     }
 }
-
-
