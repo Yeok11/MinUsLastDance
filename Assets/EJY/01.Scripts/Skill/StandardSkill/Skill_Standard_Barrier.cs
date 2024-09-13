@@ -12,7 +12,7 @@ namespace EJY
             return true;
         }
 
-        public override void SkillEffect()
+        public override void UseSkill()
         {
             weightBarrier = (_enemyStatSO._level * 2.3f) + _enemyStatSO._damage;
             target.HealthCompo.GetBarrier(weightBarrier);

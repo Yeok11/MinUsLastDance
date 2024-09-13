@@ -6,14 +6,19 @@ namespace EJY
 {
     public class Debuffer_Passive : Skill_Stack
     {
+        public override void Awake()
+        {
+            target = GetComponentInParent<Shy_Character>();
+        }
+
         public override bool CanUseSkill()
         {
             return true;
         }
 
-        public override void SkillEffect()
+        public override void UseSkill()
         {
-            stackPrefab.Init();
+            target.stacks.Add(stackPrefab.Init(target.transform.GetChild(0)));
         }
     }
 

@@ -11,7 +11,7 @@ namespace EJY
             return true;
         }
 
-        public override void SkillEffect()
+        public override void UseSkill()
         {
             float addDamage = _enemyStatSO._level * 1.6f;
             _playHealth.TakeDamage(_enemyStatSO._damage + addDamage);

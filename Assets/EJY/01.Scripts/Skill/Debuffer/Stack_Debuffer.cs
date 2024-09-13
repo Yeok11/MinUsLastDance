@@ -13,12 +13,17 @@ namespace EJY
         {
             _diceList = DicesTrm.GetComponentsInChildren<Shy_Dice>().ToList();
         }
-        public override void Init()
+
+        public override Shy_Stack_Effect Init(Transform _target)
         {
+            Shy_Stack_Effect s = Instantiate(this, _target);
             foreach (var dice in _diceList)
             {
                 dice.bonusValue--;
             }
+            s.actionType = STACKACTION_TYPE.PASSIVE;
+
+            return s;
         }
 
         public override bool IsDestroy()
@@ -27,6 +32,10 @@ namespace EJY
         }
 
         public override void DestroyEvent()
+        {
+        }
+
+        public override void OnEffect()
         {
         }
     }
