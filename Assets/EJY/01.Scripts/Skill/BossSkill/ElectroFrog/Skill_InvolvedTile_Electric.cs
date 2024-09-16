@@ -19,7 +19,12 @@ namespace EJY
             return true;
         }
 
-        public override void SkillActivated()
+        public override void SkillEffectByTurn()
+        {
+            _playHealth.TakeDamage(10);
+        }
+
+        public override void UseSkill()
         {
             for (int i = 0; i < roopValue;)
             {
@@ -27,21 +32,15 @@ namespace EJY
 
                 if (smt.tileObjs[rand].enemySkillData == null)
                 {
-                    Debug.Log(rand);
-                    var data = ScriptableObject.CreateInstance<Skilldata_SO>();
+                    var data = ScriptableObject.CreateInstance<InvolvedSkillData_SO>();
                     data.Init(lifeValue, this);
                     smt.tileObjs[rand].enemySkillData = data;
 
                     smturn.enemySkills.Add(data);
-                    
-                    ++i;
-                }   
-            }
-        }
 
-        public override void SkillEffect()
-        {
-            _playHealth.TakeDamage(10);
+                    ++i;
+                }
+            }
         }
     }
 }

@@ -17,16 +17,18 @@ namespace EJY
             return true;
         }
 
-        public override void SkillEffect()
+        public override void UseSkill()
         {
+<<<<<<<< HEAD:Assets/EJY/01.Scripts/Skill/BossSkill/Skill_PasiveS.cs
+            target.stacks.Add(stackPrefab.Init(target.transform.GetChild(0)));
+========
             target.stacks.Add(stackPrefab);
 
-            //¹æ¾î·Â °è»ê
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             weightBarrier = 30 + (target.HealthCompo._maxHp - target.HealthCompo._currentHp) * 0.15f; 
 
             target.HealthCompo.GetBarrier(weightBarrier);
+>>>>>>>> origin/EJY:Assets/EJY/01.Scripts/Skill/BossSkill/ElectroFrog/Skill_BarrierElectro.cs
         }
     }
 }
-
-

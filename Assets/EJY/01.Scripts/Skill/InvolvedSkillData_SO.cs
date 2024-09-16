@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace EJY
 {
-    public class Skilldata_SO : ScriptableObject
+    public class InvolvedSkillData_SO : ScriptableObject
     {
         [SerializeField] private int life;
-        [SerializeField] private Skill skillData;
+        [SerializeField] private Skill_Involved skillData;
 
-        public void Init(int _skillCnt, Skill _skill)
+        public void Init(int _skillCnt, Skill_Involved _skill)
         {
             this.life = _skillCnt;
             this.skillData = _skill;
@@ -19,7 +19,7 @@ namespace EJY
         {
             if(--life == 0)
             {
-                skillData.SkillEffect();
+                skillData.SkillEffectByTurn();
                 return true;
             }
             else

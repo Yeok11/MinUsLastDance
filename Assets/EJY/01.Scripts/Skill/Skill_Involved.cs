@@ -15,7 +15,7 @@ namespace EJY
             smturn = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>();
         }
 
-        public abstract void SkillActivated();
+        public abstract void SkillEffectByTurn();
     }
 }
 
