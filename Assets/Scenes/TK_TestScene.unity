@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stacks:
   - {fileID: -5437767601438831922, guid: 02272d696fe9d954ab2b217cc20e0f3e, type: 3}
-  - {fileID: -4600078966389802562, guid: 7eab6a2434874f94995f6b50d0e34865, type: 3}
+  - {fileID: -5437767601438831922, guid: 5afdf824ad42c244193853a81d582385, type: 3}
 --- !u!4 &242915274
 Transform:
   m_ObjectHideFlags: 0
