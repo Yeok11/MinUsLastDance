@@ -4,8 +4,13 @@ using UnityEngine;
 
 namespace EJY
 {
+<<<<<<<< HEAD:Assets/EJY/01.Scripts/Skill/BossSkill/Skill_PasiveS.cs
     public class Skill_PasiveS : Skill_Stack
+========
+    public class Skill_BarrierElectro : Skill_Stack
+>>>>>>>> origin/EJY:Assets/EJY/01.Scripts/Skill/BossSkill/ElectroFrog/Skill_BarrierElectro.cs
     {
+        protected float weightBarrier;
         public override void Awake()
         {
             target = GetComponentInParent<Shy_Character>();
@@ -18,7 +23,16 @@ namespace EJY
 
         public override void UseSkill()
         {
+<<<<<<<< HEAD:Assets/EJY/01.Scripts/Skill/BossSkill/Skill_PasiveS.cs
             target.stacks.Add(stackPrefab.Init(target.transform.GetChild(0)));
+========
+            target.stacks.Add(stackPrefab);
+
+            //방어력 계산
+            weightBarrier = 30 + (target.HealthCompo._maxHp - target.HealthCompo._currentHp) * 0.15f; 
+
+            target.HealthCompo.GetBarrier(weightBarrier);
+>>>>>>>> origin/EJY:Assets/EJY/01.Scripts/Skill/BossSkill/ElectroFrog/Skill_BarrierElectro.cs
         }
     }
 }
