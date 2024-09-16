@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Windows;
 
-public class Ah_TileClick : MonoBehaviour, IPointerClickHandler
+public class Ahahau_TileClick : MonoBehaviour, IPointerClickHandler
 {
     public int tileNum;
 

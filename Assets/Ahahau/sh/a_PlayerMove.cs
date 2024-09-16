@@ -10,7 +10,7 @@ public class a_PlayerMove : MonoBehaviour
     public bool playerCanMove = false;
     public int playerCurPos;
     public int movePoint;
-    [SerializeField] private List<Ah_TileClick> boardImages = new List<Ah_TileClick>();
+    [SerializeField] private List<Ahahau_TileClick> boardImages = new List<Ahahau_TileClick>();
     [SerializeField] private a_Player player;
     Vector2 playerKeyInput;
     
@@ -102,7 +102,7 @@ public class a_PlayerMove : MonoBehaviour
     }
     public void PlayerMoveToDrag(Transform currentTile)
     {
-        foreach (Ah_TileClick imgPos in boardImages)
+        foreach (Ahahau_TileClick imgPos in boardImages)
         {
             if(imgPos.transform.position == currentTile.transform.position)
             {

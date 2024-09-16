@@ -90,5 +90,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stackName: 
   obj: {fileID: 0}
-  life: 0
+  life: 2
   actionType: 1
