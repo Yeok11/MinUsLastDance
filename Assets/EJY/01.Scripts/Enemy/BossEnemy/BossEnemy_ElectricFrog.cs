@@ -9,10 +9,5 @@ namespace EJY
         protected override void EnemyAction()
         {
         }
-
-        protected override void EnemyAttack()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

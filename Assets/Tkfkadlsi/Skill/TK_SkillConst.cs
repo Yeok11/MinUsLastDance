@@ -25,7 +25,7 @@ public class TK_SkillConst
         {
             if(stack.TryGetComponent(out Shy_Stack_Cnt st))
             {
-                if(st.stackName == UseStack.ToString())
+                if(st.stackName.Contains(UseStack.ToString()))
                     return st.count;
             }
         }

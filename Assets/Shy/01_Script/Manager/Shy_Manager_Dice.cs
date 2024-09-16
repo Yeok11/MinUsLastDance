@@ -5,7 +5,7 @@ using TMPro;
 
 public class Shy_Manager_Dice : MonoBehaviour
 {
-    [Header("ï¿½àµ¿ï¿½ï¿½")]
+    [Header("Çàµ¿·Â")]
     public int actionPoint;
     public int ActionPoint
     {
@@ -14,13 +14,15 @@ public class Shy_Manager_Dice : MonoBehaviour
     }
     public int maxActionPoint;
 
-    [Header("ï¿½Ìµï¿½ï¿½ï¿½")]
+    [Header("ÀÌµ¿·Â")]
     public int movePoint = 0;
 
-    [Header("ï¿½Ø½ï¿½Æ®")]
+    [Header("ÅØ½ºÆ®")]
     [SerializeField] private TextMeshProUGUI text_actionPoint;
     [SerializeField] private TextMeshProUGUI text_movePoint;
     private Shy_Player player;
+
+
 
     private void Awake()
     {

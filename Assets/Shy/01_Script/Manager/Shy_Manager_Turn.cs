@@ -35,7 +35,7 @@ public class Shy_Manager_Turn : MonoBehaviour
     {
         for (int i = 0; i < enemys.Count - 1; i++)
         {
-            if(enemys[i].speed < enemys[i+1].speed)
+            if(enemys[i].stat._speed < enemys[i+1].stat._speed)
             {
                 EJY_Enemy temp = enemys[i];
                 enemys[i] = enemys[i + 1];

@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/EJY/01.Scripts/Enemy/EJY_EnemyActionText.cs.meta
 guid: a40a41945e08d31429233845ae2a8435
-========
-guid: 393249653b1014a498ce051557fd4456
->>>>>>>> upstream/EJY:Assets/EJY/01.Scripts/Enemy/EJY_Enemy.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
