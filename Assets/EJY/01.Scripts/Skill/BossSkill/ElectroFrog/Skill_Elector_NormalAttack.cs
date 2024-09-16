@@ -11,7 +11,7 @@ namespace EJY
             return true;
         }
 
-        public override void SkillEffect()
+        public override void UseSkill()
         {
             float damage = 22;
             _playHealth.TakeDamage(damage);

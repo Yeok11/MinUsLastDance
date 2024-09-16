@@ -17,14 +17,9 @@ namespace EJY
             return true;
         }
 
-        public override void SkillEffect()
+        public override void UseSkill()
         {
-            target.stacks.Add(stackPrefab);
-
-            //방어력 계산
-            weightBarrier = 30 + (target.HealthCompo._maxHp - target.HealthCompo._currentHp) * 0.15f; 
-
-            target.HealthCompo.GetBarrier(weightBarrier);
+            target.stacks.Add(stackPrefab.Init(target.transform.GetChild(0)));
         }
     }
 }
