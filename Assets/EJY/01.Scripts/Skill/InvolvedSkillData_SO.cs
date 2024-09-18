@@ -19,7 +19,7 @@ namespace EJY
         {
             if(--life == 0)
             {
-                skillData.SkillEffectByTurn();
+                skillData.InvolvedEffectSkill();
                 return true;
             }
             else

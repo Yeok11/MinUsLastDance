@@ -19,34 +19,34 @@ namespace EJY
             return true;
         }
 
-        public override void SkillActivated()
-        {
-            for (int i = 0; i < roopValue;)
-            {
-                int rand = Random.Range(0, smt.tileObjs.Count);
-
-                if (smt.tileObjs[rand].enemySkillData == null)
-                {
-                    Debug.Log(rand);
-                    var data = ScriptableObject.CreateInstance<Skilldata_SO>();
-                    data.Init(lifeValue, this);
-                    smt.tileObjs[rand].enemySkillData = data;
-
-                    smturn.enemySkills.Add(data);
-                    
-                    ++i;
-                }   
-            }
-        }
-
-        public override void SkillEffect()
-        {
-            //플레이어한테 데미지 5였나?
-        }
-
         public void FirstSkill()
         {
             _playHealth.TakeDamage(10);
+        }
+
+        public override void InvolvedEffectSkill()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void UseSkill()
+        {
+            for (int i = 0; i < roopValue;)
+            {
+                int rand = Random.Range(0, smtile.tileObjs.Count);
+
+                if (smtile.tileObjs[rand].enemySkillData == null)
+                {
+                    Debug.Log(rand);
+                    var data = ScriptableObject.CreateInstance<InvolvedSkillData_SO>();
+                    data.Init(lifeValue, this);
+                    smtile.tileObjs[rand].enemySkillData = data;
+
+                    smturn.tileEventByEnemy.Add(data);
+
+                    ++i;
+                }
+            }
         }
     }
 }
