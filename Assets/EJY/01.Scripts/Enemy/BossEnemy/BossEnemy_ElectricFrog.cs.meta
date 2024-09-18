@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/EJY/01.Scripts/Enemy/BossEnemy/BossEnemy_ElectricFrog.cs.meta
 guid: 7e451270b7b46834bb20ff6b025b8cdf
+========
+guid: 50b85f53d0cb2fe42869934c019abe4b
+>>>>>>>> djEjsdlfma:Assets/Ahahau/sh/a_Player.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
