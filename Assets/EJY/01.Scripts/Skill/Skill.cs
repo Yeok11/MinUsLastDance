@@ -9,7 +9,7 @@ namespace EJY
         protected Health _playHealth;
         protected EnemyStatSO _enemyStatSO;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _playHealth = FindObjectOfType<Shy_Player>().GetComponent<Health>();
             _enemyStatSO = GetComponentInParent<EJY_Enemy>().stat;

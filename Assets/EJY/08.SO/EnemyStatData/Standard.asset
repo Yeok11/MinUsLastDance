@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9270756a1429c8b4ba59f7fd06f62a63, type: 3}
   m_Name: Standard
   m_EditorClassIdentifier: 
-  atkFormula: (_level*2.4f)+5
-  hpFormula: (_level*4.8f)+12
-  _level: 1
+  atkFormula: (level * 2.4f)+5
+  hpFormula: (level * 4.8f)+12
+  _level: 0
   _hp: 0
   _damage: 0
   _speed: 0
