@@ -601,8 +601,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillType: 0
   skillConst:
-    UseStack: 0
-    ValueFormula: []
+    UseStack: 1
+    ValueFormula:
+    - N(player) + 2
   skillLevel: 1
   isCanUse: 0
 --- !u!114 &1806645043
@@ -704,10 +705,10 @@ MonoBehaviour:
   skillType: 0
   skillConst:
     UseStack: 1
-    ValueFormula: []
+    ValueFormula:
+    - N(player) * 5
   skillLevel: 1
   isCanUse: 0
-  enemy: []
 --- !u!114 &1806645048
 MonoBehaviour:
   m_ObjectHideFlags: 0
