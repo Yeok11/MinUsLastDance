@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class Ah_Skill_Chase : TK_AttackSkill
 {
-    public override void UseSkill(Shy_Player player, EJY_Enemy target)
+    public void Skill_Chase()
     {
-        float enemyCount = 0;
-        foreach (var e in Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().enemys)
-        {
-            enemyCount++;
-        }
-        damage = GetValue(skillLevel, player) + enemyCount;
-        base.UseSkill(player, target);
+        //야성 스택을 n만큼 얻습니다.
+        //N = 2 + 적의 수 강화 불가 
     }
 }
