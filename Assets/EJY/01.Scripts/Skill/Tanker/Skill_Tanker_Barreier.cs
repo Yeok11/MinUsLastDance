@@ -4,12 +4,9 @@ using UnityEngine;
 
 namespace EJY
 {
-    public class Debuffer_Passive : Skill_Stack
+    public class Skill_Tanker_Barreier : Skill_Barrier
     {
-        public override void Awake()
-        {
-            target = GetComponentInParent<Shy_Character>();
-        }
+        private float weightBarreier;
 
         public override bool CanUseSkill()
         {
@@ -18,8 +15,8 @@ namespace EJY
 
         public override void UseSkill()
         {
-            target.stacks.Add(stackPrefab.Init(target.transform.GetChild(0)));
+            weightBarreier = 13 + ((_enemyStatSO._hp * 1.5f) / 10.5f - _enemyStatSO._level * 1.5f);
+            target.HealthCompo.GetBarrier(weightBarreier);
         }
     }
-
 }

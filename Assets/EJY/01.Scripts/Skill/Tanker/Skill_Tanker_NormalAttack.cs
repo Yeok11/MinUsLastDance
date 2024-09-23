@@ -4,13 +4,8 @@ using UnityEngine;
 
 namespace EJY
 {
-    public class Debuffer_Passive : Skill_Stack
+    public class Skill_Tanker_NormalAttack : Skill_Direct
     {
-        public override void Awake()
-        {
-            target = GetComponentInParent<Shy_Character>();
-        }
-
         public override bool CanUseSkill()
         {
             return true;
@@ -18,7 +13,8 @@ namespace EJY
 
         public override void UseSkill()
         {
-            target.stacks.Add(stackPrefab.Init(target.transform.GetChild(0)));
+            float addDamage = 4;
+            _playHealth.TakeDamage(_enemyStatSO._damage + addDamage);
         }
     }
 
