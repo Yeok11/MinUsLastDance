@@ -14,7 +14,7 @@ public class Ah_Skill_Meal : TK_HealingSkill
                 notMaxHealthEnemy++;
             }
         }
-         //= GetValue(skillLevel, player) * notMaxHealthEnemy;
+        heal = GetValue(skillLevel, player) * notMaxHealthEnemy;
         base.UseSkill(player, target);
     }
 }
