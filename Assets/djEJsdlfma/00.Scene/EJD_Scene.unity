@@ -168,14 +168,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stacks:
-  - stackName: Mana
-    cnt: 0
-    type: 1
-    obj: {fileID: 1467886460251834672, guid: 7eab6a2434874f94995f6b50d0e34865, type: 3}
-  - stackName: Hunt
-    cnt: 0
-    type: 0
-    obj: {fileID: 2163705826374853571, guid: 02272d696fe9d954ab2b217cc20e0f3e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &5218509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -478,6 +472,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   player: {fileID: 1936524327}
+  tileEventByEnemy: []
 --- !u!1 &85233222 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 951607341339468741, guid: aac413f6da3a46143819b72960cda66c, type: 3}
@@ -2999,6 +2994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillData: {fileID: 11400000, guid: 115782ebe48e61343b234496b533fc61, type: 2}
+  enemySkillData: {fileID: 0}
 --- !u!1 &906814794 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 951607341339468741, guid: aac413f6da3a46143819b72960cda66c, type: 3}
@@ -7088,10 +7084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stacks:
-  - stackName: 
-    cnt: 0
-    type: 0
-    obj: {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1954212856 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 951607341339468741, guid: aac413f6da3a46143819b72960cda66c, type: 3}

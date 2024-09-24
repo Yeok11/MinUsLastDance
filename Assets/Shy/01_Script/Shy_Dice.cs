@@ -7,13 +7,14 @@ using UnityEngine.EventSystems;
 public class Shy_Dice : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Shy_DiceSO dice;
-    private Shy_Manager_Dice diceManager;
+    [SerializeField] private TextMeshProUGUI valueText;
+    private Shy_Manager_Move diceManager;
     public int value;
     internal int bonusValue;
 
     private void Start()
     {
-        diceManager = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Dice>();
+        diceManager = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Move>();
         dice = Shy_Manager.instance.gameObject.GetComponentInChildren<Shy_Deck>().diceDeck[transform.GetSiblingIndex()];
 
         DiceInit();
@@ -23,10 +24,16 @@ public class Shy_Dice : MonoBehaviour, IPointerClickHandler
     {
         value = dice.eyes[0];
         bonusValue = 0;
-        GetComponentInChildren<TextMeshProUGUI>().text = dice.cost.ToString();
+        transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = dice.cost.ToString();
+        UpdateText();
     }
 
-    private void Roll(bool _useCost = true)
+    private void UpdateText()
+    {
+        valueText.SetText(value.ToString());
+    }
+
+    public void Roll(bool _useCost = true)
     {
         if(_useCost)
             diceManager.ActionPoint -= dice.cost;
@@ -41,6 +48,8 @@ public class Shy_Dice : MonoBehaviour, IPointerClickHandler
         {
             value = 1;
         }
+
+        UpdateText();
     }
 
     public void OnPointerClick(PointerEventData eventData)

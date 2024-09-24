@@ -13,7 +13,7 @@ public class Shy_Manager_Enemy : MonoBehaviour
     {
         List<EJY_Enemy> enemys = new List<EJY_Enemy>();
 
-        List<int> pos = new List<int>{ 0, 1, 2, 3};
+        List<int> pos = new List<int>{ 0, 1, 2, 3 };
 
         for (int i = 0; i < _value; i++)
         {
