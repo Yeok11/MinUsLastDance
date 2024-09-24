@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TK_HealingSkill : TK_Skill
 {
+    protected float heal;
     public override bool CanUseSkill(Shy_Player player)
     {
         return base.CanUseSkill(player);
