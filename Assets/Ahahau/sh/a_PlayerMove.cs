@@ -59,7 +59,7 @@ public class a_PlayerMove : MonoBehaviour
 
     public void CheckCanMove()
     {
-        //Á¶°Ç
+        //ï¿½ï¿½ï¿½ï¿½
         
         playerCanMove = !playerCanMove;
         if (movePoint > 0)

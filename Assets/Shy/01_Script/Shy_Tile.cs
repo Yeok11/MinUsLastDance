@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Shy_Tile : MonoBehaviour, IPointerClickHandler
 {
     public Shy_TileSO skillData;
-    public Skilldata_SO enemySkillData;
+    public InvolvedSkillData_SO enemySkillData;
     internal Shy_Manager_Tile tileManager;
 
     public void UpdateImage()
@@ -24,7 +24,7 @@ public class Shy_Tile : MonoBehaviour, IPointerClickHandler
 
     public void SettingTile()
     {
-        Debug.Log(gameObject.name + "Å¸ÀÏ ¸®¼Â");
+        Debug.Log(gameObject.name + "Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         tileManager.TileSetting(this);
     }
 
@@ -32,7 +32,7 @@ public class Shy_Tile : MonoBehaviour, IPointerClickHandler
     {
         if (skillData == null)
         {
-            Debug.Log("skillÀÌ ¾ø½À´Ï´Ù.");
+            Debug.Log("skillï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
             return;
         }
 

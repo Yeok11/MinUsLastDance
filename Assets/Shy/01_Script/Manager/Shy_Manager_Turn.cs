@@ -8,7 +8,7 @@ public class Shy_Manager_Turn : MonoBehaviour
     public List<EJY_Enemy> enemys;
     public Shy_Player player;
     private Shy_Manager_Enemy manager_E;
-    public List<Skilldata_SO> enemySkills;
+    public List<InvolvedSkillData_SO> tileEventByEnemy;
 
     public void Start()
     {
@@ -17,17 +17,20 @@ public class Shy_Manager_Turn : MonoBehaviour
         SetTurn();
     }
 
-    private void ActionEnemySkills()
+    private void ActionEnemyTileSkills()
     {
-        for (int i = 0; i < enemySkills.Count; i++)
+        for (int i = 0; i < tileEventByEnemy.Count;)
         {
-            enemySkills[i].Use();
+            if (tileEventByEnemy[i].Use())
+                tileEventByEnemy.RemoveAt(i);
+            else
+                ++i;
         }
     }
 
     private void EnemyTurnStart()
     {
-
+        ActionEnemyTileSkills();
     }
     
 

@@ -8,6 +8,5 @@ namespace EJY
     public abstract class Skill_Direct : Skill
     {
     }
-
 }
 
