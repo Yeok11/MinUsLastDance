@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3927618935108647110}
   - component: {fileID: -5437767601438831922}
   m_Layer: 5
-  m_Name: HUNT Stack
+  m_Name: Hunt Stack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,6 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8867c184d664c4fb600a3ec25d0164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackName: 
-  obj: {fileID: 0}
-  count: 61
+  stackName: HUNT
+  stackSprite: {fileID: 0}
+  count: 0
