@@ -5,18 +5,21 @@ using UnityEngine;
 public class Stack_BombPassive : Shy_Stack_Effect
 {
     private Health _playerHealth;
-    private EnemyStatSO _enemyStatSO;
+    private EJY_Enemy _enemy;
 
     public override void DestroyEvent()
     {
-        life = 3;
+        float addDamage = 7;
+        _playerHealth.TakeDamage(addDamage + _enemy.stat._damage);
+        _enemy.HealthCompo.TakeDamage(_enemy.stat._hp);
+
     }
 
     public override Shy_Stack_Effect Init(Transform _target)
     {
         Stack_BombPassive s = Instantiate(this,_target);
         s._playerHealth = FindObjectOfType<Shy_Player>().GetComponent<Health>();
-        s._enemyStatSO = FindObjectOfType<EJY_Enemy>().stat;
+        s._enemy = FindObjectOfType<EJY_Enemy>();
         s.actionType = STACKACTION_TYPE.PASSIVE;
         s.life = 3;
 
@@ -25,7 +28,6 @@ public class Stack_BombPassive : Shy_Stack_Effect
 
     public override void OnEffect()
     {
-        float addDamage = 7;
-        _playerHealth.TakeDamage(addDamage + _enemyStatSO._damage);
+        
     }
 }

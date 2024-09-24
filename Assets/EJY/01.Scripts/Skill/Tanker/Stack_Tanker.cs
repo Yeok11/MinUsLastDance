@@ -14,8 +14,9 @@ public class Stack_Tanker : Shy_Stack_Effect
     {
         this._enemyHelath = GetComponentInParent<Health>();
         this.life = 1;
+        Stack_Tanker s = Instantiate(this, _target);
 
-        return this;
+        return s;
     }
 
     public override void OnEffect()
