@@ -19,7 +19,7 @@ namespace EJY
 
         public override void UseSkill()
         {
-            target.stacks.Add(stackPrefab.Init(target.transform.GetChild(0)));
+            target.stacks.Add(effectStackPrefab.Init(target.transform.GetChild(0)));
 
             weightBarrier = 30 + (target.HealthCompo._maxHp - target.HealthCompo._currentHp) * 0.15f; 
 

@@ -746,7 +746,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemys: []
-  player: {fileID: 4769494519443888177}
   tileEventByEnemy: []
 --- !u!1001 &248845856
 PrefabInstance:
@@ -2598,8 +2597,6 @@ GameObject:
   - component: {fileID: 744014048}
   - component: {fileID: 744014050}
   - component: {fileID: 744014052}
-  - component: {fileID: 744014055}
-  - component: {fileID: 744014054}
   - component: {fileID: 744014053}
   m_Layer: 0
   m_Name: TestDumy
@@ -2673,36 +2670,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 744014047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2233d7164f7da4f42afbcbeb9912a2ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ab16dca48b0c5e44bc50f4c75631845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &744014054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744014047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cf33a58276599a49b991bd64ac21e45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stackPrefab: {fileID: -8362015758231889404, guid: 80b3c8ea5f806fe479706c9d584e02b7, type: 3}
---- !u!114 &744014055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744014047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c7b741c96fe2df41927de1efbca9e44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roopValue: 5
-  lifeValue: 2
+  effectStackPrefab: {fileID: 0}
+  countStackPrefab: {fileID: -5437767601438831922, guid: 5afdf824ad42c244193853a81d582385, type: 3}
 --- !u!1 &799618426
 GameObject:
   m_ObjectHideFlags: 0
@@ -7016,7 +6988,9 @@ MonoBehaviour:
   - {fileID: 1731690769}
   - {fileID: 729699328}
   - {fileID: 2109382306}
+  usedTiles: []
   tileSOList: []
+  smd: {fileID: 0}
 --- !u!224 &1850712042 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4076497577149015973, guid: 6624f6525547cce4ca82c656a4030204, type: 3}
