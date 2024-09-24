@@ -9,6 +9,9 @@ public class Ah_Skill_Aiming : TK_AttackSkill
     public override void UseSkill(Shy_Player player, EJY_Enemy target)
     {
         base.UseSkill(player, target);
-
+        foreach (var e in Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Tile>().tileObjs)
+        {
+            //타입 if문으로 계산해서 더해줌
+        }
     }
 }
