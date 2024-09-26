@@ -18,7 +18,7 @@ namespace EJY
 
         public override void UseSkill()
         {
-            target.stacks.Add(stackPrefab);
+            target.stacks.Add(effectStackPrefab);
         }
     }
 }

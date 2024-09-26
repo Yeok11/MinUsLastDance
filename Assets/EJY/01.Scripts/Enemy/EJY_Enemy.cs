@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using static PlayerTargetting;
 
 [RequireComponent(typeof(Health))]
-public abstract class EJY_Enemy : Shy_Character, IPointerClickHandler
+public class EJY_Enemy : Shy_Character, IPointerClickHandler
 {
     #region Ω∫≈»
     public int _level;
@@ -29,20 +29,33 @@ public abstract class EJY_Enemy : Shy_Character, IPointerClickHandler
     private void Initialize()
     {
         stat = ScriptableObject.CreateInstance<EnemyStatSO>();
+
         stat.atkFormula = _enemyStat.atkFormula;
         stat.hpFormula = _enemyStat.hpFormula;
         stat._speed = _enemyStat._speed;
         stat.LevelUp(_level);
-        stat._damage = stat.SetStat(stat.atkFormula,stat._damage);
+
+        if (stat.atkFormula is not "")
+            stat._damage = stat.SetStat(stat.atkFormula, stat._damage);
+        else
+            stat._damage = _enemyStat._damage;
+        if(stat.hpFormula is not "")
         stat._hp = stat.SetStat(stat.hpFormula,stat._hp);
+        else
+            stat._hp = _enemyStat._hp;
 
         HealthCompo._maxHp = stat._hp;
         HealthCompo._currentHp = stat._hp;
     }
 
-    protected abstract void EnemyAction();
+    private void Update()
+    {
+    }
 
-   
+    public void EnemyAction()
+    {
+
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
