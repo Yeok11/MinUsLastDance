@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyStatSO : ScriptableObject
 {
     private static DataTable dt = new DataTable();
-    public string atkFormula;
-    public string hpFormula;
+    public string atkFormula = "";
+    public string hpFormula = "";
     public int _level = 0;
     public float _hp;
     public float _damage;
