@@ -1,13 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Purchasing;
 
 public class EJY_Player : MonoBehaviour, IPointerDownHandler, IDragHandler, IEndDragHandler
 {
-    private List<Transform> _tileTrmList;
     private Shy_Manager_Move _moveManager;
     private Shy_Manager_Tile _tileManager;
     private Camera _mainCamera;
@@ -15,9 +15,11 @@ public class EJY_Player : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
     private int _currentTileIdx = 24;
     private bool _isFighting;
 
+    private List<Shy_Tile> _wasd;
+
     private void Awake()
     {
-        _tileTrmList = new List<Transform>();
+        _wasd = new List<Shy_Tile>();
         _mainCamera = Camera.main;
     }
 
@@ -25,6 +27,8 @@ public class EJY_Player : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
     {
         _moveManager = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Move>();
         _tileManager = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Tile>();
+
+        SetTile();
     }
 
     private void Update()
@@ -57,7 +61,60 @@ public class EJY_Player : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        
+        SetPlayerPosWithTile();
+    }
+
+    private void SetPlayerPosWithTile()
+    {
+        float min = float.MaxValue;
+        int tileIdx = -1;
+
+        foreach (var trms in _wasd)
+        {
+            if(trms is null) continue;
+
+            float dis = Vector3.Distance(transform.position, trms.transform.position);
+
+            Debug.Log("거리 계산");
+
+            if (dis < min)
+            {
+                tileIdx = _tileManager.tileObjs.IndexOf(trms);
+                min = dis;
+            }
+
+            Debug.Log($"{min}{tileIdx}");
+        }
+
+        if (tileIdx == -1) return;
+        Move(tileIdx);
+
+        Debug.Log("이동");
+    }
+
+    private void SetTile()
+    {
+        _wasd.Clear();
+
+        if (_currentTileIdx - 7 >= 0)
+            _wasd.Add(_tileManager.tileObjs[_currentTileIdx - 7]);
+        else
+            _wasd.Add(null);
+
+        if (!((_currentTileIdx - 1) % 7 == 6 && _currentTileIdx % 7 == 0))
+            _wasd.Add(_tileManager.tileObjs[_currentTileIdx - 1]);
+        else
+            _wasd.Add(null);
+
+        if (_currentTileIdx + 7 <= 48)
+            _wasd.Add(_tileManager.tileObjs[_currentTileIdx + 7]);
+        else
+            _wasd.Add(null);
+
+        if (!((_currentTileIdx + 1) % 7 == 0 && _currentTileIdx % 7 == 6))
+            _wasd.Add(_tileManager.tileObjs[_currentTileIdx + 1]);
+        else
+            _wasd.Add(null);
     }
 
     private void Move(int idx)
@@ -68,6 +125,7 @@ public class EJY_Player : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
         {
             transform.position = _tileManager.tileObjs[idx].transform.position;
             _currentTileIdx = idx;
+            SetTile();
         }
     }
 
@@ -81,11 +139,6 @@ public class EJY_Player : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
         }
 
         return true;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        _tileTrmList.Add(collision.gameObject.transform);
     }
 
     public void OnPointerDown(PointerEventData eventData)
