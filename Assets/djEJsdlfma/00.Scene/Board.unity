@@ -138,8 +138,6 @@ GameObject:
   - component: {fileID: 298546130}
   - component: {fileID: 298546132}
   - component: {fileID: 298546133}
-  - component: {fileID: 298546134}
-  - component: {fileID: 298546135}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -270,7 +268,7 @@ Transform:
   m_GameObject: {fileID: 298546125}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6989315, y: -4.6667514, z: 0}
+  m_LocalPosition: {x: -5.66, y: -0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -310,44 +308,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 298546125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13b5f8cde9919984d96607c2b0ca7217, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aa8fbd004e11bf4192279ec2c5ac983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 298546125}
   playerPostion: {x: 0, y: 0, z: 0}
-  playerPos: {fileID: 11400000, guid: eddc91e1dbf01ab43b423b544f77d894, type: 2}
+  playerPos: {fileID: 11400000, guid: a06088a2f29fa0340a740d96f5349dd0, type: 2}
   ChkWhatScene: 0
---- !u!114 &298546134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298546125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe392d47aa75e7949b28b54e211be55b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  testEncounter: {fileID: 9128117603474698173}
---- !u!114 &298546135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 298546125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fe4adfb5c9147343856fa26d9597c04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bh: 0
-  _selection: {fileID: 8245119101898917422, guid: a51ff3e8021c88348ab3fca5efd1c031, type: 3}
-  _selectionPos:
-  - {fileID: 0}
-  - {fileID: 0}
-  _encounterStroy: {fileID: 6386285391560224383}
 --- !u!1001 &732778765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -414,6 +381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1043589473}
+  - component: {fileID: 1043589474}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -430,12 +398,26 @@ Transform:
   m_GameObject: {fileID: 1043589472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.40566424, y: -7.556996, z: -0.14817238}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1043589474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043589472}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1349ea565e61d4ca2d353fadf4051b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardLand: []
+  tiles: []
 --- !u!1 &1199631634
 GameObject:
   m_ObjectHideFlags: 0
