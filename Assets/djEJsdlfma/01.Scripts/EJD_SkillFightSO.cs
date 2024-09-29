@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "SKillFightSO")]
+[CreateAssetMenu(fileName = "EJD_SKillFightSO")]
 public class EJD_SkillFightSO : ScriptableObject
 {
     [Header("InCardChange")]
