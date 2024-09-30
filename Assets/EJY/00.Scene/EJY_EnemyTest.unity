@@ -8346,7 +8346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionPoint: 0
   maxActionPoint: 10
-  movePoint: 0
+  movePoint: 5
   text_actionPoint: {fileID: 194538732}
   text_movePoint: {fileID: 0}
 --- !u!114 &2147370923 stripped
@@ -8769,6 +8769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc8d677348d04645af0c176b7d477e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isFighting: 1
   _limitDis: 90.02
 --- !u!1 &5628011230594137581
 GameObject:
