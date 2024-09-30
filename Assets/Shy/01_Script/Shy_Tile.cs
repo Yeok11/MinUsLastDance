@@ -40,7 +40,7 @@ public class Shy_Tile : MonoBehaviour, IPointerClickHandler
         alreadyUse = true;
     }
 
-    private void ActTile()
+    public void ActTile()
     {
         Debug.Log(gameObject.name + " ¿€µø");
         if (alreadyUse)
@@ -51,7 +51,8 @@ public class Shy_Tile : MonoBehaviour, IPointerClickHandler
         {
             skillData.effect.ActSkill();
         }
-        
+
+        tileManager.smd.DataUpdate(null);
         SettingTile();
     }
 
@@ -59,6 +60,5 @@ public class Shy_Tile : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         tileManager.smd.DataUpdate(skillData);
-
     }
 }

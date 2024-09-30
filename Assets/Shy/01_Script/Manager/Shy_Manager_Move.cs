@@ -14,6 +14,7 @@ public class Shy_Manager_Move : MonoBehaviour
         {
             actionPoint = maxActionPoint < value ? maxActionPoint : value;
             actionPoint = value >= 0 ? value : 0;
+            Update_PointSign();
         }
     }
     public int maxActionPoint;
@@ -30,7 +31,7 @@ public class Shy_Manager_Move : MonoBehaviour
 
     private void Awake()
     {
-        player = transform.parent.GetComponentInChildren<Shy_Player>();
+        player = FindObjectOfType<Shy_Player>();
         ActionPoint = maxActionPoint;
     }
 
@@ -40,8 +41,12 @@ public class Shy_Manager_Move : MonoBehaviour
         text_movePoint.SetText("MP : " + movePoint);
     }
 
-    private void Update()
+    public void Move()
     {
+        movePoint -= 1;
         Update_PointSign();
+
+        //if(movePoint == 0)
+        //    player.
     }
 }
