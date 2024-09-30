@@ -13,7 +13,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     private Camera _mainCamera;
 
     private int _currentTileIdx = 24;
-    private bool _isFighting;
+    public bool _isFighting;
 
     private Shy_Tile[] _wasd = new Shy_Tile[4];
 
