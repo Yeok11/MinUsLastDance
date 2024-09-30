@@ -2596,7 +2596,6 @@ GameObject:
   m_Component:
   - component: {fileID: 744014048}
   - component: {fileID: 744014050}
-  - component: {fileID: 744014052}
   - component: {fileID: 744014053}
   m_Layer: 0
   m_Name: TestDumy
@@ -2645,18 +2644,6 @@ MonoBehaviour:
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &744014052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744014047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e451270b7b46834bb20ff6b025b8cdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &744014053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3708,6 +3695,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 115782ebe48e61343b234496b533fc61, type: 2}
   - {fileID: 11400000, guid: 115782ebe48e61343b234496b533fc61, type: 2}
   - {fileID: 11400000, guid: 115782ebe48e61343b234496b533fc61, type: 2}
+  normalDeck: []
   diceDeck:
   - {fileID: 11400000, guid: f36c5926f01059943aad599508e970d8, type: 2}
   - {fileID: 11400000, guid: f36c5926f01059943aad599508e970d8, type: 2}
@@ -8781,6 +8769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cc8d677348d04645af0c176b7d477e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _limitDis: 90.02
 --- !u!1 &5628011230594137581
 GameObject:
   m_ObjectHideFlags: 0

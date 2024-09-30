@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Purchasing;
 
-public class EJY_Player : MonoBehaviour, IPointerDownHandler, IDragHandler, IEndDragHandler
+public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
 {
     private Shy_Manager_Move _moveManager;
     private Shy_Manager_Tile _tileManager;
@@ -15,11 +15,14 @@ public class EJY_Player : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
     private int _currentTileIdx = 24;
     private bool _isFighting;
 
-    private List<Shy_Tile> _wasd;
+    private Shy_Tile[] _wasd = new Shy_Tile[4];
+
+    private Vector3 _currentPos;
+    private float _distance;
+    [SerializeField] private float _limitDis = 1.2f;
 
     private void Awake()
     {
-        _wasd = new List<Shy_Tile>();
         _mainCamera = Camera.main;
     }
 
@@ -29,6 +32,8 @@ public class EJY_Player : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
         _tileManager = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Tile>();
 
         SetTile();
+
+        _currentPos = transform.position;
     }
 
     private void Update()
@@ -52,7 +57,6 @@ public class EJY_Player : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
             Move(_currentTileIdx + 1);
         }
     }
-
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 _worldPos = _mainCamera.ScreenToWorldPoint(new Vector2(eventData.position.x, eventData.position.y));
@@ -61,12 +65,21 @@ public class EJY_Player : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        _distance = Vector3.Distance(_currentPos, transform.position);
+
+        if (_distance > _limitDis)
+        {
+            Move(_currentTileIdx);
+            return;
+        }
+
         SetPlayerPosWithTile();
     }
 
     private void SetPlayerPosWithTile()
     {
         float min = float.MaxValue;
+        _distance = 0;
         int tileIdx = -1;
 
         foreach (var trms in _wasd)
@@ -75,56 +88,48 @@ public class EJY_Player : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
 
             float dis = Vector3.Distance(transform.position, trms.transform.position);
 
-            Debug.Log("거리 계산");
-
             if (dis < min)
             {
                 tileIdx = _tileManager.tileObjs.IndexOf(trms);
                 min = dis;
             }
-
-            Debug.Log($"{min}{tileIdx}");
         }
 
         if (tileIdx == -1) return;
         Move(tileIdx);
-
-        Debug.Log("이동");
     }
 
     private void SetTile()
     {
-        _wasd.Clear();
+        Shy_Tile[] tiles = new Shy_Tile[4];
 
         if (_currentTileIdx - 7 >= 0)
-            _wasd.Add(_tileManager.tileObjs[_currentTileIdx - 7]);
-        else
-            _wasd.Add(null);
+            tiles[0] = _tileManager.tileObjs[_currentTileIdx - 7];
 
         if (!((_currentTileIdx - 1) % 7 == 6 && _currentTileIdx % 7 == 0))
-            _wasd.Add(_tileManager.tileObjs[_currentTileIdx - 1]);
-        else
-            _wasd.Add(null);
+            tiles[1] = _tileManager.tileObjs[_currentTileIdx - 1];
 
         if (_currentTileIdx + 7 <= 48)
-            _wasd.Add(_tileManager.tileObjs[_currentTileIdx + 7]);
-        else
-            _wasd.Add(null);
+            tiles[2] = _tileManager.tileObjs[_currentTileIdx + 7];
 
         if (!((_currentTileIdx + 1) % 7 == 0 && _currentTileIdx % 7 == 6))
-            _wasd.Add(_tileManager.tileObjs[_currentTileIdx + 1]);
-        else
-            _wasd.Add(null);
+            tiles[3] = _tileManager.tileObjs[_currentTileIdx + 1];
+
+        _wasd = tiles;
     }
 
     private void Move(int idx)
     {
         if (idx < 0 || idx >= 49) return;
 
+        Debug.Log(idx);
+        Debug.Log(_currentTileIdx);
+
         if (CanMove())
         {
             transform.position = _tileManager.tileObjs[idx].transform.position;
             _currentTileIdx = idx;
+            _currentPos = transform.position;
             SetTile();
         }
     }
@@ -141,8 +146,4 @@ public class EJY_Player : MonoBehaviour, IPointerDownHandler, IDragHandler, IEnd
         return true;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        throw new System.NotImplementedException();
-    }
 }
