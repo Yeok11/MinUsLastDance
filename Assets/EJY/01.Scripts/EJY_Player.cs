@@ -69,6 +69,8 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
 
         if (_distance > _limitDis)
         {
+            if(_isFighting)
+            _moveManager.movePoint++;
             Move(_currentTileIdx);
             return;
         }
@@ -127,6 +129,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
 
         if (CanMove())
         {
+            if (_isFighting) _moveManager.movePoint--;
             transform.position = _tileManager.tileObjs[idx].transform.position;
             _currentTileIdx = idx;
             _currentPos = transform.position;
@@ -138,9 +141,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     {
         if (_isFighting)
         {
-            int movePoint = _moveManager.movePoint;
-
-            return movePoint >= 0;
+            return _moveManager.movePoint >= 0;
         }
 
         return true;
