@@ -11,16 +11,19 @@ public class Shy_Manager_Turn : MonoBehaviour
     public List<EJY_Enemy> enemys;
     public List<InvolvedSkillData_SO> tileEventByEnemy;
 
-    internal Shy_Player player;
+    private EJY_Player _player;
 
     public void Start()
     {
         manager_E = transform.parent.GetComponentInChildren<Shy_Manager_Enemy>();
         manager_D = transform.parent.GetComponentInChildren<Shy_Manager_Dice>();
-        enemys = manager_E.SetEnemy(4); //에너미 소환
+        //enemys = manager_E.SetEnemy(4); //에너미 소환
         SetEnemyOrder();
         PlayerTurnStart();
         manager_D.AllDiceRoll();
+        _player = FindObjectOfType<EJY_Player>();
+        _player._isFighting = true;
+        Debug.Log(_player._isFighting);
     }
 
 
