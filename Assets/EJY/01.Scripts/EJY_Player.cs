@@ -13,12 +13,11 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     private Camera _mainCamera;
 
     private int _currentTileIdx = 24;
-    private bool _isFighting;
 
     private Shy_Tile[] _wasd = new Shy_Tile[4];
 
     private Vector3 _currentPos;
-    private float _distance;
+    [SerializeField] private bool _isFighting;
     [SerializeField] private float _limitDis = 1.2f;
 
     private void Awake()
@@ -65,9 +64,9 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        _distance = Vector3.Distance(_currentPos, transform.position);
+       float  distance = Vector3.Distance(_currentPos, transform.position);
 
-        if (_distance > _limitDis)
+        if (distance > _limitDis || _moveManager.movePoint <= 0)
         {
             if(_isFighting)
             _moveManager.movePoint++;
@@ -81,7 +80,6 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     private void SetPlayerPosWithTile()
     {
         float min = float.MaxValue;
-        _distance = 0;
         int tileIdx = -1;
 
         foreach (var trms in _wasd)
@@ -124,12 +122,10 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     {
         if (idx < 0 || idx >= 49) return;
 
-        Debug.Log(idx);
-        Debug.Log(_currentTileIdx);
-
         if (CanMove())
         {
             if (_isFighting) _moveManager.movePoint--;
+
             transform.position = _tileManager.tileObjs[idx].transform.position;
             _currentTileIdx = idx;
             _currentPos = transform.position;
@@ -141,7 +137,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     {
         if (_isFighting)
         {
-            return _moveManager.movePoint >= 0;
+            return _moveManager.movePoint > 0;
         }
 
         return true;
