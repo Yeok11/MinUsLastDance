@@ -66,7 +66,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     {
        float  distance = Vector3.Distance(_currentPos, transform.position);
 
-        if (distance > _limitDis || _moveManager.movePoint <= 0)
+        if (distance > _limitDis || !CanMove())
         {
             if(_isFighting)
             _moveManager.movePoint++;
