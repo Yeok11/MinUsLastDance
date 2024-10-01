@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9270756a1429c8b4ba59f7fd06f62a63, type: 3}
   m_Name: Debuffer
   m_EditorClassIdentifier: 
-  atkFormula: (_level*2)+6
-  hpFormula: (_levle*4)+9
+  atkFormula: (level*2)+6
+  hpFormula: (levle*4)+9
   _level: 1
   _hp: 0
   _damage: 0

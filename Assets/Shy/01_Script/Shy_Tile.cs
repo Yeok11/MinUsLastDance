@@ -10,8 +10,16 @@ public class Shy_Tile : MonoBehaviour, IPointerClickHandler
     public Shy_TileSO skillData;
     public InvolvedSkillData_SO enemySkillData;
     internal Shy_Manager_Tile tileManager;
+    internal bool alreadyUse = false;
 
-    public void UpdateImage()
+    public void Setting()
+    {
+        UpdateImage();
+        transform.GetChild(0).gameObject.SetActive(true);
+        alreadyUse = false;
+    }
+
+    private void UpdateImage()
     {
         Image childImg = transform.GetChild(0).GetComponent<Image>();
 
@@ -25,24 +33,32 @@ public class Shy_Tile : MonoBehaviour, IPointerClickHandler
     public void SettingTile()
     {
         Debug.Log(gameObject.name + "Ÿ�� ����");
-        tileManager.TileSetting(this);
+        transform.GetChild(0).gameObject.SetActive(false);
+        tileManager.usedTiles.Add(this);
+        tileManager.tileSOList.Add(skillData);
+        skillData = null;
+        alreadyUse = true;
     }
 
-    private void ActTile()
+    public void ActTile()
     {
-        if (skillData == null)
-        {
-            Debug.Log("skill�� �����ϴ�.");
+        Debug.Log(gameObject.name + " �۵�");
+        if (alreadyUse)
             return;
+
+
+        if(skillData != null)
+        {
+            skillData.effect.ActSkill();
         }
 
-        skillData.effect.ActSkill();
+        tileManager.smd.DataUpdate(null);
         SettingTile();
     }
 
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        ActTile();   
+        tileManager.smd.DataUpdate(skillData);
     }
 }

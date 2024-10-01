@@ -33,6 +33,8 @@ namespace EJY
 
         public override void DestroyEvent()
         {
+            foreach (var dice in _diceList)
+                dice.bonusValue++;
         }
 
         public override void OnEffect()

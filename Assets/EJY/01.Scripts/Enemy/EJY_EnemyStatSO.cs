@@ -5,24 +5,19 @@ using UnityEngine;
 public class EnemyStatSO : ScriptableObject
 {
     private static DataTable dt = new DataTable();
-    [SerializeField] string atkFormula;
-    [SerializeField] string hpFormula;
-    public int _level = 1;
+    public string atkFormula = "";
+    public string hpFormula = "";
+    public int _level = 0;
     public float _hp;
     public float _damage;
     public int _speed;
 
     public void LevelUp(int level) => _level += level;
-    public void SetDamage()
+    public float SetStat(string formula, float stat)
     {
-        if (atkFormula == "") return;
-        atkFormula.Replace("f","");
-        _damage = float.Parse(dt.Compute(atkFormula, "").ToString());
-    }
-    public void SetHP()
-    {
-        if (hpFormula == "") return;
-        hpFormula.Replace("f", "");
-        _hp = float.Parse(dt.Compute(hpFormula, "").ToString());
+        if (formula == "") return 0;
+        formula = formula.Replace("level",_level.ToString());
+        formula = formula.Replace("f","");
+        return stat = float.Parse(dt.Compute(formula, "").ToString());
     }
 }

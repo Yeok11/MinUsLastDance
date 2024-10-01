@@ -4,8 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "SKillBasicSO")]
-public class EJD_SkillBasicSO : ScriptableObject
+[CreateAssetMenu(fileName = "EJD_SKillFightSO")]
+public class EJD_SkillFightSO : ScriptableObject
 {
     [Header("InCardChange")]
     [SerializeField] private TextMeshProUGUI _name;

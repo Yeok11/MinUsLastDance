@@ -4,12 +4,10 @@ using UnityEngine.EventSystems;
 using static PlayerTargetting;
 
 [RequireComponent(typeof(Health))]
-public abstract class EJY_Enemy : Shy_Character, IPointerClickHandler
+public class EJY_Enemy : Shy_Character, IPointerClickHandler
 {
     #region Ω∫≈»
     public int _level;
-
-    protected float _damage;
     #endregion
 
     [SerializeField]protected Skill[] _enemySkill;
@@ -22,25 +20,42 @@ public abstract class EJY_Enemy : Shy_Character, IPointerClickHandler
         HealthCompo = GetComponent<Health>();
         _enemySkill = GetComponentsInChildren<Skill>();
 
-        stat = ScriptableObject.CreateInstance<EnemyStatSO>();
-        stat = _enemyStat;
-        stat.LevelUp(_level);
-        stat.SetDamage();
-        stat.SetHP();
         Initialize();
+        Debug.Log(stat._hp);
+        Debug.Log(stat._damage);
     }
 
     
     private void Initialize()
     {
-        HealthCompo._maxHp = _enemyStat._hp;
-        HealthCompo._currentHp = _enemyStat._hp;
-        //_damage = _enemyStat._level * ;
+        stat = ScriptableObject.CreateInstance<EnemyStatSO>();
+
+        stat.atkFormula = _enemyStat.atkFormula;
+        stat.hpFormula = _enemyStat.hpFormula;
+        stat._speed = _enemyStat._speed;
+        stat.LevelUp(_level);
+
+        if (stat.atkFormula is not "")
+            stat._damage = stat.SetStat(stat.atkFormula, stat._damage);
+        else
+            stat._damage = _enemyStat._damage;
+        if(stat.hpFormula is not "")
+        stat._hp = stat.SetStat(stat.hpFormula,stat._hp);
+        else
+            stat._hp = _enemyStat._hp;
+
+        HealthCompo._maxHp = stat._hp;
+        HealthCompo._currentHp = stat._hp;
     }
 
-    protected abstract void EnemyAction();
+    private void Update()
+    {
+    }
 
-   
+    public void EnemyAction()
+    {
+
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {

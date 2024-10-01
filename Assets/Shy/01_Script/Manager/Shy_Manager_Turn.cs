@@ -5,17 +5,27 @@ using UnityEngine;
 
 public class Shy_Manager_Turn : MonoBehaviour
 {
-    public List<EJY_Enemy> enemys;
-    public Shy_Player player;
+    private Shy_Manager_Dice manager_D;
     private Shy_Manager_Enemy manager_E;
+
+    public List<EJY_Enemy> enemys;
     public List<InvolvedSkillData_SO> tileEventByEnemy;
+
+    private EJY_Player _player;
 
     public void Start()
     {
         manager_E = transform.parent.GetComponentInChildren<Shy_Manager_Enemy>();
-        //enemys = manager_E.SetEnemy(2);
-        SetTurn();
+        manager_D = transform.parent.GetComponentInChildren<Shy_Manager_Dice>();
+        //enemys = manager_E.SetEnemy(4); //에너미 소환
+        SetEnemyOrder();
+        PlayerTurnStart();
+        manager_D.AllDiceRoll();
+        _player = FindObjectOfType<EJY_Player>();
+        _player._isFighting = true;
+        Debug.Log(_player._isFighting);
     }
+
 
     private void ActionEnemyTileSkills()
     {
@@ -28,13 +38,33 @@ public class Shy_Manager_Turn : MonoBehaviour
         }
     }
 
-    private void EnemyTurnStart()
+    private void PlayerTurnStart()
     {
+        Debug.Log("플레이어 턴 시작");
+    }
+
+    public void PlayerTurnEnd()
+    {
+        Debug.Log("플레이어 턴 종료");
+    }
+
+    private IEnumerator EnemyTurnStart()
+    {
+        Debug.Log("에너미 턴 시작");
         ActionEnemyTileSkills();
+
+        yield return new WaitForSeconds(5f);
+
+        EnemyTurnEnd();
+    }
+
+    private void EnemyTurnEnd()
+    {
+        Debug.Log("에너미 턴 종료");
     }
     
 
-    public void SetTurn()
+    public void SetEnemyOrder()
     {
         for (int i = 0; i < enemys.Count - 1; i++)
         {
