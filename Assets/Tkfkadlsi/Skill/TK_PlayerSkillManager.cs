@@ -23,7 +23,7 @@ public class TK_PlayerSkillManager : MonoBehaviour
     {
         if(skillDic[skill].CanUseSkill(player))
         {
-            skillDic[skill].UseSkill(player, Targetting._target);
+            skillDic[skill].UseSkill(player, PlayerTargetting._target);
         }
     }
 }

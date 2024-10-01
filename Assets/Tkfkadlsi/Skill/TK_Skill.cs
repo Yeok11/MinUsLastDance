@@ -40,6 +40,6 @@ public abstract class TK_Skill : MonoBehaviour
 
     protected float GetValue(int level, Shy_Player player)
     {
-        return skillConst.GetValue(level, player);
+        return skillConst.GetValue(level);
     }
 }

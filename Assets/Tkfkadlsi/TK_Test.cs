@@ -7,8 +7,8 @@ public class TK_Test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Shy_Player player = FindObjectOfType<Shy_Player>();
+        TK_PlayerSkillManager tK_PlayerSkillManager = FindObjectOfType<TK_PlayerSkillManager>();
 
-        Debug.Log(GetComponent<TK_SkillConst>().GetValue(0, player));
+        tK_PlayerSkillManager.UseSkill(ESkillType.Point_Shoot);
     }
 }

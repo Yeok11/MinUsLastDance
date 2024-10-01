@@ -5,7 +5,9 @@ using UnityEngine;
 public class Shy_Manager_Tile : MonoBehaviour
 {
     public List<Shy_Tile> tileObjs;
+    public List<Shy_Tile> usedTiles;
     public List<Shy_TileSO> tileSOList;
+    [SerializeField] internal Shy_Manager_DataMes smd;
 
     private void ChangeTileSkill(Shy_Tile _targetTile, Shy_TileSO _changeData)
     {
@@ -15,7 +17,6 @@ public class Shy_Manager_Tile : MonoBehaviour
         _targetTile.skillData = _changeData;
         //리스트에 있으면 제거
         if(_changeData != null) tileSOList.Remove(_changeData);
-        _targetTile.UpdateImage();
     }
 
     public void TileSetting(Shy_Tile _targetTile, int _randPer = 40)
@@ -24,7 +25,6 @@ public class Shy_Manager_Tile : MonoBehaviour
 
         //40%확률로 기본 타일
         int r = Random.Range(0, 100);
-        Debug.Log(r);
         if (r < _randPer || tileSOList.Count == 0)
         {
             ChangeTileSkill(_targetTile, null);
@@ -33,11 +33,19 @@ public class Shy_Manager_Tile : MonoBehaviour
         {
             Debug.Log(_targetTile.gameObject.name + "에 스크립트 주입 성공");
             ChangeTileSkill(_targetTile, tileSOList[skillNum]);
+            _targetTile.Setting();
         }
     }
 
     private void Init()
     {
+        //SO미리 받기
+        for (int i = 0; i < Shy_Deck.instance.tileDeck.Count; i++)
+        {
+            tileSOList.Add(Shy_Deck.instance.tileDeck[i]);
+        }
+        Debug.Log("tile Deck reflect Suc");
+
         //전체 타일 세팅
         for (int i = 0; i < tileObjs.Count; i++)
         {
@@ -48,18 +56,22 @@ public class Shy_Manager_Tile : MonoBehaviour
 
     private void Start()
     {
-        //SO미리 받기
-        for (int i = 0; i < Shy_Deck.instance.tileDeck.Count; i++)
-        {
-            tileSOList.Add(Shy_Deck.instance.tileDeck[i]);
-        }
-        Debug.Log("tile Deck reflect Suc");
-
         Init();
 
         for (int i = tileSOList.Count; i > 0; --i)
         {
-            ChangeTileSkill(tileObjs[Random.Range(0, tileObjs.Count)], tileSOList[Random.Range(0, tileSOList.Count)]);
+            //ChangeTileSkill(tileObjs[Random.Range(0, tileObjs.Count)], tileSOList[Random.Range(0, tileSOList.Count)]);
+            TileSetting(tileObjs[Random.Range(0, tileObjs.Count)], 8);
+        }
+    }
+
+
+    public void UsedTileUpdate()
+    {
+        while (usedTiles.Count != 0)
+        {
+            TileSetting(usedTiles[0]);
+            usedTiles.RemoveAt(0);
         }
     }
 }

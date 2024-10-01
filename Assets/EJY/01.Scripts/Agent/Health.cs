@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,25 +7,18 @@ public class Health : MonoBehaviour
     public float _maxHp;
     public float _currentHp;
 
-    public float _addBarrier;
-    public float _currentBarrier;
+    public float _currentBarrier = 0;
 
     public UnityEvent OnBarrierHitEvent;
     public UnityEvent OnDirectHitEvent;
     public UnityEvent OnDeadEvent;
-
-    public void ResetHealth()
-    {
-        _currentHp = _maxHp;
-        _currentBarrier = 0;
-    }
 
     public void TakeDamage(float damage)
     {
         if (_currentBarrier > 0)
         {
             OnBarrierHitEvent?.Invoke();
-            _currentHp -= damage;
+            _currentBarrier -= damage;
             if (_currentBarrier < 0) _currentHp += _currentBarrier;
         }
 
@@ -35,5 +29,12 @@ public class Health : MonoBehaviour
         {
             OnDeadEvent?.Invoke();
         }
+    }
+
+    public void GetBarrier(float weightBarrier)
+    {
+        if (_currentBarrier > weightBarrier) 
+        return;
+        _currentBarrier = weightBarrier;
     }
 }

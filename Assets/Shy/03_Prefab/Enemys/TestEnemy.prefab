@@ -84,8 +84,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6606878440020160106}
-  - component: {fileID: 4523127543917134643}
-  - component: {fileID: 4132361495112717405}
+  - component: {fileID: 3655570829465533950}
+  - component: {fileID: 338078364447879136}
   m_Layer: 5
   m_Name: TestEnemy
   m_TagString: Untagged
@@ -113,7 +113,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 226}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4523127543917134643
+--- !u!114 &3655570829465533950
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,26 +122,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8551912511776557242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04c921d671f210a4d9a6c8d7287037e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  _enemyStat: {fileID: 11400000, guid: e19d68ab8d11a624aa77a152bcadc896, type: 2}
---- !u!114 &4132361495112717405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8551912511776557242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65455ca358417b14d8ea2ee7ad281cf9, type: 3}
+  m_Script: {fileID: 11500000, guid: ca82b2b5d7119d44ab0b2963a90c476f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHp: 0
   _currentHp: 0
-  _addBarrier: 0
   _currentBarrier: 0
   OnBarrierHitEvent:
     m_PersistentCalls:
@@ -152,3 +137,19 @@ MonoBehaviour:
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &338078364447879136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8551912511776557242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0516671af1b30468cc5a1987cb748b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stacks: []
+  _level: 0
+  _enemySkill: []
+  _enemyStat: {fileID: 11400000, guid: 9b4ddee179e536845a53cda75907e239, type: 2}

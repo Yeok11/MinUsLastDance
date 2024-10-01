@@ -1,89 +1,61 @@
-using System;
+using EJY;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using static Targetting;
-using Random = UnityEngine.Random;
-
-public enum EnemyActionType
-{
-    Attack, Barrier, Skill
-}
+using static PlayerTargetting;
 
 [RequireComponent(typeof(Health))]
-public abstract class EJY_Enemy : MonoBehaviour, IPointerClickHandler
+public class EJY_Enemy : Shy_Character, IPointerClickHandler
 {
-    public int speed;
-    protected float _attack;
-    public float Attack => _attack;
-    protected float _barrier;
-    public float Barrier => _barrier;
-    protected int _target;
-    protected EnemyActionType _actionType;
+    #region Ω∫≈»
+    public int _level;
+    #endregion
 
-    protected bool _isDead;
-
-    protected GameObject[] _targets;
+    [SerializeField]protected Skill[] _enemySkill;
 
     [SerializeField] protected EnemyStatSO _enemyStat;
-
-    public Health HealthCompo {  get; protected set; }
+    internal EnemyStatSO stat;
 
     protected virtual void Awake()
     {
         HealthCompo = GetComponent<Health>();
+        _enemySkill = GetComponentsInChildren<Skill>();
+
         Initialize();
+        Debug.Log(stat._hp);
+        Debug.Log(stat._damage);
     }
 
-    protected virtual void Start()
-    {
-        _targets = new GameObject[_target];
-        EnemyAction();
-    }
-
-    protected abstract void FindTarget();
-
+    
     private void Initialize()
     {
-        HealthCompo._maxHp = _enemyStat._hp;
-        HealthCompo._addBarrier = _enemyStat._barrier;
-        _attack = _enemyStat._attack;
-        _target = _enemyStat._targets;
-        speed = _enemyStat._speed;
-        Reset();
+        stat = ScriptableObject.CreateInstance<EnemyStatSO>();
+
+        stat.atkFormula = _enemyStat.atkFormula;
+        stat.hpFormula = _enemyStat.hpFormula;
+        stat._speed = _enemyStat._speed;
+        stat.LevelUp(_level);
+
+        if (stat.atkFormula is not "")
+            stat._damage = stat.SetStat(stat.atkFormula, stat._damage);
+        else
+            stat._damage = _enemyStat._damage;
+        if(stat.hpFormula is not "")
+        stat._hp = stat.SetStat(stat.hpFormula,stat._hp);
+        else
+            stat._hp = _enemyStat._hp;
+
+        HealthCompo._maxHp = stat._hp;
+        HealthCompo._currentHp = stat._hp;
     }
 
-    protected void Reset()
+    private void Update()
     {
-        HealthCompo.ResetHealth();
-        _isDead = false;
     }
 
-    protected void EnemyAction()
+    public void EnemyAction()
     {
-        _actionType = (EnemyActionType)Random.Range(0, 3);
 
-        Debug.Log(_actionType);
-
-        switch (_actionType)
-        {
-            case EnemyActionType.Attack:
-                EnemyAttack();
-                break;
-            case EnemyActionType.Barrier:
-                EnemyBarrier();
-                break;
-            case EnemyActionType.Skill:
-                EnemySkill();
-                break;
-        }
     }
-
-    protected abstract void EnemyAttack();
-
-    protected abstract void EnemyBarrier();
-
-    protected abstract void EnemySkill();
 
     public void OnPointerClick(PointerEventData eventData)
     {
