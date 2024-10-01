@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ah_Skill_Partner : TK_AttackSkill
+public class Skill_Magic_ColdShield : TK_BuffSkill
 {
     public override void UseSkill(Shy_Player player, EJY_Enemy target)
     {
         base.UseSkill(player, target);
-        //헌트 스택 1추가
+        //다음 턴까지 데미지를 입지않음
     }
 }
