@@ -13,6 +13,11 @@ public class Shy_Manager_Turn : MonoBehaviour
 
     private EJY_Player _player;
 
+    private void Awake()
+    {
+        _player = FindObjectOfType<EJY_Player>();
+    }
+
     public void Start()
     {
         manager_E = transform.parent.GetComponentInChildren<Shy_Manager_Enemy>();
@@ -20,10 +25,20 @@ public class Shy_Manager_Turn : MonoBehaviour
         //enemys = manager_E.SetEnemy(4); //에너미 소환
         SetEnemyOrder();
         PlayerTurnStart();
+        StartCoroutine(Delay());
+    }
+
+    private IEnumerator Delay()
+    {
+        yield return new WaitForEndOfFrame();
+        Init();
+    }
+
+    private void Init()
+    {
         manager_D.AllDiceRoll();
-        _player = FindObjectOfType<EJY_Player>();
         _player._isFighting = true;
-        Debug.Log(_player._isFighting);
+        _player.Init();
     }
 
 
