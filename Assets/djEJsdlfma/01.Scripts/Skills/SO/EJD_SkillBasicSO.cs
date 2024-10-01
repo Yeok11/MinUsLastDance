@@ -4,8 +4,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "SKillFightSO")]
-public class EJD_SkillFightSO : ScriptableObject
+[CreateAssetMenu(fileName = "SKillBasicSO")]
+public class EJD_SkillBasicSO : ScriptableObject
 {
     [Header("InCardChange")]
     [SerializeField] private TextMeshProUGUI _name;
@@ -21,6 +21,11 @@ public class EJD_SkillFightSO : ScriptableObject
     private int _nowUpgrade;
 
     int damage = 0;
+
+    private void Awake()
+    {
+        
+    }
 
     private void AttackEnemy(int N, int attackTrying)
     {

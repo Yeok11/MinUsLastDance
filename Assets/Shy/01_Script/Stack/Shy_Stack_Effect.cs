@@ -16,7 +16,7 @@ public abstract class Shy_Stack_Effect : Shy_Stack
 
     public abstract Shy_Stack_Effect Init(Transform _target);
 
-    //»èÁ¦ Á¶°Ç (±âº» = life 0)
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½âº» = life 0)
     public virtual bool IsDestroy() 
     {
         if(life-- <= 0)
@@ -27,9 +27,9 @@ public abstract class Shy_Stack_Effect : Shy_Stack
         return false;
     }
 
-    //ÀÛµ¿ÇÒ ¶§ ÀÌº¥Æ®
+    //ï¿½Ûµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìºï¿½Æ®
     public abstract void OnEffect();
 
-    //ÆÄ±« µÉ ¶§ ÀÌº¥Æ®
+    //ï¿½Ä±ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìºï¿½Æ®
     public abstract void DestroyEvent();
 }
