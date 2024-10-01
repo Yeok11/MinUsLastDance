@@ -8,7 +8,7 @@ public class PointShootSkill : TK_AttackSkill
     {
         //여기서 데미지 계산 후 Attack
         base.UseSkill(player, target);
-        damage = GetValue(skillLevel, player);
+        damage = /*계산한 최대체력 아닌 적의 수 곱하기*/ GetValue(skillLevel, player);
         Attack(target);
     }
 }
