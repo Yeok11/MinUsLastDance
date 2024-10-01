@@ -6,10 +6,13 @@ public class PointShootSkill : TK_AttackSkill
 {
     public override void UseSkill(Shy_Player player, EJY_Enemy target)
     {
-        //¿©±â¼­ µ¥¹ÌÁö °è»ê ÈÄ Attack
+        //Â¿Â©Â±Ã¢Â¼Â­ ÂµÂ¥Â¹ÃŒÃÃ¶ Â°Ã¨Â»Ãª ÃˆÃ„ Attack
         base.UseSkill(player, target);
+
+
         damage = GetValue(skillLevel, player);
         Debug.Log(damage);
+
         Attack(target);
     }
 }
