@@ -599,13 +599,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12ae5a1f1c4d674294f4ee64f70bfb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 1
     ValueFormula:
-    - N(player) + 2
-  skillLevel: 1
-  isCanUse: 0
+    - 2+N(player)
+  player: {fileID: 701244384}
 --- !u!114 &1806645043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,15 +616,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e5db4f02e227f4aab17968f0147acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 1
     ValueFormula:
-    - 3 + N(Player)
-    - 7 + N(Player)*1.3f
-    - 11 + N(Player) * 2.4f
-  skillLevel: 1
-  isCanUse: 0
+    - 3+N(player)
+    - 7+N(player)*1.3f
+    - 11+N(player)*2.4f
+  player: {fileID: 701244384}
 --- !u!114 &1806645044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,15 +635,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d0b21e0fe69c2c4ba30af8aa8fac455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 1
     ValueFormula:
     - 5
     - 8
     - 12
-  skillLevel: 1
-  isCanUse: 0
+  player: {fileID: 701244384}
 --- !u!114 &1806645045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -660,15 +654,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8242a76e270d84cb925e55b4b03e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 1
     ValueFormula:
-    - 
-    - 
-    - 
-  skillLevel: 1
-  isCanUse: 0
+    - 2+N(player)
+  player: {fileID: 701244384}
 --- !u!114 &1806645046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,15 +671,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074a68e19df5eb94cafdb0caa5bf8599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 1
     ValueFormula:
-    - 3+N(plsyer)*0.8f
+    - 3+N(player)*0.8f
     - 5+N(player)*1.15f
     - 10+N(player)*1.55f
-  skillLevel: 1
-  isCanUse: 0
+  player: {fileID: 701244384}
 --- !u!114 &1806645047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,13 +690,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f273355f8bac045a6e42dbfa41a403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 1
     ValueFormula:
-    - N(player) * 5
-  skillLevel: 1
-  isCanUse: 0
+    - N(player)
+  player: {fileID: 701244384}
 --- !u!114 &1806645048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,15 +707,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c1db3538b845143817a174915a2f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 1
     ValueFormula:
-    - 1+N(player) *1.2f
+    - 1+N(player)*1.2f
     - 4+N(player)*1.75f
     - 6+N(player)*3.8f
-  skillLevel: 1
-  isCanUse: 0
+  player: {fileID: 701244384}
 --- !u!1 &1871559615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,15 +989,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95ad1fabcfe7e647a2b0c1469360554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 0
     ValueFormula:
-    - 4 + N(player) * 2.5f
-    - 5 + N(player) * 3.7f
-    - 6 + N(player) * 5.5f
-  skillLevel: 1
-  isCanUse: 0
+    - 4+N(player)*2.5f
+    - 5+N(player)*3.7f
+    - 6+N(player)*5.5f
+  player: {fileID: 701244384}
 --- !u!114 &2048403006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,13 +1008,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e1dbefb694a7c41b093cc4f51bebd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 0
-    ValueFormula: []
-  skillLevel: 1
-  isCanUse: 0
-  buffStack: {fileID: 0}
+    ValueFormula:
+    - N(player)
+  player: {fileID: 701244384}
 --- !u!114 &2048403007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,15 +1025,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 709e02d6bc8268b4193532b58241f666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 0
     ValueFormula:
     - 5
     - 7
     - 9
-  skillLevel: 1
-  isCanUse: 0
+  player: {fileID: 701244384}
 --- !u!114 &2048403008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,13 +1044,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e56466d2ca231644860cd7ec0e72608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 0
     ValueFormula:
-    - N(player)
-  skillLevel: 1
-  isCanUse: 0
+    - 3+N(player)*0.5f
+  player: {fileID: 701244384}
 --- !u!114 &2048403009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,15 +1061,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcc5477eacfc936409bb4ef0db5822ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 0
     ValueFormula:
     - 6
     - 15
     - 27
-  skillLevel: 1
-  isCanUse: 0
+  player: {fileID: 701244384}
 --- !u!114 &2048403010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,13 +1080,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990bc288220d6d44f9d25d0eacdbbe69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 0
-    ValueFormula: []
-  skillLevel: 1
-  isCanUse: 0
-  buffStack: {fileID: 0}
+    ValueFormula:
+    - N(player)
+  player: {fileID: 701244384}
 --- !u!114 &2048403011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,15 +1097,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685ec869454a0d64d8fa69a48b4a7a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillType: 0
-  skillConst:
+  calculate:
     UseStack: 0
     ValueFormula:
     - 13
     - 22
     - 30
-  skillLevel: 1
-  isCanUse: 0
+  player: {fileID: 701244384}
 --- !u!1 &2099405642
 GameObject:
   m_ObjectHideFlags: 0

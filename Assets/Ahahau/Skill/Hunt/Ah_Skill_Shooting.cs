@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ah_Skill_Shooting : TK_AttackSkill
+public class Ah_Skill_Shooting : Shy_Skill
 {
-    public override void UseSkill(Shy_Player player, EJY_Enemy target)
+    [SerializeField] private Shy_Player player;
+    public override void ActSkill(int _skillLv = 1)
     {
-        base.UseSkill(player, target);
-        damage = GetValue(skillLevel, player);
+        calculate.GetValue(_skillLv, player);
     }
 }

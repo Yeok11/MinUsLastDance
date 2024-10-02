@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Shy_Skill_Apple : Shy_Skill
 {
-    public override void ActSkill()
+    public override void ActSkill(int _skillLv = 1)
     {
-        Debug.Log("사과가 좋아~");
+        throw new System.NotImplementedException();
     }
 }
