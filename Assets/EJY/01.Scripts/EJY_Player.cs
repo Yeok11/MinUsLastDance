@@ -16,6 +16,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     public bool _isFighting;
 
     private Shy_Tile[] _wasd = new Shy_Tile[4];
+    private List<Shy_Tile> _moved;
 
     private Vector3 _currentPos;
     [SerializeField] private float _limitDis = 1.2f;
@@ -23,6 +24,8 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     private void Awake()
     {
         _mainCamera = Camera.main;
+
+        _moved = new List<Shy_Tile>();
     }
 
     
@@ -33,7 +36,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
 
         SetTile();
 
-        Move(_currentTileIdx);
+        Move(_currentTileIdx,false);
         _currentPos = transform.position;
     }
 
@@ -68,15 +71,23 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     {
        float  distance = Vector2.Distance(_currentPos, transform.position);
 
-        if (distance > _limitDis || !CanMove())
+        if (distance > _limitDis)
         {
-            if(_isFighting)
-            _moveManager.movePoint++;
-            Move(_currentTileIdx);
+            ReturnCurrentTile();
+            Debug.Log("이동거리 벗어남");
             return;
         }
 
+        Debug.Log("드래그");
         SetPlayerPosWithTile();
+    }
+    
+    private void ReturnCurrentTile()
+    {
+        if (_isFighting)
+            _moveManager.movePoint++;
+
+        Move(_currentTileIdx,false);
     }
 
     private void SetPlayerPosWithTile()
@@ -98,12 +109,16 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
         }
 
         if (tileIdx == -1) return;
-
-        if (CanMove())
-        {
-            Move(tileIdx);
-        }
         
+        if (!CanMove(tileIdx))
+        {
+            Debug.Log($"이미 감");
+            ReturnCurrentTile();
+            return;
+        }
+
+        Debug.Log("이동");
+        Move(tileIdx);
     }
 
     private void SetTile()
@@ -125,27 +140,35 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
         _wasd = tiles;
     }
 
-    private void Move(int idx)
+    private void Move(int idx, bool isAdd = true)
     {
         if (idx < 0 || idx >= 49) return;
 
-        if (_isFighting) _moveManager.movePoint--;
+        Shy_Tile tile = _tileManager.tileObjs[idx];
 
-        Debug.Log(idx + " / " + _tileManager.tileObjs[idx].transform.position);
-        transform.position = _tileManager.tileObjs[idx].transform.position;
-        _currentTileIdx = idx;
-        _currentPos = transform.position;
-        SetTile();
+        if (CanMove(idx))
+        {
+            if (_isFighting)
+                _moveManager.movePoint--;
+            if (isAdd)
+                _moved.Add(tile);
+            if (_moveManager.movePoint <= 0) _moved.Clear();
+
+            _currentPos = tile.transform.position;
+            _currentTileIdx = idx;
+            transform.position = _currentPos;
+            SetTile();
+        }
     }
 
-    private bool CanMove()
+    private bool CanMove(int idx)
     {
         if (_isFighting)
         {
-            return _moveManager.movePoint > 0;
+            if (idx == _currentTileIdx) return true;
+            return _moveManager.movePoint > 0 && !(_moved.Contains(_tileManager.tileObjs[idx]));
         }
 
         return true;
     }
-
 }
