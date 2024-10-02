@@ -37,8 +37,8 @@ public class Shy_Manager_Turn : MonoBehaviour
     private void Init()
     {
         manager_D.AllDiceRoll();
-        _player._isFighting = true;
         _player.Init();
+        _player._isFighting = true;
     }
 
 
