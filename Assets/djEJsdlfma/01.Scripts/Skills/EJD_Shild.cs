@@ -6,12 +6,10 @@ public class EJD_Shild : TK_HealingSkill
 {
     //방어력 (n + 적의 수 * s) 만큼 얻기
 
-    public override void UseSkill(Shy_Player player, EJY_Enemy target)
+    public override void UseSkill()
     {
         int enemys = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().enemys.Count;
 
-        base.UseSkill(player, target);
-
-        player.HealthCompo.GetBarrier(GetValue(skillLevel, player) + enemys * GetValue(skillLevel + 3, player));
+        FindObjectOfType<Shy_Player>().HealthCompo.GetBarrier(GetValue(skillLevel) + enemys * GetValue(skillLevel + 3));
     }
 }

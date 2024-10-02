@@ -11,8 +11,5 @@ public abstract class Shy_Skill : MonoBehaviour
 
     public TK_SkillConst calculate;
 
-    public virtual void ActSkill(int _skillLv = 1)
-    {
-
-    }
+    public abstract void ActSkill(int _skillLv = 1);
 }

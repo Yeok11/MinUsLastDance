@@ -6,15 +6,17 @@ public class EJD_Block : TK_BuffSkill
 {
     //방어력 N 만큼 얻고 0일시 S만큼 추가 방어력
 
-    public override void UseSkill(Shy_Player player, EJY_Enemy target)
+    public override void UseSkill()
     {
+        Shy_Player player = FindObjectOfType<Shy_Player>();
+
         if(player.HealthCompo._currentBarrier > 0)
         {
-            player.HealthCompo.GetBarrier(GetValue(skillLevel, player));
+            player.HealthCompo.GetBarrier(GetValue(skillLevel));
         }
         else
         {
-            player.HealthCompo.GetBarrier(GetValue(skillLevel + 3, player));
+            player.HealthCompo.GetBarrier(GetValue(skillLevel + 3));
         }
     }
 }
