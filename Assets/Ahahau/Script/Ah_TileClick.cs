@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine.Windows;
 
 public class Ah_TileClick : MonoBehaviour, IPointerClickHandler
 {
-    public int tileNum;
+    public int _tileNum;
+    public Ah_PlayerMove _playerMove;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        a_PlayerMove.instance.PlayerMoveToInt(tileNum);
-        print("tileNum:" +  tileNum);
+        _playerMove.PlayerMoveToInt(_tileNum);
+        print("tileNum:" +  _tileNum);
     }
 }

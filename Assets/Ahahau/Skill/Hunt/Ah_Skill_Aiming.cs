@@ -11,7 +11,7 @@ public class Ah_Skill_Aiming : TK_AttackSkill
         base.UseSkill(player, target);
         foreach (var e in Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Tile>().tileObjs)
         {
-            //타입 if문으로 계산해서 더해줌
+            //타일 타입 계산
         }
     }
 }

@@ -9,7 +9,8 @@ public class Ah_Skill_PackHunting : TK_AttackSkill
     public override void UseSkill(Shy_Player player, EJY_Enemy target)
     {
         base.UseSkill(player, target);
-
-
+        //if(Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Tile>().)
+        //플레이어 기준 3*3안에 사냥 타일의 개수만큼 야성 스택 획득
+        damage = GetValue(skillLevel, player);
     }
 }

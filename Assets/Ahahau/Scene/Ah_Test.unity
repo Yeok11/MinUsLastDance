@@ -1045,6 +1045,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 709e02d6bc8268b4193532b58241f666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillType: 0
+  skillConst:
+    UseStack: 0
+    ValueFormula:
+    - 5
+    - 7
+    - 9
+  skillLevel: 1
+  isCanUse: 0
 --- !u!114 &2048403008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1060,7 +1069,8 @@ MonoBehaviour:
   skillType: 0
   skillConst:
     UseStack: 0
-    ValueFormula: []
+    ValueFormula:
+    - N(player)
   skillLevel: 1
   isCanUse: 0
 --- !u!114 &2048403009

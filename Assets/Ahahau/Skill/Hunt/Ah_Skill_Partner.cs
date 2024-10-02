@@ -8,5 +8,6 @@ public class Ah_Skill_Partner : TK_AttackSkill
     {
         base.UseSkill(player, target);
         //헌트 스택 1추가
+        damage = GetValue(skillLevel, player);
     }
 }

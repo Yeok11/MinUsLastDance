@@ -26,7 +26,7 @@ public class Ah_Battle : MonoBehaviour
 
     private void Awake()
     {
-       a_PlayerMove.instance.movePoint = 99;
+       
     }
 
     private void Update()
@@ -40,22 +40,22 @@ public class Ah_Battle : MonoBehaviour
         }
 
 
-        if (a_PlayerMove.instance.movePoint <= 0)
-        {
-            playerTurn = false;
-        }
-        if (_playerCardUse[0] == true && playerDack[0] >= playerDack.Count)
-        {
-            a_PlayerMove.instance.movePoint += playerDack[0];
-        }
-        if (_playerCardUse[1] == true && playerDack[1] >= playerDack.Count)
-        {
-            a_PlayerMove.instance.movePoint += playerDack[1];
-        }
-        if (_playerCardUse[2] == true && playerDack[2] >= playerDack.Count)
-        {
-            a_PlayerMove.instance.movePoint += playerDack[2];
-        }
+        //if (a_PlayerMove.instance.movePoint <= 0)
+        //{
+        //    playerTurn = false;
+        //}
+        //if (_playerCardUse[0] == true && playerDack[0] >= playerDack.Count)
+        //{
+        //    a_PlayerMove.instance.movePoint += playerDack[0];
+        //}
+        //if (_playerCardUse[1] == true && playerDack[1] >= playerDack.Count)
+        //{
+        //    a_PlayerMove.instance.movePoint += playerDack[1];
+        //}
+        //if (_playerCardUse[2] == true && playerDack[2] >= playerDack.Count)
+        //{
+        //    a_PlayerMove.instance.movePoint += playerDack[2];
+        //}
     }
 
 }

@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skill_Magic_SplittingLightning : TK_AttackSkill
+public class Ah_Skill_Meditate : TK_AttackSkill
 {
-    //모든적에게 피해
     public override void UseSkill(Shy_Player player, EJY_Enemy target)
     {
         base.UseSkill(player, target);
-        //방어력이 있는 적의 수만큼 마나 획득
+        //플레이어 기준 3x3 마법 타일 개수 * 0.5
+        //GetValue(skillLevel, player);
     }
 }
