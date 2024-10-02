@@ -13,11 +13,11 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     private Camera _mainCamera;
 
     private int _currentTileIdx = 24;
+    public bool _isFighting;
 
     private Shy_Tile[] _wasd = new Shy_Tile[4];
 
     private Vector3 _currentPos;
-    [SerializeField] private bool _isFighting;
     [SerializeField] private float _limitDis = 1.2f;
 
     private void Awake()
@@ -25,13 +25,15 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
         _mainCamera = Camera.main;
     }
 
-    private void Start()
+    
+    public void Init()
     {
         _moveManager = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Move>();
         _tileManager = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Tile>();
 
         SetTile();
 
+        Move(_currentTileIdx);
         _currentPos = transform.position;
     }
 
@@ -64,7 +66,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-       float  distance = Vector3.Distance(_currentPos, transform.position);
+       float  distance = Vector2.Distance(_currentPos, transform.position);
 
         if (distance > _limitDis || !CanMove())
         {
@@ -86,7 +88,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
         {
             if(trms is null) continue;
 
-            float dis = Vector3.Distance(transform.position, trms.transform.position);
+            float dis = Vector2.Distance(transform.position, trms.transform.position);
 
             if (dis < min)
             {
@@ -96,7 +98,12 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
         }
 
         if (tileIdx == -1) return;
-        Move(tileIdx);
+
+        if (CanMove())
+        {
+            Move(tileIdx);
+        }
+        
     }
 
     private void SetTile()
@@ -122,15 +129,13 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     {
         if (idx < 0 || idx >= 49) return;
 
-        if (CanMove())
-        {
-            if (_isFighting) _moveManager.movePoint--;
+        if (_isFighting) _moveManager.movePoint--;
 
-            transform.position = _tileManager.tileObjs[idx].transform.position;
-            _currentTileIdx = idx;
-            _currentPos = transform.position;
-            SetTile();
-        }
+        Debug.Log(idx + " / " + _tileManager.tileObjs[idx].transform.position);
+        transform.position = _tileManager.tileObjs[idx].transform.position;
+        _currentTileIdx = idx;
+        _currentPos = transform.position;
+        SetTile();
     }
 
     private bool CanMove()

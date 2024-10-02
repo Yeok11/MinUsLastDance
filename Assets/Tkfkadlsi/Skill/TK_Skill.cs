@@ -28,7 +28,7 @@ public abstract class TK_Skill : MonoBehaviour
         return true;
     }
 
-    public virtual void UseSkill(Shy_Player player, EJY_Enemy target)
+    public virtual void UseSkill()
     {
 
     }
@@ -38,7 +38,7 @@ public abstract class TK_Skill : MonoBehaviour
         skillLevel++;
     }
 
-    protected float GetValue(int level, Shy_Player player)
+    protected float GetValue(int level)
     {
         return skillConst.GetValue(level);
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ah_Skill_Meal : TK_HealingSkill
 {
     private float notMaxHealthEnemy = 0;
-    public override void UseSkill(Shy_Player player, EJY_Enemy target)
+    public override void UseSkill()
     {
         foreach(var e in Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().enemys)
         {
@@ -14,7 +14,6 @@ public class Ah_Skill_Meal : TK_HealingSkill
                 notMaxHealthEnemy++;
             }
         }
-        heal = GetValue(skillLevel, player) * notMaxHealthEnemy;
-        base.UseSkill(player, target);
+        heal = GetValue(skillLevel) * notMaxHealthEnemy;
     }
 }

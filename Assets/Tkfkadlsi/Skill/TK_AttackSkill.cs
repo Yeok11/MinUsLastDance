@@ -16,9 +16,9 @@ public class TK_AttackSkill : TK_Skill
         base.SkillLevelUp();
     }
 
-    public override void UseSkill(Shy_Player player, EJY_Enemy target)
+    public override void UseSkill()
     {
-        base.UseSkill(player, target);
+        base.UseSkill();
     }
 
     protected void Attack(EJY_Enemy target)
