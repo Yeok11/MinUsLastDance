@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Health : MonoBehaviour 
+public class Health : MonoBehaviour
 {
     public float _maxHp;
     public float _currentHp;
@@ -12,6 +12,15 @@ public class Health : MonoBehaviour
     public UnityEvent OnBarrierHitEvent;
     public UnityEvent OnDirectHitEvent;
     public UnityEvent OnDeadEvent;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("ют╥б");
+            OnDirectHitEvent?.Invoke();
+        }
+    }
 
     public void TakeDamage(float damage)
     {
@@ -33,8 +42,8 @@ public class Health : MonoBehaviour
 
     public void GetBarrier(float weightBarrier)
     {
-        if (_currentBarrier > weightBarrier) 
-        return;
+        if (_currentBarrier > weightBarrier)
+            return;
         _currentBarrier = weightBarrier;
     }
 }
