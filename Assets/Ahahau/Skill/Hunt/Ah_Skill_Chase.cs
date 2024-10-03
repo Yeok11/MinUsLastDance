@@ -12,6 +12,6 @@ public class Ah_Skill_Chase : Shy_Skill
         {
             enemyCount++;
         }
-        calculate.GetValue(_skillLv, player)/* + enemyCount*/;
+        calculate.GetValue(_skillLv)/* + enemyCount*/;
     }
 }
