@@ -15,11 +15,9 @@ public class EJD_MorePowerFul : Shy_Skill
     }*/
 
     private Shy_Player player;
-
+    float damage;
     public override void ActSkill(int _skillLv = 1)
     {
-        float damage;
-
         damage = calculate.GetValue(_skillLv) + (player.HealthCompo._maxHp - player.HealthCompo._currentHp) * calculate.GetValue(_skillLv + 3);
     }
 }

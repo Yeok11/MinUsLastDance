@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ah_Skill_SplittingLightning : TK_AttackSkill
+public class Ah_Skill_SplittingLightning : Shy_Skill
 {
-    //모든적에게 피해
-    public override void UseSkill()
+    [SerializeField]private Shy_Player player;
+    public override void ActSkill(int _skillLv = 1)
     {
-        //방어력이 있는 적의 수만큼 마나 획득
-        //if(target._barrier < 0)
-        //{
-        //    damage++;
-        //}
+        calculate.GetValue(_skillLv,player);
     }
 }

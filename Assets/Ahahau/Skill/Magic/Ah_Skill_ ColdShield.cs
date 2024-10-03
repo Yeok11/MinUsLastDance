@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ah_Skill_ColdShield : TK_BuffSkill
+public class Ah_Skill_ColdShield : Shy_Skill
 {
-    public override void UseSkill()
+    [SerializeField]private Shy_Player player;
+    public override void ActSkill(int _skillLv = 1)
     {
-        //다음 턴까지 데미지를 입지않음
+        calculate.GetValue(_skillLv, player);
     }
 }

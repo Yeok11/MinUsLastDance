@@ -6,7 +6,7 @@ public class Shy_Skill_Apple : Shy_Skill
 {
     public override void ActSkill(int _skillLv)
     {
-        Debug.Log("»ç°ú°¡ ÁÁ¾Æ~");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½~");
         Debug.Log(calculate.GetValue(_skillLv).ToString());
     }
 }

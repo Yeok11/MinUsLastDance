@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ah_Skill_Chase : TK_AttackSkill
+public class Ah_Skill_Chase : Shy_Skill
 {
-    public override void UseSkill()
+    [SerializeField]private Shy_Player player;
+    public override void ActSkill(int _skillLv = 1)
     {
         float enemyCount = 0;
         foreach (var e in Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().enemys)
         {
             enemyCount++;
         }
-        damage = GetValue(skillLevel) + enemyCount;
+        calculate.GetValue(_skillLv, player)/* + enemyCount*/;
     }
 }

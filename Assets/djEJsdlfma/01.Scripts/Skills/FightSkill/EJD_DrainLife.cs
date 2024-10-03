@@ -20,5 +20,9 @@ public class EJD_DrainLife : Shy_Skill
     public override void ActSkill(int _skillLv)
     {
         calculate.GetValue(_skillLv);
+        if (target.HealthCompo._currentHp <= 0)
+        {
+            player.HealthCompo._currentHp += 123;
+        }
     }
 }

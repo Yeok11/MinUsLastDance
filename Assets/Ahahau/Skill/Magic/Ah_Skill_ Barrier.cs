@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ah_Skill_Barrier : TK_BuffSkill
+public class Ah_Skill_Barrier : Shy_Skill
 {
-    public override void UseSkill()
+    [SerializeField]private Shy_Player player;
+    public override void ActSkill(int _skillLv = 1)
     {
-        base.UseSkill(player, target);
+        calculate.GetValue(_skillLv, player);
         player.HealthCompo._addBarrier += 3;
     }
 }
