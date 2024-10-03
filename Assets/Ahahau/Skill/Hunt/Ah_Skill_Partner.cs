@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ah_Skill_Partner : TK_AttackSkill
+public class Ah_Skill_Partner : Shy_Skill
 {
-    public override void UseSkill()
+    [SerializeField]private Shy_Player player;
+    public override void ActSkill(int _skillLv = 1)
     {
-        //헌트 스택 1추가
+        calculate.GetValue(_skillLv, player);
     }
 }
