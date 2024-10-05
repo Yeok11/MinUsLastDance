@@ -8,6 +8,12 @@ public class Shy_Manager_Enemy : MonoBehaviour
     [SerializeField] private List<EJY_Enemy> enemyPrefabs;
     [SerializeField] private List<EJY_Enemy> bossPrefabs;
     [SerializeField] private Transform[] enemyPos = { };
+    internal Shy_Manager_Turn smt;
+
+    public EJY_Enemy ChangeRandomTarget()
+    {
+        return smt.enemys[Random.Range(0, smt.enemys.Count)];
+    }
 
     public List<EJY_Enemy> SetEnemy(int _value = 1, bool _isBoss = false)
     {

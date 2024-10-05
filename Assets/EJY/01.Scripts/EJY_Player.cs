@@ -8,15 +8,15 @@ using UnityEngine.Purchasing;
 
 public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
 {
-    private Shy_Manager_Move _moveManager;
-    private Shy_Manager_Tile _tileManager;
+    internal Shy_Manager_Move _moveManager; //moveManagerø°º≠ ≥÷æÓ¡‹
+    internal Shy_Manager_Tile _tileManager;
     private Camera _mainCamera;
 
-    private int _currentTileIdx = 24;
+    internal int _currentTileIdx = 24;
     public bool _isFighting;
 
     private Shy_Tile[] _wasd = new Shy_Tile[4];
-    private List<Shy_Tile> _moved;
+    internal List<Shy_Tile> _moved;
 
     private Vector3 _currentPos;
     [SerializeField] private float _limitDis = 1.2f;
@@ -31,7 +31,6 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     
     public void Init()
     {
-        _moveManager = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Move>();
         _tileManager = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Tile>();
 
         SetTile();
@@ -148,15 +147,15 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
 
         if (CanMove(idx))
         {
-            if (_isFighting)
-                _moveManager.movePoint--;
             if (isAdd)
                 _moved.Add(tile);
-            if (_moveManager.movePoint <= 0) _moved.Clear();
 
             _currentPos = tile.transform.position;
             _currentTileIdx = idx;
             transform.position = _currentPos;
+
+            if (_isFighting)
+                _moveManager.Move();
             SetTile();
         }
     }

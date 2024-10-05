@@ -25,13 +25,13 @@ public class Shy_Manager_Move : MonoBehaviour
     [Header("≈ÿΩ∫∆Æ")]
     [SerializeField] private TextMeshProUGUI text_actionPoint;
     [SerializeField] private TextMeshProUGUI text_movePoint;
-    private Shy_Player player;
-
+    private EJY_Player player;
 
 
     private void Awake()
     {
-        player = FindObjectOfType<Shy_Player>();
+        player = FindObjectOfType<EJY_Player>();
+        player._moveManager = this;
         ActionPoint = maxActionPoint;
     }
 
@@ -46,7 +46,10 @@ public class Shy_Manager_Move : MonoBehaviour
         movePoint -= 1;
         Update_PointSign();
 
-        //if(movePoint == 0)
-        //    player.
+        if (movePoint == 0)
+        {
+            player._tileManager.tileObjs[player._currentTileIdx].ActTile();
+            player._moved.Clear();
+        }
     }
 }

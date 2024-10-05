@@ -19,6 +19,6 @@ public class EJD_PowerSlash : Shy_Skill
     public override void ActSkill(int _skillLv)
     {
         calculate.GetValue(_skillLv);
-        tileReset.SettingTile();
+        tileReset.ResetTile();
     }
 }

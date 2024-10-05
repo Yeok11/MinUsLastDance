@@ -16,7 +16,7 @@ public enum COUNT_STACK_TYPE
 public class TK_SkillConst
 {
     public COUNT_STACK_TYPE UseStack = COUNT_STACK_TYPE.NONE;
-    [Header("N(player)를 사용하면 스택 값을 가져올 수 있다.")]public List<string> ValueFormula = new List<string>(3);
+    [Header("N()를 사용하면 스택 값을 가져올 수 있다.")]public List<string> ValueFormula = new List<string>(3);
 
     private DataTable dt = new DataTable();
 
@@ -37,11 +37,11 @@ public class TK_SkillConst
         return 0;
     }
 
-    public float GetValue(int skillLevel)
+    public float GetValue(int skillLevel = 1)
     {
         string formula = ValueFormula[skillLevel - 1];
 
-        formula = formula.Replace("N(player)", N().ToString());
+        formula = formula.Replace("N()", N().ToString());
         formula = formula.Replace("f", "");
         Debug.Log(formula);
 

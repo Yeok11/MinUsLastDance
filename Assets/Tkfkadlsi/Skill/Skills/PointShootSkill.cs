@@ -13,6 +13,6 @@ public class PointShootSkill : TK_AttackSkill
         Debug.Log(damage);
 
 
-        Targetting._target.HealthCompo.TakeDamage(damage);
+        //Targetting._target.HealthCompo.TakeDamage(damage);
     }
 }

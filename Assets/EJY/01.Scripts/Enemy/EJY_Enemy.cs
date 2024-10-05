@@ -1,6 +1,8 @@
 using EJY;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using static PlayerTargetting;
 
 [RequireComponent(typeof(Health))]
@@ -15,6 +17,12 @@ public class EJY_Enemy : Shy_Character, IPointerClickHandler
     [SerializeField] protected EnemyStatSO _enemyStat;
     internal EnemyStatSO stat;
 
+    [SerializeField] private TextMeshProUGUI hp;
+    [SerializeField] private Image guage;
+    [SerializeField] private Image nextSkillSign;
+
+    [SerializeField] private int useSkillNum;
+
     protected virtual void Awake()
     {
         HealthCompo = GetComponent<Health>();
@@ -28,6 +36,7 @@ public class EJY_Enemy : Shy_Character, IPointerClickHandler
     
     private void Initialize()
     {
+        #region Ω∫≈»
         stat = ScriptableObject.CreateInstance<EnemyStatSO>();
 
         stat.atkFormula = _enemyStat.atkFormula;
@@ -46,19 +55,51 @@ public class EJY_Enemy : Shy_Character, IPointerClickHandler
 
         HealthCompo._maxHp = stat._hp;
         HealthCompo._currentHp = stat._hp;
+
+        hp = transform.Find("Bar").GetComponentInChildren<TextMeshProUGUI>();
+        guage = transform.Find("Bar").Find("Guage").GetComponent<Image>();
+        nextSkillSign = transform.Find("Icon").GetComponent<Image>();
+
+        Health playerHealth = FindObjectOfType<Shy_Player>().GetComponent<Health>();
+        #endregion
+
+        for (int i = 0; i < _enemySkill.Length; i++)
+        {
+            _enemySkill[i]._enemyStatSO = stat;
+            _enemySkill[i]._playHealth = playerHealth;
+        }
+
+        SetNextSkill();
     }
 
     private void Update()
     {
+        hp.text = HealthCompo._currentHp + " / " + HealthCompo._maxHp;
+        guage.fillAmount = HealthCompo._currentHp / HealthCompo._maxHp;
+    }
+
+    public void SetNextSkill()
+    {
+        useSkillNum = Random.Range(0, _enemySkill.Length);
+        nextSkillSign.gameObject.SetActive(true);
+        nextSkillSign.sprite = _enemySkill[useSkillNum].icon;
     }
 
     public void EnemyAction()
     {
-
+        _enemySkill[useSkillNum].UseSkill();
+        nextSkillSign.gameObject.SetActive(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         SelectTarget(this);
+    }
+
+    public void Dead()
+    {
+        Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().enemys.Remove(this);
+        PlayerTargetting.AutoEnemySet();
+        Destroy(gameObject);
     }
 }

@@ -2,6 +2,7 @@ using EJY;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shy_Manager_Turn : MonoBehaviour
 {
@@ -11,20 +12,24 @@ public class Shy_Manager_Turn : MonoBehaviour
     public List<EJY_Enemy> enemys;
     public List<InvolvedSkillData_SO> tileEventByEnemy;
 
+    [SerializeField] private Image targetIcon;
+
     private EJY_Player _player;
 
     private void Awake()
     {
         _player = FindObjectOfType<EJY_Player>();
+
+        manager_E = transform.parent.GetComponentInChildren<Shy_Manager_Enemy>();
+        manager_E.smt = this;
+        manager_D = transform.parent.GetComponentInChildren<Shy_Manager_Dice>();
     }
 
     public void Start()
     {
-        manager_E = transform.parent.GetComponentInChildren<Shy_Manager_Enemy>();
-        manager_D = transform.parent.GetComponentInChildren<Shy_Manager_Dice>();
-        //enemys = manager_E.SetEnemy(4); //에너미 소환
+        enemys = manager_E.SetEnemy(2); //에너미 소환
+
         SetEnemyOrder();
-        PlayerTurnStart();
         StartCoroutine(Delay());
     }
 
@@ -39,6 +44,11 @@ public class Shy_Manager_Turn : MonoBehaviour
         manager_D.AllDiceRoll();
         _player.Init();
         _player._isFighting = true;
+        PlayerTargetting.targetImg = Instantiate(targetIcon);
+
+        PlayerTargetting.AutoEnemySet();
+
+        PlayerTurnStart();
     }
 
 
@@ -61,12 +71,29 @@ public class Shy_Manager_Turn : MonoBehaviour
     public void PlayerTurnEnd()
     {
         Debug.Log("플레이어 턴 종료");
+
+
+        //타일 초기화
+        _player._tileManager.UsedTileUpdate();
+        
+        
+        //에너미 턴 시작
+        StartCoroutine(EnemyTurnStart());
     }
 
     private IEnumerator EnemyTurnStart()
     {
+        yield return new WaitForSeconds(3f);
+
         Debug.Log("에너미 턴 시작");
         ActionEnemyTileSkills();
+
+        yield return new WaitForSeconds(5f);
+
+        for (int i = 0; i < enemys.Count; i++)
+        {
+            enemys[i].EnemyAction();
+        }
 
         yield return new WaitForSeconds(5f);
 

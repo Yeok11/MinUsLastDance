@@ -11,5 +11,11 @@ public abstract class Shy_Skill : MonoBehaviour
 
     public TK_SkillConst calculate;
 
+    public void Attack(int _damage, Health _targetHealth)
+    {
+        _targetHealth.TakeDamage(_damage);
+        Debug.Log("value : " + _damage);
+    }
+
     public abstract void ActSkill(int _skillLv = 1);
 }

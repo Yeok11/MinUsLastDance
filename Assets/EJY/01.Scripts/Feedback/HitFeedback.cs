@@ -8,11 +8,12 @@ public class HitFeedback : Feedback
 {
     [SerializeField] private float _duration;
     [SerializeField] private Color _hitColor;
+    [SerializeField] ParticleSystem particle;
     private Image _enemyImage;
 
     private void Awake()
     {
-        _enemyImage = FindObjectOfType<Image>().GetComponent<Image>();
+        _enemyImage = GetComponent<Image>();
     }
 
     public override void PlayFeedback()
@@ -23,6 +24,8 @@ public class HitFeedback : Feedback
     private IEnumerator HitFeedbackCoroutine()
     {
         float currentTime = 0;
+
+        particle.Play();
 
         while (currentTime < _duration)
         {

@@ -6,8 +6,10 @@ namespace EJY
 {
     public abstract class Skill : MonoBehaviour
     {
-        protected Health _playHealth;
-        protected EnemyStatSO _enemyStatSO;
+        public Health _playHealth;
+        public EnemyStatSO _enemyStatSO;
+
+        public Sprite icon;
 
         protected virtual void Awake()
         {

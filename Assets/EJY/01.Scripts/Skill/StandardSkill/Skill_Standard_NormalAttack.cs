@@ -13,6 +13,8 @@ namespace EJY
 
         public override void UseSkill()
         {
+            Debug.Log(_enemyStatSO);
+            Debug.Log(_playHealth);
             float addDamage = _enemyStatSO._level * 1.6f;
             _playHealth.TakeDamage(_enemyStatSO._damage + addDamage);
         }
