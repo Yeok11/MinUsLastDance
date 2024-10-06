@@ -165,9 +165,29 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
         if (_isFighting)
         {
             if (idx == _currentTileIdx) return true;
+
+            if (!CheckWASD(idx)) return false;
+
             return _moveManager.movePoint > 0 && !(_moved.Contains(_tileManager.tileObjs[idx]));
         }
 
         return true;
+    }
+
+    private bool CheckWASD(int idx)
+    {
+        if (!(idx - 7 < 0))
+            if (!_moved.Contains(_tileManager.tileObjs[idx - 7])) return true;
+
+        if (!((idx - 1) % 7 == 6 && idx % 7 == 0))
+            if (!_moved.Contains(_tileManager.tileObjs[idx - 1])) return true;
+
+        if (!(idx + 7 > 49))
+            if (!_moved.Contains(_tileManager.tileObjs[idx + 7])) return true;
+
+        if (!((idx + 1) % 7 == 0 && idx % 7 == 6))
+            if (!_moved.Contains(_tileManager.tileObjs[idx + 1])) return true;
+
+        return false;
     }
 }
