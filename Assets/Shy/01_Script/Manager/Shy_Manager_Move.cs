@@ -50,6 +50,13 @@ public class Shy_Manager_Move : MonoBehaviour
         {
             player._tileManager.tileObjs[player._currentTileIdx].ActTile();
             player._moved.Clear();
+
+            foreach (GameObject item in player.mark)
+            {
+                Destroy(item);
+            }
+
+            player.mark.Clear();
         }
     }
 }

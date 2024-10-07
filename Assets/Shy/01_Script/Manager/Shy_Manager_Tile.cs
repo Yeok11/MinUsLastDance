@@ -33,7 +33,20 @@ public class Shy_Manager_Tile : MonoBehaviour
         {
             Debug.Log(_targetTile.gameObject.name + "에 스크립트 주입 성공");
             ChangeTileSkill(_targetTile, tileSOList[skillNum]);
-            _targetTile.Setting();
+        }
+        StartCoroutine(RollAnime(_targetTile));
+    }
+
+    private IEnumerator RollAnime(Shy_Tile tile)
+    {
+        tile.transform.rotation = Quaternion.Euler(0, 0, 0);
+        int rot = 0;
+        while (rot <= 720)
+        {
+            if (rot == 180 && tile.skillData != null) tile.Setting();
+            tile.transform.rotation = Quaternion.Euler(0, rot, 0);
+            rot += 10;
+            yield return new WaitForSeconds(0.005f);
         }
     }
 

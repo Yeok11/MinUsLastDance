@@ -37,6 +37,7 @@ public class Shy_Manager_Turn : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         Init();
+        StartCoroutine(Shy_SceneMove.instance.OpenScene());
     }
 
     private void Init()

@@ -52,17 +52,17 @@ public class Shy_SceneMove : MonoBehaviour
 
         while (blackEffect.color.a > 0)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.15f);
             blackEffect.color -= new Color(0,0,0,0.1f);
         }
 
-        while (volume.weight != 0)
+        while (volume.weight <= 0)
         {
             yield return new WaitForSeconds(0.1f);
             volume.weight -= 0.1f;
         }
+
         blackEffect.gameObject.SetActive(false);
         volume.gameObject.SetActive(false);
-
     }
 }
