@@ -15,6 +15,6 @@ MonoBehaviour:
   tileName: "\uC2DD\uC0AC"
   effect: {fileID: 6413483283016063755, guid: 215a7290bf29b0c44963c92a86d95920, type: 3}
   image: {fileID: 21300000, guid: 07c4e70bbba0b1542b5444ff2adaa104, type: 3}
-  skillLevel: 0
+  skillLevel: 1
   thema: 2
   valueFormula: 

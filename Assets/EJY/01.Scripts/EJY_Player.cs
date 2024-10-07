@@ -18,6 +18,9 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     private Shy_Tile[] _wasd = new Shy_Tile[4];
     internal List<Shy_Tile> _moved;
 
+    internal List<GameObject> mark = new List<GameObject>();
+    [SerializeField] private GameObject movedPrefab;
+
     private Vector3 _currentPos;
     [SerializeField] private float _limitDis = 1.2f;
 
@@ -148,7 +151,12 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
         if (CanMove(idx))
         {
             if (isAdd)
+            {
                 _moved.Add(tile);
+                GameObject g = Instantiate(movedPrefab, tile.transform);
+                g.transform.position = g.transform.parent.position;
+                mark.Add(g);
+            }
 
             _currentPos = tile.transform.position;
             _currentTileIdx = idx;

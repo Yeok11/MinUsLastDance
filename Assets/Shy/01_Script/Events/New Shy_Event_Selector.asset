@@ -28,7 +28,7 @@ MonoBehaviour:
   - mes: "\uBB34\uC791\uC704 \uC0AC\uB0E5\uAFBC \uCE74\uB4DC\uB97C \uC5BB\uB294\uB2E4."
     type: 1
     data:
-    - objSO: {fileID: 0}
+    - objSO: {fileID: 11400000, guid: 115782ebe48e61343b234496b533fc61, type: 2}
       value: 0
       per: 70
     - objSO: {fileID: 0}
