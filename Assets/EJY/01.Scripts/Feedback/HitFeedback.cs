@@ -16,7 +16,7 @@ public class HitFeedback : Feedback
         _enemyImage = GetComponent<Image>();
     }
 
-    public override void PlayFeedback()
+    public override void PlayFeedback(float damage)
     {
         StartCoroutine(HitFeedbackCoroutine());
     }

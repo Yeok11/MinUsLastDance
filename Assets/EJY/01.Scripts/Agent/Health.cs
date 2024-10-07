@@ -2,26 +2,24 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using DG.Tweening;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _damageText;
-
     public float _maxHp;
     public float _currentHp;
 
     public float _currentBarrier = 0;
 
     public UnityEvent OnBarrierHitEvent;
-    public UnityEvent OnDirectHitEvent;
+    public UnityEvent<float> OnDirectHitEvent;
     public UnityEvent OnDeadEvent;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("ют╥б");
-            OnDirectHitEvent?.Invoke();
+            TakeDamage(150);
         }
     }
 
@@ -34,7 +32,7 @@ public class Health : MonoBehaviour
             if (_currentBarrier < 0) _currentHp += _currentBarrier;
         }
 
-        OnDirectHitEvent?.Invoke();
+        OnDirectHitEvent?.Invoke(damage);
         _currentHp -= damage;
 
         if (_currentHp <= 0)
@@ -48,12 +46,5 @@ public class Health : MonoBehaviour
         if (_currentBarrier > weightBarrier)
             return;
         _currentBarrier = weightBarrier;
-    }
-
-    private void ShowDamageText(float damage)
-    {
-        _damageText.gameObject.SetActive(true);
-        _damageText.text = damage.ToString();
-
     }
 }
