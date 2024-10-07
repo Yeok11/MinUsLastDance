@@ -1,13 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shy_Player : Shy_Character
 {
     public Shy_Stack_Cnt hunt;
     public Shy_Stack_Cnt mana;
     [SerializeField] private Transform stackPos;
-    
+    private Health health;
+    [SerializeField] private TextMeshProUGUI tmp;
+    [SerializeField] private Image bar;
+
+    private void Start()
+    {
+        health = GetComponent<Health>();
+    }
+
+    private void Update()
+    {
+        tmp.text = health._currentHp + " / " + health._maxHp;
+        bar.fillAmount = health._currentHp / health._maxHp;
+    }
+
 
     public void SetStack(COUNT_STACK_TYPE _type, int _value)
     {

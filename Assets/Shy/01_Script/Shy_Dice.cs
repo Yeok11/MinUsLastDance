@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class Shy_Dice : MonoBehaviour, IPointerClickHandler
 {
@@ -48,9 +47,22 @@ public class Shy_Dice : MonoBehaviour, IPointerClickHandler
         {
             value = 1;
         }
-
-        UpdateText();
+        StartCoroutine(RollAnime());  
     }
+
+    private IEnumerator RollAnime()
+    {
+        transform.rotation = Quaternion.Euler(0,0,0);
+        int rot = 0;
+        while (rot <= 360)
+        {
+            if (rot == 180) UpdateText();
+            transform.rotation = Quaternion.Euler(0, rot, rot);
+            rot += 5;
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+    
 
     public void OnPointerClick(PointerEventData eventData)
     {

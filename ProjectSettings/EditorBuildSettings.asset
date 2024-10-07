@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Shy/00_Scene/Shy_Basic.unity
+    guid: 098ebc8e6dbc5d24f890c5d830bc1a65
   m_configObjects: {}

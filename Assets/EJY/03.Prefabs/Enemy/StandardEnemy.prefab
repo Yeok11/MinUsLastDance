@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3098681931142541204}
   - component: {fileID: 3566990003377776719}
   - component: {fileID: 965541644780484645}
-  - component: {fileID: 5887759871587987947}
   - component: {fileID: 4567607280008819795}
   - component: {fileID: 4893680127378964383}
   - component: {fileID: 6595711215373091478}
@@ -109,23 +108,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &5887759871587987947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1842740330565055822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3973d9cf91c46f4a9925c71653ac968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playHealth: {fileID: 0}
-  _enemyStatSO: {fileID: 0}
-  icon: {fileID: 21300000, guid: e1fa275171bf3564b9f488da743df039, type: 3}
-  effectStackPrefab: {fileID: 0}
-  countStackPrefab: {fileID: 0}
 --- !u!114 &4567607280008819795
 MonoBehaviour:
   m_ObjectHideFlags: 0

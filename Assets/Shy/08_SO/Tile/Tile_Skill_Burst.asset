@@ -15,6 +15,8 @@ MonoBehaviour:
   tileName: "\uC9D1\uC911 \uC0AC\uACA9"
   effect: {fileID: 7198024553760401286, guid: 31e17d8f4ca73354da33844e96f031f2, type: 3}
   image: {fileID: 21300000, guid: 0ec88ddb604ef3f4dabcdfe384352935, type: 3}
-  skillLevel: 0
+  skillLevel: 1
   thema: 2
-  valueFormula: 
+  valueFormula: "\uC9C0\uC815\uD55C \uC801\uC5D0\uAC8C N\uC758 \uD53C\uD574\uB97C
+    \uC90D\uB2C8\uB2E4. \uB9CC\uC57D \uCC98\uCE58\uD588\uC73C\uBA74 \uC2A4\uD0DD\uC744
+    1\uC5BB\uC2B5\uB2C8\uB2E4."
