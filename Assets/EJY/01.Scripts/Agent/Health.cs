@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI _damageText;
+
     public float _maxHp;
     public float _currentHp;
 
@@ -45,5 +48,12 @@ public class Health : MonoBehaviour
         if (_currentBarrier > weightBarrier)
             return;
         _currentBarrier = weightBarrier;
+    }
+
+    private void ShowDamageText(float damage)
+    {
+        _damageText.gameObject.SetActive(true);
+        _damageText.text = damage.ToString();
+
     }
 }
