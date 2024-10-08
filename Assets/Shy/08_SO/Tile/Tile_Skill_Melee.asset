@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 524a7e4351f6d694da537ca3fa29d10a, type: 3}
-  m_Name: Tile_Skill_Shoot
+  m_Name: Tile_Skill_Melee
   m_EditorClassIdentifier: 
-  tileName: "\uC0AC\uACA9"
-  effect: {fileID: 6413483283016063755, guid: 215a7290bf29b0c44963c92a86d95920, type: 3}
-  image: {fileID: 21300000, guid: 2e5f1e4498713584292db1542a8fcbd0, type: 3}
+  tileName: "\uB09C\uD22C"
+  effect: {fileID: -2823117540444721121, guid: 8dd3c715ae6069746ba0135cec3bde64, type: 3}
+  image: {fileID: 21300000, guid: f90e4cced6b64fd489543231b7a0c6f0, type: 3}
   skillLevel: 1
-  thema: 2
+  thema: 1
   valueFormula: 
