@@ -1,26 +1,24 @@
 using DG.Tweening;
+using GGMPool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class DamageTextFeedback : Feedback
 {
-    [SerializeField] private TextMeshProUGUI _damageText;
-    private Sequence sq;
+    [SerializeField] private PoolTypeSO _poolType;
 
-    private void OnEnable()
+    private PoolManagerMono _poolManager;
+
+    private void Awake()
     {
-        sq = DOTween.Sequence();
+        _poolManager = Shy_Manager.instance.GetComponentInChildren<PoolManagerMono>();
     }
 
     public override void PlayFeedback(float damage)
     {
-            _damageText.gameObject.SetActive(true);
-            _damageText.text = damage.ToString();
-
-            sq.Append(transform.DOMoveY(transform.localPosition.y + 1, 1.5f)).
-                Join(transform.DOShakePosition(1.5f, 2.5f, 1, 0));
+        DamageText damageText = _poolManager._poolManagerSO.Pop(_poolType) as DamageText;
+        damageText.Show(damage, transform.parent);
     }
 
     public override void StopFeedback()

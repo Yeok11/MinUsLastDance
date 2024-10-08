@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            TakeDamage(150);
+            TakeDamage(1);
         }
     }
 
@@ -33,6 +33,7 @@ public class Health : MonoBehaviour
         }
 
         OnDirectHitEvent?.Invoke(damage);
+        
         _currentHp -= damage;
 
         if (_currentHp <= 0)

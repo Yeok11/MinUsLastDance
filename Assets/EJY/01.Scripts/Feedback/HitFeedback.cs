@@ -8,13 +8,8 @@ public class HitFeedback : Feedback
 {
     [SerializeField] private float _duration;
     [SerializeField] private Color _hitColor;
-    [SerializeField] ParticleSystem particle;
-    private Image _enemyImage;
-
-    private void Awake()
-    {
-        _enemyImage = GetComponent<Image>();
-    }
+    [SerializeField] private ParticleSystem particle;
+    [SerializeField] private Image _enemyImage;
 
     public override void PlayFeedback(float damage)
     {

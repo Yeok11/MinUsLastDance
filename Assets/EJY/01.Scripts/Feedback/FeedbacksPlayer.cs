@@ -13,9 +13,9 @@ public class FeedbacksPlayer : MonoBehaviour
 
     public void FeedbacksPlay(float damage)
     {
-        Debug.Log("피드백 실행");
         FeedbacksStop();
         _feedbacks.ForEach(feedback => feedback.PlayFeedback(damage));
+        
     }
 
     public void FeedbacksStop()
