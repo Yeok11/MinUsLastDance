@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 524a7e4351f6d694da537ca3fa29d10a, type: 3}
-  m_Name: Tile_Skill_Shoot
+  m_Name: Tile_Skill_Bandage
   m_EditorClassIdentifier: 
-  tileName: "\uC0AC\uACA9"
-  effect: {fileID: 6413483283016063755, guid: 215a7290bf29b0c44963c92a86d95920, type: 3}
-  image: {fileID: 21300000, guid: 2e5f1e4498713584292db1542a8fcbd0, type: 3}
+  tileName: "\uBD95\uB300"
+  effect: {fileID: 6433022118547003789, guid: f3ba8b9416d5a1240afffbc8c3dc8c18, type: 3}
+  image: {fileID: 21300000, guid: d80a48a4427146e4da45fe2685648b14, type: 3}
   skillLevel: 1
-  thema: 2
+  thema: 1
   valueFormula: 
