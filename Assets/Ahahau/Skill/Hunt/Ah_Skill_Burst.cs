@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Ah_Skill_Burst : Shy_Skill
 {
-    [SerializeField] private Shy_Player player;
-
     public override void ActSkill(int _skillLv = 1)
     {
-        calculate.GetValue(_skillLv, player);
+        int damage = Mathf.RoundToInt(calculate.GetValue(_skillLv));
+        if(PlayerTargetting._target.HealthCompo._currentBarrier + PlayerTargetting._target.HealthCompo._currentHp <= damage)
+        {
+            FindObjectOfType<Shy_Player>().SetStack(COUNT_STACK_TYPE.HUNT, 1);
+        }
+        Attack(damage, PlayerTargetting._target.HealthCompo);
     }
 }

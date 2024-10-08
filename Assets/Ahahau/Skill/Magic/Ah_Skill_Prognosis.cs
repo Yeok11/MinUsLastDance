@@ -8,6 +8,6 @@ public class Ah_Skill_Prognosis : Shy_Skill
     public override void ActSkill(int _skillLv = 1)
     {
         //두명의 적에게 피해 입힘
-        calculate.GetValue(_skillLv,player);
+        calculate.GetValue(_skillLv);
     }
 }

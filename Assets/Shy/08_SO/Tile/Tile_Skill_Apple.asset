@@ -15,3 +15,6 @@ MonoBehaviour:
   tileName: Apple
   effect: {fileID: 982365012620472126, guid: 242cd0c61ab4930488552314d34ee291, type: 3}
   image: {fileID: 21300000, guid: 7b70c90f5fb7ee54b9d3dd862c3123c9, type: 3}
+  skillLevel: 1
+  thema: 0
+  valueFormula: "\uCCB4\uB825\uC744 3 \uD68C\uBCF5\uD569\uB2C8\uB2E4."

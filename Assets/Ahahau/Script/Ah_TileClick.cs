@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.Windows;
 
-public class Ah_TileClick : MonoBehaviour, IPointerClickHandler
+public class Ahahau_TileClick : MonoBehaviour, IPointerClickHandler
 {
     public int _tileNum;
     public Ah_PlayerMove _playerMove;

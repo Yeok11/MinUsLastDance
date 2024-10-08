@@ -8,41 +8,50 @@ using UnityEngine.UI;
 public class Shy_Tile : MonoBehaviour, IPointerClickHandler
 {
     public Shy_TileSO skillData;
-    public Skilldata_SO enemySkillData;
+    public InvolvedSkillData_SO enemySkillData;
     internal Shy_Manager_Tile tileManager;
 
-    public void UpdateImage()
+    public void Setting()
     {
         Image childImg = transform.GetChild(0).GetComponent<Image>();
 
-        if (childImg.sprite != null)
-            childImg.sprite = null;
+        childImg.sprite = null;
 
         if (skillData != null)
+        {
+            childImg.gameObject.SetActive(true);
             childImg.sprite = skillData.image;
+        }
+            
     }
 
-    public void SettingTile()
+    public void ResetTile()
     {
         Debug.Log(gameObject.name + "타일 리셋");
-        tileManager.TileSetting(this);
+        transform.GetChild(0).gameObject.SetActive(false);
+        tileManager.usedTiles.Add(this);
+        tileManager.tileSOList.Add(skillData);
+        skillData = null;
     }
 
-    private void ActTile()
+    public void ActTile()
     {
-        if (skillData == null)
+        Debug.Log(gameObject.name + " 작동");
+
+        if(skillData != null)
         {
-            Debug.Log("skill이 없습니다.");
-            return;
+            skillData.effect.ActSkill();
         }
 
-        skillData.effect.ActSkill();
-        SettingTile();
+        tileManager.smd.DataUpdate(null);
+        ResetTile();
     }
 
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        ActTile();   
+        //if (skillData != null)
+        //    skillData.effect.ActSkill();
+        tileManager.smd.DataUpdate(skillData);
     }
 }

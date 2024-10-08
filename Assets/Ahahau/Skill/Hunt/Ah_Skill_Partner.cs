@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Ah_Skill_Partner : Shy_Skill
 {
-    [SerializeField]private Shy_Player player;
     public override void ActSkill(int _skillLv = 1)
     {
-        calculate.GetValue(_skillLv, player);
+        FindObjectOfType<Shy_Player>().SetStack(COUNT_STACK_TYPE.HUNT, 1);
+        int damage = Mathf.RoundToInt(calculate.GetValue(_skillLv));
+        Attack(damage, Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Enemy>().ChangeRandomTarget().HealthCompo);
     }
 }

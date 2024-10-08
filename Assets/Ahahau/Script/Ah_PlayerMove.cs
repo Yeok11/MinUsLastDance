@@ -11,7 +11,7 @@ public class Ah_PlayerMove : MonoBehaviour, IPointerDownHandler, IDragHandler, I
     private bool _dragEnd = false;
     private int playerCurPos;
     public int _movePoint;
-    [SerializeField] private List<Ah_TileClick> _boardImages = new List<Ah_TileClick>();
+    [SerializeField] private List<Ahahau_TileClick> _boardImages = new List<Ahahau_TileClick>();
     private Vector2 _playerKeyInput;
     private Vector3 _playerFirstPos;
     private void Start()

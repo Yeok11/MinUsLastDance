@@ -1,22 +1,26 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
+using DG.Tweening;
 
-public class Health : MonoBehaviour 
+public class Health : MonoBehaviour
 {
     public float _maxHp;
     public float _currentHp;
 
-    public float _addBarrier;
-    public float _currentBarrier;
+    public float _currentBarrier = 0;
 
     public UnityEvent OnBarrierHitEvent;
-    public UnityEvent OnDirectHitEvent;
+    public UnityEvent<float> OnDirectHitEvent;
     public UnityEvent OnDeadEvent;
 
-    public void ResetHealth()
+    private void Update()
     {
-        _currentHp = _maxHp;
-        _currentBarrier = 0;
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TakeDamage(1);
+        }
     }
 
     public void TakeDamage(float damage)
@@ -28,12 +32,20 @@ public class Health : MonoBehaviour
             if (_currentBarrier < 0) _currentHp += _currentBarrier;
         }
 
-        OnDirectHitEvent?.Invoke();
+        OnDirectHitEvent?.Invoke(damage);
+        
         _currentHp -= damage;
 
         if (_currentHp <= 0)
         {
             OnDeadEvent?.Invoke();
         }
+    }
+
+    public void GetBarrier(float weightBarrier)
+    {
+        if (_currentBarrier > weightBarrier)
+            return;
+        _currentBarrier = weightBarrier;
     }
 }

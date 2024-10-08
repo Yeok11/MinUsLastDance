@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5683286, g: 0.6981132, b: 0.17343053, a: 1}
+  m_Color: {r: 0.15555145, g: 0.8302253, b: 0.899371, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -88,6 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8867c184d664c4fb600a3ec25d0164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackName: 
-  obj: {fileID: 0}
+  stackName: MANA
+  stackSprite: {fileID: 0}
   count: 0

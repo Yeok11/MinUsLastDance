@@ -15,8 +15,7 @@ public class TK_HealingSkill : TK_Skill
         base.SkillLevelUp();
     }
 
-    public override void UseSkill(Shy_Player player, EJY_Enemy target)
+    public override void UseSkill()
     {
-        base.UseSkill(player, target);
     }
 }

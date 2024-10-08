@@ -6,10 +6,12 @@ namespace EJY
 {
     public abstract class Skill : MonoBehaviour
     {
-        protected Health _playHealth;
-        protected EnemyStatSO _enemyStatSO;
+        public Health _playHealth;
+        public EnemyStatSO _enemyStatSO;
 
-        private void Awake()
+        public Sprite icon;
+
+        protected virtual void Awake()
         {
             _playHealth = FindObjectOfType<Shy_Player>().GetComponent<Health>();
             _enemyStatSO = GetComponentInParent<EJY_Enemy>().stat;
@@ -18,6 +20,6 @@ namespace EJY
 
         public abstract bool CanUseSkill();
 
-        public abstract void SkillEffect();
+        public abstract void UseSkill();
     }
 }

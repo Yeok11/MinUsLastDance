@@ -5,7 +5,8 @@ using UnityEngine;
 public enum STACKACTION_TYPE
 {
     ATTACK,
-    DEFEND
+    DEFEND,
+    PASSIVE
 }
 
 public abstract class Shy_Stack_Effect : Shy_Stack
@@ -13,9 +14,9 @@ public abstract class Shy_Stack_Effect : Shy_Stack
     public int life;
     public STACKACTION_TYPE actionType;
 
-    public virtual void Init() { }
+    public abstract Shy_Stack_Effect Init(Transform _target);
 
-    //»èÁ¦ Á¶°Ç (±âº» = life 0)
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½âº» = life 0)
     public virtual bool IsDestroy() 
     {
         if(life-- <= 0)
@@ -26,9 +27,9 @@ public abstract class Shy_Stack_Effect : Shy_Stack
         return false;
     }
 
-    //ÀÛµ¿ÇÒ ¶§ ÀÌº¥Æ®
-    public virtual void OnEffect()  { }
+    //ï¿½Ûµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìºï¿½Æ®
+    public abstract void OnEffect();
 
-    //ÆÄ±« µÉ ¶§ ÀÌº¥Æ®
-    public virtual void DestroyEvent() { }
+    //ï¿½Ä±ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ìºï¿½Æ®
+    public abstract void DestroyEvent();
 }

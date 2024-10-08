@@ -15,6 +15,5 @@ public class EnemyActionText : MonoBehaviour
 
     private void Start()
     {
-        _attack = _enemy.Attack;
     }
 }
