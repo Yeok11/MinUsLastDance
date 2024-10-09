@@ -36,7 +36,6 @@ public class DamageText : MonoBehaviour, IPoolable
             .OnComplete(() =>
             {
                 _pool.Push(this);
-                Debug.Log(1);
             });
     }
 
