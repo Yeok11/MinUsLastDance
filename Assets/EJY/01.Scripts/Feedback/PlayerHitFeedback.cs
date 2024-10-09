@@ -8,6 +8,8 @@ public class PlayerHitFeedback : Feedback
 {
     [SerializeField] private Volume _hitVoulme;
     [SerializeField] private float _duration = 1;
+
+    private Tween tween;
     public override void PlayFeedback(float damage)
     {
         StartCoroutine(Hit());
@@ -17,7 +19,7 @@ public class PlayerHitFeedback : Feedback
     {
         _hitVoulme.gameObject.SetActive(true);
 
-        DOTween.To(() => _hitVoulme.weight, x => _hitVoulme.weight = x, 0, _duration);
+        tween = DOTween.To(() => _hitVoulme.weight, x => _hitVoulme.weight = x, 0, _duration);
         
         yield return new WaitForSeconds(_duration);
         _hitVoulme.gameObject.SetActive(false);
@@ -26,6 +28,7 @@ public class PlayerHitFeedback : Feedback
 
     public override void StopFeedback()
     {
+        tween.Complete();
         StopAllCoroutines();
     }
 }

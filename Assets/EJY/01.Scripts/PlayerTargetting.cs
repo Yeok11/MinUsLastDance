@@ -13,7 +13,6 @@ public class PlayerTargetting : MonoBehaviour
         targetImg.transform.position = enemy.transform.position;
         targetImg.transform.localScale = Vector3.one;
 
-        Debug.Log(enemy.name);
         return _target = enemy;
     }
 
