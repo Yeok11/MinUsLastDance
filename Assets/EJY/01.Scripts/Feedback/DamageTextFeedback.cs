@@ -10,7 +10,7 @@ public class DamageTextFeedback : Feedback
 
     private PoolManagerMono _poolManager;
 
-    private void Awake()
+    private void Start()
     {
         _poolManager = Shy_Manager.instance.GetComponentInChildren<PoolManagerMono>();
     }
