@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6595711215373091478}
   - component: {fileID: 2479227840699000282}
   m_Layer: 0
-  m_Name: StandardEnemy
+  m_Name: Tanker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   stacks: []
   _level: 0
   _enemySkill: []
-  _enemyStat: {fileID: 11400000, guid: e7df26b57180cfc4cb4180c55a9532af, type: 2}
+  _enemyStat: {fileID: 11400000, guid: 9bec7606bf9fade4785d2e3c826d86fd, type: 2}
   hp: {fileID: 0}
   guage: {fileID: 0}
   nextSkillSign: {fileID: 0}
@@ -521,8 +521,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8672803370765339758}
-  - component: {fileID: 742514189309548488}
-  - component: {fileID: 5872534466763880972}
+  - component: {fileID: 3085552916765213450}
+  - component: {fileID: 1091745035233025585}
   m_Layer: 0
   m_Name: Skills
   m_TagString: Untagged
@@ -545,7 +545,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3098681931142541204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &742514189309548488
+--- !u!114 &3085552916765213450
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -554,22 +554,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7455566742242369470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53ad0b39427e80d4b9a84680b23b7b33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playHealth: {fileID: 0}
-  _enemyStatSO: {fileID: 0}
-  icon: {fileID: 21300000, guid: e1fa275171bf3564b9f488da743df039, type: 3}
---- !u!114 &5872534466763880972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7455566742242369470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3973d9cf91c46f4a9925c71653ac968, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f42626234e8ff84595d1336d903e59e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playHealth: {fileID: 0}
@@ -577,6 +562,21 @@ MonoBehaviour:
   icon: {fileID: 0}
   effectStackPrefab: {fileID: 0}
   countStackPrefab: {fileID: 0}
+--- !u!114 &1091745035233025585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7455566742242369470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3684f8d995054b469bce88bc9a76f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playHealth: {fileID: 0}
+  _enemyStatSO: {fileID: 0}
+  icon: {fileID: 0}
 --- !u!1 &7651930125701433052
 GameObject:
   m_ObjectHideFlags: 0
