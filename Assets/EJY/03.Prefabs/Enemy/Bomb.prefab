@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4893680127378964383}
   - component: {fileID: 6595711215373091478}
   - component: {fileID: 2479227840699000282}
+  - component: {fileID: -5695087911612055669}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -152,6 +153,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &-5695087911612055669
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842740330565055822}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6b28ac70b6bb0284188211a5cb40d62d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2519167377973931023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,6 +1052,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 70121891344073184, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439020885478796041, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439020885478796041, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439020885478796041, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6439020885478796041, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678413658889975879, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678413658889975879, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678413658889975879, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6678413658889975879, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8828843691375604897, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}

@@ -19,19 +19,6 @@ public class Health : MonoBehaviour
         _barrierText = GetComponentInChildren<BarrierText>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            TakeDamage(2);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            GetBarrier(15);
-        }
-    }
-
     public void TakeDamage(float damage)
     {
         if (_currentBarrier > 0)
