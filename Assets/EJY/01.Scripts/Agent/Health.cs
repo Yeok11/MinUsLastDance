@@ -59,6 +59,7 @@ public class Health : MonoBehaviour
 
         if (_currentHp <= 0)
         {
+            _currentHp = 0;
             OnDeadEvent?.Invoke();
         }
     }

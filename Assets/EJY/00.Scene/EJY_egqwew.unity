@@ -824,6 +824,11 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &551371089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7391517125627020012, guid: 27c1769d37ce0fc46a4d3beec978e9ae, type: 3}
+  m_PrefabInstance: {fileID: 1375511983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &591413559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1079,7 @@ Transform:
   m_Children:
   - {fileID: 672451168}
   - {fileID: 1683742581}
+  - {fileID: 1762546305}
   - {fileID: 1972071555}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2135,6 +2141,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4549989137342165449, guid: 27c1769d37ce0fc46a4d3beec978e9ae, type: 3}
+      propertyPath: _hitVoulme
+      value: 
+      objectReference: {fileID: 1762546306}
     - target: {fileID: 4791849755118627194, guid: 27c1769d37ce0fc46a4d3beec978e9ae, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2219,6 +2229,10 @@ PrefabInstance:
       propertyPath: _isFighting
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5440316238286479535, guid: 27c1769d37ce0fc46a4d3beec978e9ae, type: 3}
+      propertyPath: movedPrefab
+      value: 
+      objectReference: {fileID: 551371089}
     - target: {fileID: 7914565579149047054, guid: 27c1769d37ce0fc46a4d3beec978e9ae, type: 3}
       propertyPath: bar
       value: 
@@ -2263,6 +2277,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4791849755118627194, guid: 27c1769d37ce0fc46a4d3beec978e9ae, type: 3}
   m_PrefabInstance: {fileID: 1375511983}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1375511985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9066500409700092214, guid: 27c1769d37ce0fc46a4d3beec978e9ae, type: 3}
+  m_PrefabInstance: {fileID: 1375511983}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5e85447c18df747a969e476f056da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1375511989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2313,7 +2338,19 @@ MonoBehaviour:
       m_Calls: []
   OnDirectHitEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1375511985}
+        m_TargetAssemblyTypeName: FeedbacksPlayer, Assembly-CSharp
+        m_MethodName: FeedbacksPlay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2538,6 +2575,55 @@ MonoBehaviour:
   priority: 1
   blendDistance: 0
   weight: 0
+  sharedProfile: {fileID: 11400000, guid: 47baf503b556d5c45b099a33a1712b3c, type: 2}
+--- !u!1 &1762546304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1762546305}
+  - component: {fileID: 1762546306}
+  m_Layer: 0
+  m_Name: Volume_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1762546305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762546304}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 694931064}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1762546306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762546304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 1
+  blendDistance: 0
+  weight: 1
   sharedProfile: {fileID: 11400000, guid: 4dee40a47f6e79e4a9acfa93a6cf737a, type: 2}
 --- !u!1 &1772361765
 GameObject:
