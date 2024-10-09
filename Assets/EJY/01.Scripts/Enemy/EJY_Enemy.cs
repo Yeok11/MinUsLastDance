@@ -9,7 +9,7 @@ using static PlayerTargetting;
 public class EJY_Enemy : Shy_Character, IPointerClickHandler
 {
     #region Ω∫≈»
-    public int _level;
+    public int _level = 1;
     #endregion
 
     [SerializeField]protected Skill[] _enemySkill;
