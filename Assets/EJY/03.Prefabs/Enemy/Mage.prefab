@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6595711215373091478}
   - component: {fileID: 2479227840699000282}
   m_Layer: 0
-  m_Name: StandardEnemy
+  m_Name: Mage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   stacks: []
   _level: 0
   _enemySkill: []
-  _enemyStat: {fileID: 11400000, guid: e7df26b57180cfc4cb4180c55a9532af, type: 2}
+  _enemyStat: {fileID: 11400000, guid: 9383e5b9725dae349806cc4bba77033f, type: 2}
   hp: {fileID: 0}
   guage: {fileID: 0}
   nextSkillSign: {fileID: 0}
@@ -521,8 +521,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8672803370765339758}
-  - component: {fileID: 742514189309548488}
-  - component: {fileID: 5872534466763880972}
+  - component: {fileID: 9012208642655567736}
+  - component: {fileID: 3496498994825038760}
+  - component: {fileID: 1972264081573697493}
   m_Layer: 0
   m_Name: Skills
   m_TagString: Untagged
@@ -545,7 +546,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3098681931142541204}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &742514189309548488
+--- !u!114 &9012208642655567736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -554,13 +555,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7455566742242369470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53ad0b39427e80d4b9a84680b23b7b33, type: 3}
+  m_Script: {fileID: 11500000, guid: 53c3003afbf290c4b8deee69176972fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playHealth: {fileID: 0}
   _enemyStatSO: {fileID: 0}
-  icon: {fileID: 21300000, guid: e1fa275171bf3564b9f488da743df039, type: 3}
---- !u!114 &5872534466763880972
+  icon: {fileID: 0}
+  effectStackPrefab: {fileID: 0}
+  countStackPrefab: {fileID: 0}
+  _stackPosTrm: {fileID: 0}
+--- !u!114 &3496498994825038760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -569,7 +573,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 7455566742242369470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3973d9cf91c46f4a9925c71653ac968, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c7fa3c78312a224aba37d949d952745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playHealth: {fileID: 0}
+  _enemyStatSO: {fileID: 0}
+  icon: {fileID: 0}
+  _stackPosTrm: {fileID: 0}
+--- !u!114 &1972264081573697493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7455566742242369470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab16dca48b0c5e44bc50f4c75631845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playHealth: {fileID: 0}
