@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    private BarrierText _barrierText;
+    [SerializeField] private BarrierText _barrierText;
 
     public float _maxHp;
     public float _currentHp;
@@ -13,11 +13,6 @@ public class Health : MonoBehaviour
     public UnityEvent OnBarrierHitEvent;
     public UnityEvent<float> OnDirectHitEvent;
     public UnityEvent OnDeadEvent;
-
-    private void Awake()
-    {
-        _barrierText = GetComponentInChildren<BarrierText>();
-    }
 
     public void TakeDamage(float damage)
     {
@@ -53,9 +48,8 @@ public class Health : MonoBehaviour
 
     public void GetBarrier(float weightBarrier)
     {
-        if (_currentBarrier > weightBarrier)
-            return;
-        _currentBarrier = weightBarrier;
+        _currentBarrier += weightBarrier;
+        _currentBarrier = Mathf.RoundToInt(_currentBarrier);
         _barrierText?.TextChange(_currentBarrier);
     }
 }

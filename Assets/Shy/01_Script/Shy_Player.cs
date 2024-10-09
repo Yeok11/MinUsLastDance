@@ -9,19 +9,18 @@ public class Shy_Player : Shy_Character
     public Shy_Stack_Cnt hunt;
     public Shy_Stack_Cnt mana;
     [SerializeField] private Transform stackPos;
-    private Health health;
     [SerializeField] private TextMeshProUGUI tmp;
     [SerializeField] private Image bar;
 
     private void Start()
     {
-        health = GetComponent<Health>();
+        HealthCompo = GetComponent<Health>();
     }
 
     private void Update()
     {
-        tmp.text = health._currentHp + " / " + health._maxHp;
-        bar.fillAmount = health._currentHp / health._maxHp;
+        tmp.text = HealthCompo._currentHp + " / " + HealthCompo._maxHp;
+        bar.fillAmount = HealthCompo._currentHp / HealthCompo._maxHp;
     }
 
 

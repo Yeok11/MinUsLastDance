@@ -50,8 +50,8 @@ public class Shy_Tile : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (skillData != null)
-            skillData.effect.ActSkill();
+        //if (skillData != null)
+        //    skillData.effect.ActSkill();
         tileManager.smd.DataUpdate(skillData);
     }
 }

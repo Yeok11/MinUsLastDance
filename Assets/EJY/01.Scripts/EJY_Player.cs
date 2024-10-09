@@ -148,10 +148,13 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
 
         Shy_Tile tile = _tileManager.tileObjs[idx];
 
+        
         if (CanMove(idx))
         {
+            Debug.Log("ss " + isAdd);
             if (isAdd)
             {
+                Debug.Log("sc");
                 _moved.Add(tile);
                 GameObject g = Instantiate(movedPrefab, tile.transform);
                 g.transform.position = g.transform.parent.position;

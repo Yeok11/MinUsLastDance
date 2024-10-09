@@ -15,11 +15,11 @@ public class EJD_Shild : Shy_Skill
          player.HealthCompo.GetBarrier(GetValue(skillLevel, player) + enemys * GetValue(skillLevel + 3, player));
      }*/
 
-    private Shy_Player player;
-
     public override void ActSkill(int _skillLv = 1)
     {
         int enemys = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().enemys.Count;
-        player.HealthCompo.GetBarrier(calculate.GetValue(_skillLv) + enemys * calculate.GetValue(_skillLv + 3));
+        Debug.Log(FindObjectOfType<Shy_Player>());
+        Debug.Log(FindObjectOfType<Shy_Player>().HealthCompo);
+        FindObjectOfType<Shy_Player>().HealthCompo.GetBarrier(calculate.GetValue(_skillLv) + enemys * calculate.GetValue(_skillLv + 3));
     }
 }

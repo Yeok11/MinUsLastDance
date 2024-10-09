@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca82b2b5d7119d44ab0b2963a90c476f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _barrierText: {fileID: 0}
   _maxHp: 0
   _currentHp: 0
   _currentBarrier: 0

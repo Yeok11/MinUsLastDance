@@ -7,12 +7,17 @@ using UnityEngine.SceneManagement;
 
 public class Ah_ButtonUI : MonoBehaviour
 {
-    public string GameMainScene;
     public void Quit()
     {
         Application.Quit();
     }
-    public void StartButton()
+
+    public void Setting()
+    {
+
+    }
+
+    public void StartButton(string GameMainScene)
     {
         SceneManager.LoadScene(GameMainScene);
     }
