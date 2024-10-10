@@ -19,8 +19,8 @@ namespace EJY
 
         public override void UseSkill()
         {
-            if (_stacks.childCount <= 0)
             target.stacks.Add(effectStackPrefab.Init(_stacks));
+            target.GetComponent<EJY_Enemy>()._enemySkill.Remove(this);
         }
     }
 }
