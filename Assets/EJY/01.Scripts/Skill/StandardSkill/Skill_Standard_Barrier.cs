@@ -7,6 +7,12 @@ namespace EJY
     public class Skill_Standard_Barrier : Skill_Stack
     {
         private float weightBarrier;
+
+        public override void Awake()
+        {
+            target = GetComponentInParent<EJY_Enemy>();
+        }
+
         public override bool CanUseSkill()
         {
             return true;

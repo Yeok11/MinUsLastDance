@@ -37,9 +37,6 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
         _tileManager = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Tile>();
 
         SetTile();
-
-        Move(_currentTileIdx,false);
-        _currentPos = transform.position;
     }
 
     private void Update()
@@ -142,7 +139,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
         _wasd = tiles;
     }
 
-    private void Move(int idx, bool isAdd = true)
+    public void Move(int idx, bool isAdd = true)
     {
         if (idx < 0 || idx >= 49) return;
 

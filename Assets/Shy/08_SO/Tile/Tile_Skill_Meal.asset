@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tile_Skill_Meal
   m_EditorClassIdentifier: 
   tileName: "\uC2DD\uC0AC"
-  effect: {fileID: 6413483283016063755, guid: 215a7290bf29b0c44963c92a86d95920, type: 3}
+  effect: {fileID: 3590186802554797043, guid: f857ff850bf5b7f428a46daebf6243dd, type: 3}
   image: {fileID: 21300000, guid: d113a896c5ebf3047adff33c45047bdb, type: 3}
   skillLevel: 1
   thema: 2

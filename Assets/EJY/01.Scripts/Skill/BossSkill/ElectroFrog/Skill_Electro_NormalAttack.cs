@@ -6,7 +6,7 @@ namespace EJY
 {
     public class Skill_Electro_NormalAttack : Skill_Direct
     {
-        protected override void Awake()
+        public override void Awake()
         {
             base.Awake();
         }

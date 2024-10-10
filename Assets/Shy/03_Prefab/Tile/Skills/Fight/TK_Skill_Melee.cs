@@ -9,7 +9,7 @@ public class TK_Skill_Melee : Shy_Skill
         Shy_Manager_Enemy enemyManager = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Enemy>();
         int damage = (int)calculate.GetValue(_skillLv);
 
-        for(int i = 0; i < 2; i++)
+        for(int i = 0; i < (Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().enemys.Count > 1 ? 2 : 1); i++)
         {
             EJY_Enemy target = enemyManager.ChangeRandomTarget();
             for(int j = 0; j < Random.Range(2, 5); j++)

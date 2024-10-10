@@ -1,13 +1,17 @@
 using EJY;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Shy_Manager_Turn : MonoBehaviour
 {
     private Shy_Manager_Dice manager_D;
     private Shy_Manager_Enemy manager_E;
+    private Shy_Manager_Move manager_Move;
+    private Shy_Manager_Event manager_Event;
 
     public List<EJY_Enemy> enemys;
     public List<InvolvedSkillData_SO> tileEventByEnemy;
@@ -15,41 +19,72 @@ public class Shy_Manager_Turn : MonoBehaviour
     [SerializeField] private Image targetIcon;
 
     private EJY_Player _player;
+    private Shy_Player player;
+    [SerializeField] private Button endBt;
+
+    int[] stage = { 1,1,2,2,3,4,4 };
+    int stageNum = 0;
 
     private void Awake()
     {
         _player = FindObjectOfType<EJY_Player>();
+        player = _player.GetComponent<Shy_Player>();
 
         manager_E = transform.parent.GetComponentInChildren<Shy_Manager_Enemy>();
         manager_E.smt = this;
         manager_D = transform.parent.GetComponentInChildren<Shy_Manager_Dice>();
+        manager_Move = manager_D.GetComponent<Shy_Manager_Move>();
+        manager_Event = transform.parent.GetComponentInChildren<Shy_Manager_Event>();
     }
 
-    public void Start()
+    public void GameInit()
     {
-        enemys = manager_E.SetEnemy(2); //에너미 소환
+        Debug.Log("Game Init ");
+        if (stageNum < stage.Length)
+            enemys = manager_E.SetEnemy(stage[stageNum++]);
+        else
+            SceneManager.LoadScene("EJY_End");
 
         SetEnemyOrder();
         StartCoroutine(Delay());
     }
 
-    private IEnumerator Delay()
+    public void Start()
     {
-        yield return new WaitForEndOfFrame();
-        Init();
-        StartCoroutine(Shy_SceneMove.instance.OpenScene());
+        GameInit();
     }
 
+    private IEnumerator Delay()
+    {
+        StartCoroutine(Shy_SceneMove.instance.OpenScene());
+        yield return new WaitForEndOfFrame();
+        Init();
+    }
+
+    public int EnemyDestroy(EJY_Enemy _enemy)
+    {
+        enemys.Remove(_enemy);
+
+        return enemys.Count;
+    }
     private void Init()
     {
         manager_D.AllDiceRoll();
         _player.Init();
         _player._isFighting = true;
-        PlayerTargetting.targetImg = Instantiate(targetIcon);
 
+        if(PlayerTargetting.targetImg == null)
+            PlayerTargetting.targetImg = Instantiate(targetIcon);
         PlayerTargetting.AutoEnemySet();
 
-        PlayerTurnStart();
+        int cnt = player.stackPos.childCount;
+        for (int i = 0; i < cnt; i++)
+            Destroy(player.stackPos.GetChild(0).gameObject);
+        player.stacks.Clear();
+        _player.Move(24, false);
+        manager_Move.movePoint += 1;
+
+        EnemyTurnEnd();
     }
 
 
@@ -66,18 +101,29 @@ public class Shy_Manager_Turn : MonoBehaviour
 
     private void PlayerTurnStart()
     {
-        Debug.Log("플레이어 턴 시작");
+        endBt.gameObject.SetActive(true);
+        Debug.LogError("플레이어 턴 시작");
+        manager_Move.actionPoint = 10;
+        manager_Move.Update_PointSign();
     }
 
     public void PlayerTurnEnd()
     {
-        Debug.Log("플레이어 턴 종료");
-
+        Debug.LogError("플레이어 턴 종료");
+        endBt.gameObject.SetActive(false);
+        manager_Move.movePoint = 0;
+        manager_Move.Update_PointSign();
 
         //타일 초기화
         _player._tileManager.UsedTileUpdate();
-        
-        
+
+
+        for (int i = 0; i < enemys.Count; i++)
+        {
+            enemys[i].HealthCompo._currentBarrier = 0;
+            enemys[i].HealthCompo.GetBarrier(0);
+        }
+
         //에너미 턴 시작
         StartCoroutine(EnemyTurnStart());
     }
@@ -87,25 +133,37 @@ public class Shy_Manager_Turn : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         Debug.Log("에너미 턴 시작");
+        Debug.LogError("에너미 턴 시작");
         ActionEnemyTileSkills();
-
-        yield return new WaitForSeconds(5f);
 
         for (int i = 0; i < enemys.Count; i++)
         {
             enemys[i].EnemyAction();
+            yield return new WaitForSeconds(1.2f);
         }
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
         EnemyTurnEnd();
     }
 
     private void EnemyTurnEnd()
     {
-        Debug.Log("에너미 턴 종료");
+        Debug.LogError("에너미 턴 종료");
+        for (int i = 0; i < enemys.Count; i++)
+        {
+            enemys[i].SetNextSkill();
+        }
+        player.HealthCompo._currentBarrier = 0;
+        player.HealthCompo.GetBarrier(0);
+
+        PlayerTurnStart();
     }
-    
+
+    public void UseEvent()
+    {
+        manager_Event.SetEvent();
+    }
 
     public void SetEnemyOrder()
     {
@@ -119,6 +177,11 @@ public class Shy_Manager_Turn : MonoBehaviour
 
                 i = 0;
             }
+        }
+
+        for (int i = 0; i < enemys.Count; i++)
+        {
+            enemys[i].transform.Find("OrderTxt").GetComponent<TextMeshProUGUI>().text = i.ToString();
         }
     }
 }

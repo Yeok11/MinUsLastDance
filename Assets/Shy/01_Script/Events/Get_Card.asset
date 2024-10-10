@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979bfefd0dcb76045b4ee5b4481f74a5, type: 3}
+  m_Name: Get_Card
+  m_EditorClassIdentifier: 
+  titleMes: "\uC218\uC0C1\uD55C \uB9CC\uB0A8"
+  contatnsMes: "\uAE38\uC744 \uAC00\uB2E4\uAC00 \uC218\uC0C1\uD55C \uB0A8\uC790\uB97C
+    \uB9CC\uB0AC\uC2B5\uB2C8\uB2E4.\n\uB0A8\uC790\uB294 \uD488\uC5D0\uC11C \uBA87
+    \uAC00\uC9C0 \uBB3C\uAC74\uC744 \uAEBC\uB0B4\uBA70 \uB2F9\uC2E0\uC5D0\uAC8C \uC120\uBB3C\uC744
+    \uC900\uB2E4\uACE0 \uD569\uB2C8\uB2E4."
+  per: 1
+  selectList:
+  - mes: "\uBB34\uC791\uC704 \uC804 \uCE74\uB4DC\uB97C \uC5BB\uB294\uB2E4."
+    type: 1
+    data:
+    - objSO: {fileID: 11400000, guid: 91e932c7ab6de3f4395dab150143e75e, type: 2}
+      value: 0
+      per: 100
+    - objSO: {fileID: 11400000, guid: 4b3e4b5d1271d8c4e9ef4ccf26edab76, type: 2}
+      value: 0
+      per: 100
+  - mes: "\uBB34\uC791\uC704 \uC0AC\uB0E5\uAFBC \uCE74\uB4DC\uB97C \uC5BB\uB294\uB2E4."
+    type: 1
+    data:
+    - objSO: {fileID: 11400000, guid: 473455bae81ca4642b7f194a725c33e3, type: 2}
+      value: 0
+      per: 70
+    - objSO: {fileID: 11400000, guid: d8267c365c518e240a7ad37eb869cad8, type: 2}
+      value: 0
+      per: 70
+    - objSO: {fileID: 11400000, guid: 29f5301824cbb0448815237a5db63cb3, type: 2}
+      value: 0
+      per: 70
