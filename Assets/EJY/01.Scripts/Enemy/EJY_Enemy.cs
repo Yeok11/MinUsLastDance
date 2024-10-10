@@ -1,8 +1,9 @@
 using EJY;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static PlayerTargetting;
 
@@ -13,7 +14,7 @@ public class EJY_Enemy : Shy_Character, IPointerClickHandler
     public int _level = 1;
     #endregion
 
-    [SerializeField]protected Skill[] _enemySkill;
+    [SerializeField]internal List<Skill> _enemySkill;
 
     [SerializeField] protected EnemyStatSO _enemyStat;
     internal EnemyStatSO stat;
@@ -27,7 +28,7 @@ public class EJY_Enemy : Shy_Character, IPointerClickHandler
     protected virtual void Awake()
     {
         HealthCompo = GetComponent<Health>();
-        _enemySkill = GetComponentsInChildren<Skill>();
+        _enemySkill = GetComponentsInChildren<Skill>().ToList();
 
         Initialize();
         Debug.Log(stat._hp);
@@ -64,7 +65,7 @@ public class EJY_Enemy : Shy_Character, IPointerClickHandler
         Health playerHealth = FindObjectOfType<Shy_Player>().GetComponent<Health>();
         #endregion
 
-        for (int i = 0; i < _enemySkill.Length; i++)
+        for (int i = 0; i < _enemySkill.Count; i++)
         {
             _enemySkill[i]._enemyStatSO = stat;
             _enemySkill[i]._playHealth = playerHealth;
@@ -81,7 +82,7 @@ public class EJY_Enemy : Shy_Character, IPointerClickHandler
 
     public void SetNextSkill()
     {
-        useSkillNum = Random.Range(0, _enemySkill.Length);
+        useSkillNum = Random.Range(0, _enemySkill.Count);
         nextSkillSign.gameObject.SetActive(true);
         nextSkillSign.sprite = _enemySkill[useSkillNum].icon;
     }

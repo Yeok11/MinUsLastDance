@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4013400538946205547}
   - component: {fileID: 6672749729360146510}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: OrderTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -561,7 +561,6 @@ GameObject:
   - component: {fileID: 8672803370765339758}
   - component: {fileID: 9012208642655567736}
   - component: {fileID: 3496498994825038760}
-  - component: {fileID: 1972264081573697493}
   m_Layer: 0
   m_Name: Skills
   m_TagString: Untagged
@@ -618,23 +617,6 @@ MonoBehaviour:
   _enemyStatSO: {fileID: 0}
   icon: {fileID: 21300000, guid: e1fa275171bf3564b9f488da743df039, type: 3}
   _stackPosTrm: {fileID: 0}
---- !u!114 &1972264081573697493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7455566742242369470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ab16dca48b0c5e44bc50f4c75631845, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playHealth: {fileID: 0}
-  _enemyStatSO: {fileID: 0}
-  icon: {fileID: 0}
-  effectStackPrefab: {fileID: 0}
-  countStackPrefab: {fileID: 8232450966124765962, guid: da73fd9844d20e9418fb92adef4a78f7, type: 3}
 --- !u!1 &7651930125701433052
 GameObject:
   m_ObjectHideFlags: 0

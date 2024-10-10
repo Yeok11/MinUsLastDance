@@ -17,7 +17,7 @@ public class Stack_BombPassive : Shy_Stack_Effect
     {
         float addDamage = 7;
         _playerHealth.TakeDamage(addDamage + _enemy.stat._damage);
-        _enemy.HealthCompo.TakeDamage(_enemy.stat._hp);
+        _enemy.HealthCompo.TakeDamage(99999);
 
     }
 
