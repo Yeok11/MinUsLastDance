@@ -984,14 +984,6 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 70121891344073184, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 70121891344073184, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 70121891344073184, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1021,11 +1013,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 70121891344073184, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 70
+      value: 94
       objectReference: {fileID: 0}
     - target: {fileID: 70121891344073184, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 70121891344073184, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1039,62 +1031,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5012690765097409705, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_text
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5012690765097409705, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439020885478796041, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439020885478796041, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439020885478796041, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439020885478796041, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439020885478796041, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439020885478796041, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6439020885478796041, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6678413658889975879, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6678413658889975879, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6678413658889975879, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6678413658889975879, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8595363139560964434, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d118607845377f845adbf7a9b498c42a, type: 3}
     - target: {fileID: 8828843691375604897, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
       propertyPath: m_Name
       value: BarrierText

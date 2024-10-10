@@ -6,6 +6,11 @@ namespace EJY
 {
     public class Skill_Bomb_Passive : Skill_Stack
     {
+        public override void Awake()
+        {
+            target = GetComponentInParent<Shy_Character>();
+        }
+
         public override bool CanUseSkill()
         {
             return true;

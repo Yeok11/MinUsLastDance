@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Debuffer
   m_EditorClassIdentifier: 
   atkFormula: (level*2)+6
-  hpFormula: (levle*4)+9
+  hpFormula: (level*4)+9
   _level: 1
   _hp: 0
   _damage: 0
