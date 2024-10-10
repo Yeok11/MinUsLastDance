@@ -13,7 +13,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     private Camera _mainCamera;
 
     internal int _currentTileIdx = 24;
-    public bool _isFighting;
+    //public bool _isFighting;
 
     private Shy_Tile[] _wasd = new Shy_Tile[4];
     internal List<Shy_Tile> _moved;
@@ -83,7 +83,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
     
     private void ReturnCurrentTile()
     {
-        if (_isFighting)
+        //if (_isFighting)
             _moveManager.movePoint++;
 
         Move(_currentTileIdx,false);
@@ -139,14 +139,14 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
         _wasd = tiles;
     }
 
-    public void Move(int idx, bool isAdd = true)
+    public void Move(int idx, bool isAdd = true, bool isReset = false)
     {
         if (idx < 0 || idx >= 49) return;
 
         Shy_Tile tile = _tileManager.tileObjs[idx];
 
         
-        if (CanMove(idx))
+        if (CanMove(idx) || isReset)
         {
             Debug.Log("ss " + isAdd);
             if (isAdd)
@@ -162,7 +162,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
             _currentTileIdx = idx;
             transform.position = _currentPos;
 
-            if (_isFighting)
+            //if (_isFighting)
                 _moveManager.Move();
             SetTile();
         }
@@ -170,7 +170,7 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
 
     private bool CanMove(int idx)
     {
-        if (_isFighting)
+        //if (_isFighting)
         {
             if (idx == _currentTileIdx) return true;
 
@@ -178,8 +178,6 @@ public class EJY_Player : MonoBehaviour ,IDragHandler, IEndDragHandler
 
             return _moveManager.movePoint > 0 && !(_moved.Contains(_tileManager.tileObjs[idx]));
         }
-
-        return true;
     }
 
     private bool CheckWASD(int idx)

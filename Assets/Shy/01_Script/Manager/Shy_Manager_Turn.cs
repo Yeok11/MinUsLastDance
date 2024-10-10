@@ -71,7 +71,7 @@ public class Shy_Manager_Turn : MonoBehaviour
     {
         manager_D.AllDiceRoll();
         _player.Init();
-        _player._isFighting = true;
+        //_player._isFighting = true;
 
         if(PlayerTargetting.targetImg == null)
             PlayerTargetting.targetImg = Instantiate(targetIcon);
@@ -81,7 +81,7 @@ public class Shy_Manager_Turn : MonoBehaviour
         for (int i = 0; i < cnt; i++)
             Destroy(player.stackPos.GetChild(0).gameObject);
         player.stacks.Clear();
-        _player.Move(24, false);
+        _player.Move(24, false, true);
         manager_Move.movePoint += 1;
 
         EnemyTurnEnd();
