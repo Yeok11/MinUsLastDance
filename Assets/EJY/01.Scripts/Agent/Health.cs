@@ -14,6 +14,11 @@ public class Health : MonoBehaviour
     public UnityEvent<float> OnDirectHitEvent;
     public UnityEvent OnDeadEvent;
 
+    private void Start()
+    {
+        CheckBarrier();
+    }
+
     public void TakeDamage(float damage)
     {
         if (_currentBarrier > 0)
@@ -21,10 +26,11 @@ public class Health : MonoBehaviour
             OnBarrierHitEvent?.Invoke();
             _currentBarrier -= damage;
 
-            if (_currentBarrier < 0)
+            if (_currentBarrier <= 0)
             {
                 _currentHp += _currentBarrier;
                 _currentBarrier = 0;
+                CheckBarrier();
             }
             else
             {
@@ -50,6 +56,15 @@ public class Health : MonoBehaviour
     {
         _currentBarrier += weightBarrier;
         _currentBarrier = Mathf.RoundToInt(_currentBarrier);
+        CheckBarrier();
         _barrierText?.TextChange(_currentBarrier);
+    }
+
+    public void CheckBarrier()
+    {
+        if( _currentBarrier > 0)
+            _barrierText.gameObject.SetActive(true);
+        else
+            _barrierText?.gameObject.SetActive(false);
     }
 }

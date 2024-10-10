@@ -7,6 +7,12 @@ public class Stack_BombPassive : Shy_Stack_Effect
     private Health _playerHealth;
     private EJY_Enemy _enemy;
 
+    private void Awake()
+    {
+        _playerHealth = FindObjectOfType<Shy_Player>().GetComponent<Health>();
+        _enemy = GetComponentInParent<EJY_Enemy>();
+    }
+
     public override void DestroyEvent()
     {
         float addDamage = 7;

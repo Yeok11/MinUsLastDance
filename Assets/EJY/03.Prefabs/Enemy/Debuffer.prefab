@@ -561,7 +561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playHealth: {fileID: 0}
   _enemyStatSO: {fileID: 0}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: e1fa275171bf3564b9f488da743df039, type: 3}
 --- !u!114 &1836240069619326772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,11 +785,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 70121891344073184, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 70
+      value: 94
       objectReference: {fileID: 0}
     - target: {fileID: 70121891344073184, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 70121891344073184, guid: 7f7ca1003a17f2a40947b22b67424605, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

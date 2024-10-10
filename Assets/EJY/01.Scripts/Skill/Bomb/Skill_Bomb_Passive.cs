@@ -6,6 +6,12 @@ namespace EJY
 {
     public class Skill_Bomb_Passive : Skill_Stack
     {
+        [SerializeField] private Transform _stacks;
+        public override void Awake()
+        {
+            target = GetComponentInParent<Shy_Character>();
+        }
+
         public override bool CanUseSkill()
         {
             return true;
@@ -13,7 +19,8 @@ namespace EJY
 
         public override void UseSkill()
         {
-            target.stacks.Add(effectStackPrefab.Init(target.transform.GetChild(0)));
+            if (_stacks.childCount <= 0)
+            target.stacks.Add(effectStackPrefab.Init(_stacks));
         }
     }
 }
