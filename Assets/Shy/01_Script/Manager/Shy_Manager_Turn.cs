@@ -80,9 +80,10 @@ public class Shy_Manager_Turn : MonoBehaviour
         int cnt = player.stackPos.childCount;
         for (int i = 0; i < cnt; i++)
             Destroy(player.stackPos.GetChild(0).gameObject);
+
         player.stacks.Clear();
         _player.Move(24, false, true);
-        manager_Move.movePoint += 1;
+        manager_Move.movePoint = 0;
 
         EnemyTurnEnd();
     }
