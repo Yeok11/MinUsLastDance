@@ -10,6 +10,9 @@ namespace EJY
         public Shy_Stack_Effect effectStackPrefab;
         public Shy_Stack_Cnt countStackPrefab;
 
-        public virtual void Awake() { }
+        public override void Awake() 
+        {
+            base.Awake();
+        }
     }
 }

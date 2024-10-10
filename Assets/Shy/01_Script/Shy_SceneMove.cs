@@ -47,7 +47,7 @@ public class Shy_SceneMove : MonoBehaviour
     {
         blackEffect.gameObject.SetActive(true);
         volume.gameObject.SetActive(true);
-        blackEffect.color = Color.black;
+        blackEffect.color = new Color(Color.black.r, Color.black.g, Color.black.b, 1);
         volume.weight = 1;
 
         while (blackEffect.color.a > 0)

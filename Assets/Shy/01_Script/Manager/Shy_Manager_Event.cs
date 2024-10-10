@@ -7,15 +7,17 @@ using UnityEngine.UI;
 public class Shy_Manager_Event : MonoBehaviour
 {
     //mes
-    [SerializeField] private TextMeshProUGUI title;
-    [SerializeField] private TextMeshProUGUI contants;
+    //[SerializeField] private TextMeshProUGUI title;
+    //[SerializeField] private TextMeshProUGUI contants;
 
     //bts
     [SerializeField] private List<Button> btns;
+    [SerializeField] private GameObject blackPanel;
 
     //other
     [SerializeField] private List<Shy_Event_Selector> events;
     [SerializeField] private GameObject deckUI;
+    [SerializeField] private GameObject eventUI;
     [SerializeField] private EVENT_TYPE curEventType;
 
     //Managers
@@ -28,16 +30,11 @@ public class Shy_Manager_Event : MonoBehaviour
         deck = FindObjectOfType<Shy_Deck>();
     }
 
-    private void Update()
+    public void SetEvent()
     {
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            SetEvent();
-        }
-    }
+        eventUI.gameObject.SetActive(true);
+        blackPanel.gameObject.SetActive(true);
 
-    private void SetEvent()
-    {
         //이벤트 선택
         eventNumber = PerCalculator(true);
 
@@ -46,8 +43,8 @@ public class Shy_Manager_Event : MonoBehaviour
             btns[i].gameObject.SetActive(false);
 
         //txt 세팅
-        title.text = events[eventNumber].titleMes;
-        contants.text = events[eventNumber].contatnsMes;
+        //title.text = events[eventNumber].titleMes;
+        //contants.text = events[eventNumber].contatnsMes;
 
         //+bt 켜기
         int eventCnt = events[eventNumber].selectList.Count;
@@ -142,6 +139,7 @@ public class Shy_Manager_Event : MonoBehaviour
     {
         if(_selectNum == 99)
         {
+            CloseTheEvent();
             GetComponent<Shy_Event_Select>().Init(deck, curEventType.ToString().Contains("DICE"));
             return;
         }
@@ -182,7 +180,6 @@ public class Shy_Manager_Event : MonoBehaviour
 
     private void TileEventRandom(bool _get, int _dataNum)
     {
-        
         if (_get)
         {
             Shy_TileSO s = events[eventNumber].selectList[_dataNum].data[PerCalculator(false, _dataNum)].objSO as Shy_TileSO;
@@ -197,6 +194,9 @@ public class Shy_Manager_Event : MonoBehaviour
                 deck.diceDeck.RemoveAt(Random.Range(0, deck.tileDeck.Count));
             }
         }
+
+        CloseTheEvent(0);
+
     }
 
 
@@ -204,5 +204,15 @@ public class Shy_Manager_Event : MonoBehaviour
     private void EffectPlayerHp(int _value)
     {
         //PlayerHp + _value;
+    }
+
+    public void CloseTheEvent(int bt = -1)
+    {
+        if (bt != -1)
+        {
+            blackPanel.SetActive(false);
+            transform.parent.GetComponentInChildren<Shy_Manager_Turn>().GameInit();
+        }
+        eventUI.SetActive(false);
     }
 }

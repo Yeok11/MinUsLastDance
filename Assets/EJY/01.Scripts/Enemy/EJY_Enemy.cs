@@ -2,6 +2,7 @@ using EJY;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static PlayerTargetting;
 
@@ -98,8 +99,14 @@ public class EJY_Enemy : Shy_Character, IPointerClickHandler
 
     public void Dead()
     {
-        Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().enemys.Remove(this);
-        PlayerTargetting.AutoEnemySet();
+        int enemyCnt = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().EnemyDestroy(this);
+        if(enemyCnt == 0)
+        {
+            Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().UseEvent();
+        }
+        else
+            PlayerTargetting.AutoEnemySet();
+
         Destroy(gameObject);
     }
 }

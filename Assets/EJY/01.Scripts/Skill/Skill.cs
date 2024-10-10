@@ -11,7 +11,7 @@ namespace EJY
 
         public Sprite icon;
 
-        protected virtual void Awake()
+        public virtual void Awake()
         {
             _playHealth = FindObjectOfType<Shy_Player>().GetComponent<Health>();
             _enemyStatSO = GetComponentInParent<EJY_Enemy>().stat;

@@ -6,7 +6,7 @@ namespace EJY
 {
     public abstract class Skill_Direct : Skill
     {
-        protected override void Awake()
+        public override void Awake()
         {
              base.Awake();
         }

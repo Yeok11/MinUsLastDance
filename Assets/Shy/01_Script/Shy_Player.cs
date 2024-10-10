@@ -8,7 +8,7 @@ public class Shy_Player : Shy_Character
 {
     public Shy_Stack_Cnt hunt;
     public Shy_Stack_Cnt mana;
-    [SerializeField] private Transform stackPos;
+    [SerializeField] internal Transform stackPos;
     [SerializeField] private TextMeshProUGUI tmp;
     [SerializeField] private Image bar;
 

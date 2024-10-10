@@ -6,6 +6,7 @@ public class PlayerTargetting : MonoBehaviour
 {
     static public  EJY_Enemy _target { get; private set; } = null;
     public static Image targetImg;
+    private static Shy_Manager_Turn smt;
 
     static public EJY_Enemy SelectTarget(EJY_Enemy enemy)
     {
@@ -18,11 +19,13 @@ public class PlayerTargetting : MonoBehaviour
 
     public static void AutoEnemySet()
     {
-        List<EJY_Enemy> enemies = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().enemys;
-        if(enemies.Count != 0)
+        if(smt == null)
         {
-            PlayerTargetting.SelectTarget(enemies[0]);
+            smt = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>();
         }
+        List<EJY_Enemy> enemies = smt.enemys;
+
+        PlayerTargetting.SelectTarget(enemies[0]);
     }
 
 }

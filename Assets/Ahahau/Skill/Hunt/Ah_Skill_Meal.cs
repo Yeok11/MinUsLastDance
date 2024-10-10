@@ -15,6 +15,8 @@ public class Ah_Skill_Meal : Shy_Skill
                 ++cnt;
         }
 
+        if(player == null) player = FindObjectOfType<Shy_Player>();
+
         player.HealthCompo._currentHp += cnt * calculate.GetValue() * 5;
 
         if(player.HealthCompo._currentHp > player.HealthCompo._maxHp)
