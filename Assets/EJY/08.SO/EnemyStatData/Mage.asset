@@ -15,6 +15,6 @@ MonoBehaviour:
   atkFormula: 
   hpFormula: 
   _level: 0
-  _hp: 0
+  _hp: 180
   _damage: 0
   _speed: 0
