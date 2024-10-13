@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Shy_SceneMove : MonoBehaviour
 {
-    [SerializeField] private Volume volume;
-    [SerializeField] private Image blackEffect;
+    [SerializeField] internal Volume volume;
+    [SerializeField] internal Image blackEffect;
     public static Shy_SceneMove instance;
 
     private void Awake()
@@ -25,10 +25,10 @@ public class Shy_SceneMove : MonoBehaviour
     {
         blackEffect.gameObject.SetActive(true);
         volume.gameObject.SetActive(true);
-        blackEffect.color = Color.black;
+        blackEffect.color = new Color(Color.black.r, Color.black.g, Color.black.b, 0);
         volume.weight = 0;
 
-        while (volume.weight != 1)
+        while (volume.weight < 1)
         {
             yield return new WaitForSeconds(0.1f);
             volume.weight += 0.1f;
@@ -43,26 +43,30 @@ public class Shy_SceneMove : MonoBehaviour
         SceneManager.LoadScene(_moveScene);
     }
 
-    public IEnumerator OpenScene()
+    public IEnumerator OpenScene(bool isNotAnime = false)
     {
         blackEffect.gameObject.SetActive(true);
         volume.gameObject.SetActive(true);
         blackEffect.color = new Color(Color.black.r, Color.black.g, Color.black.b, 1);
+
         volume.weight = 1;
 
-        while (blackEffect.color.a > 0)
+        if (!isNotAnime)
         {
-            yield return new WaitForSeconds(0.15f);
-            blackEffect.color -= new Color(0,0,0,0.1f);
-        }
+            while (blackEffect.color.a > 0)
+            {
+                yield return new WaitForSeconds(0.15f);
+                blackEffect.color -= new Color(0, 0, 0, 0.1f);
+            }
 
-        while (volume.weight > 0)
-        {
-            yield return new WaitForSeconds(0.08f);
-            volume.weight -= 0.1f;
-        }
+            while (volume.weight > 0)
+            {
+                yield return new WaitForSeconds(0.08f);
+                volume.weight -= 0.1f;
+            }
 
-        blackEffect.gameObject.SetActive(false);
-        volume.gameObject.SetActive(false);
+            blackEffect.gameObject.SetActive(false);
+            volume.gameObject.SetActive(false);
+        }
     }
 }

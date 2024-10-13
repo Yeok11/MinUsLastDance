@@ -101,6 +101,7 @@ public class EJY_Enemy : Shy_Character, IPointerClickHandler
     public void Dead()
     {
         int enemyCnt = Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().EnemyDestroy(this);
+
         if(enemyCnt == 0)
         {
             Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().UseEvent();

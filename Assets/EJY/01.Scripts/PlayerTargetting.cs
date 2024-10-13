@@ -25,7 +25,10 @@ public class PlayerTargetting : MonoBehaviour
         }
         List<EJY_Enemy> enemies = smt.enemys;
 
-        PlayerTargetting.SelectTarget(enemies[0]);
+        if (enemies.Count != 0 && targetImg != null)
+        {
+            PlayerTargetting.SelectTarget(enemies[0]);
+        }
     }
 
 }

@@ -106,6 +106,6 @@ public class Shy_Event_Select : MonoBehaviour
         Debug.Log(inven);
         inven.gameObject.SetActive(false);
         blackPanel.gameObject.SetActive(false);
-        Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().GameInit();
+        Shy_Manager.instance.GetComponentInChildren<Shy_Manager_Turn>().NewGame();
     }
 }
