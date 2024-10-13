@@ -30,7 +30,7 @@ public class Shy_Manager_Event : MonoBehaviour
         deck = FindObjectOfType<Shy_Deck>();
     }
 
-    public void SetEvent()
+    public void ResultEvent()
     {
         eventUI.gameObject.SetActive(true);
         blackPanel.gameObject.SetActive(true);
@@ -211,7 +211,7 @@ public class Shy_Manager_Event : MonoBehaviour
         if (bt != -1)
         {
             blackPanel.SetActive(false);
-            transform.parent.GetComponentInChildren<Shy_Manager_Turn>().GameInit();
+            transform.parent.GetComponentInChildren<Shy_Manager_Turn>().NewGame();
         }
         eventUI.SetActive(false);
     }

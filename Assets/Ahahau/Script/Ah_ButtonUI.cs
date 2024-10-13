@@ -17,6 +17,7 @@ public class Ah_ButtonUI : MonoBehaviour
 
     public void StartButton(string GameMainScene)
     {
-        SceneManager.LoadScene(GameMainScene);
+        Debug.Log("on");
+        StartCoroutine(Shy_SceneMove.instance.CloseScene(GameMainScene));
     }
 }
