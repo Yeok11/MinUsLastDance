@@ -19,7 +19,7 @@ public abstract class Shy_Stack_Effect : Shy_Stack
     //���� ���� (�⺻ = life 0)
     public virtual bool IsDestroy() 
     {
-        if(life-- <= 0)
+        if(--life <= 0)
         {
             DestroyEvent();
             return true;
