@@ -28,10 +28,10 @@ public class Shy_Tile : MonoBehaviour, IPointerClickHandler
     public void ResetTile()
     {
         Debug.Log(gameObject.name + "타일 리셋");
-        transform.GetChild(0).gameObject.SetActive(false);
         tileManager.usedTiles.Add(this);
         tileManager.tileSOList.Add(skillData);
         skillData = null;
+        Setting();
     }
 
     public void ActTile()

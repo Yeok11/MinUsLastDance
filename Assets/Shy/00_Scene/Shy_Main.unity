@@ -6242,28 +6242,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2925ac42be1fef45b916a77fe3a053a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileDeck:
-  - {fileID: 11400000, guid: 70f705e95973ee44ba598a3b3fc9f93e, type: 2}
-  - {fileID: 11400000, guid: 29f5301824cbb0448815237a5db63cb3, type: 2}
-  - {fileID: 11400000, guid: 8b3b8d8718409224ba2e7215ec94f983, type: 2}
-  - {fileID: 11400000, guid: 473455bae81ca4642b7f194a725c33e3, type: 2}
-  - {fileID: 11400000, guid: 29f5301824cbb0448815237a5db63cb3, type: 2}
+  tileDeck: []
+  normalDeck:
   - {fileID: 11400000, guid: d073465bba5c1164db5fc317f010a1c8, type: 2}
-  - {fileID: 11400000, guid: 4b3e4b5d1271d8c4e9ef4ccf26edab76, type: 2}
-  - {fileID: 11400000, guid: 8b3b8d8718409224ba2e7215ec94f983, type: 2}
-  - {fileID: 11400000, guid: d8267c365c518e240a7ad37eb869cad8, type: 2}
-  - {fileID: 11400000, guid: 473455bae81ca4642b7f194a725c33e3, type: 2}
-  - {fileID: 11400000, guid: 91e932c7ab6de3f4395dab150143e75e, type: 2}
   - {fileID: 11400000, guid: d073465bba5c1164db5fc317f010a1c8, type: 2}
-  - {fileID: 11400000, guid: 70f705e95973ee44ba598a3b3fc9f93e, type: 2}
   - {fileID: 11400000, guid: 473455bae81ca4642b7f194a725c33e3, type: 2}
-  - {fileID: 11400000, guid: 501c239d038c01843be5df538ced3c60, type: 2}
-  - {fileID: 11400000, guid: 29f5301824cbb0448815237a5db63cb3, type: 2}
-  - {fileID: 11400000, guid: d8267c365c518e240a7ad37eb869cad8, type: 2}
-  - {fileID: 11400000, guid: 91e932c7ab6de3f4395dab150143e75e, type: 2}
+  - {fileID: 11400000, guid: 473455bae81ca4642b7f194a725c33e3, type: 2}
   - {fileID: 11400000, guid: 8b3b8d8718409224ba2e7215ec94f983, type: 2}
+  - {fileID: 11400000, guid: 8b3b8d8718409224ba2e7215ec94f983, type: 2}
+  - {fileID: 11400000, guid: 8b3b8d8718409224ba2e7215ec94f983, type: 2}
+  - {fileID: 11400000, guid: 91e932c7ab6de3f4395dab150143e75e, type: 2}
+  - {fileID: 11400000, guid: 91e932c7ab6de3f4395dab150143e75e, type: 2}
   - {fileID: 11400000, guid: 4b3e4b5d1271d8c4e9ef4ccf26edab76, type: 2}
-  normalDeck: []
+  - {fileID: 11400000, guid: 4b3e4b5d1271d8c4e9ef4ccf26edab76, type: 2}
   diceDeck:
   - {fileID: 11400000, guid: f36c5926f01059943aad599508e970d8, type: 2}
   - {fileID: 11400000, guid: f36c5926f01059943aad599508e970d8, type: 2}

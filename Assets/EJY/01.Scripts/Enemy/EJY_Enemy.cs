@@ -31,8 +31,6 @@ public class EJY_Enemy : Shy_Character, IPointerClickHandler
         _enemySkill = GetComponentsInChildren<Skill>().ToList();
 
         Initialize();
-        Debug.Log(stat._hp);
-        Debug.Log(stat._damage);
     }
 
     

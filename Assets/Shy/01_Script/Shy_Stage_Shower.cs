@@ -75,7 +75,6 @@ public class Shy_Stage_Shower : MonoBehaviour
     {
         playerMark.SetActive(true);
         yield return new WaitForSeconds(0.7f);
-        Debug.Log(stageNum);
 
         Sequence seq = DOTween.Sequence();
 
@@ -87,7 +86,6 @@ public class Shy_Stage_Shower : MonoBehaviour
             stageNum++;
             playerMark.SetActive(false);
             listParent.position = new Vector2(0, 800);
-            Debug.Log(stageNum);
         });
         
 

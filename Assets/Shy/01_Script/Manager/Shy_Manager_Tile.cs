@@ -52,17 +52,24 @@ public class Shy_Manager_Tile : MonoBehaviour
 
     private void Init()
     {
-        //SO미리 받기
+        //SO 받기
+        tileSOList.Clear();
         for (int i = 0; i < Shy_Deck.instance.tileDeck.Count; i++)
-        {
             tileSOList.Add(Shy_Deck.instance.tileDeck[i]);
-        }
         Debug.Log("tile Deck reflect Suc");
 
-        //전체 타일 세팅
+        //전체 타일 초기화
         for (int i = 0; i < tileObjs.Count; i++)
         {
             tileObjs[i].tileManager = this;
+            tileObjs[i].skillData = null;
+            tileObjs[i].
+        }
+
+        //전체 타일 세팅
+        for (int i = tileSOList.Count; i > 0; --i)
+        {
+            TileSetting(tileObjs[Random.Range(0, tileObjs.Count)], 8);
         }
         Debug.Log("tileManager Init suc");
     }
@@ -71,11 +78,7 @@ public class Shy_Manager_Tile : MonoBehaviour
     {
         Init();
 
-        for (int i = tileSOList.Count; i > 0; --i)
-        {
-            //ChangeTileSkill(tileObjs[Random.Range(0, tileObjs.Count)], tileSOList[Random.Range(0, tileSOList.Count)]);
-            TileSetting(tileObjs[Random.Range(0, tileObjs.Count)], 8);
-        }
+        
     }
 
 
