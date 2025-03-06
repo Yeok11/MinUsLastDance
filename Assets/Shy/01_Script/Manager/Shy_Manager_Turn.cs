@@ -200,13 +200,13 @@ public class Shy_Manager_Turn : MonoBehaviour
                 enemys[i] = enemys[i + 1];
                 enemys[i + 1] = temp;
 
-                i = 0;
+                i = -1;
             }
         }
 
         for (int i = 0; i < enemys.Count; i++)
         {
-            enemys[i].transform.Find("OrderTxt").GetComponent<TextMeshProUGUI>().text = i.ToString();
+            enemys[i].transform.Find("OrderTxt").GetComponent<TextMeshProUGUI>().text = (i + 1).ToString();
         }
     }
 }

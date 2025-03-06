@@ -625,8 +625,9 @@ MonoBehaviour:
   _playHealth: {fileID: 0}
   _enemyStatSO: {fileID: 0}
   icon: {fileID: 21300000, guid: f5c2aedcd432bd44cad3ef1accc0ca25, type: 3}
-  effectStackPrefab: {fileID: 0}
+  effectStackPrefab: {fileID: 4090456086638697736, guid: 6a65f7ace84d0b448888f5a9c8911abd, type: 3}
   countStackPrefab: {fileID: 0}
+  _stack: {fileID: 7591909679861970958}
 --- !u!114 &2235574615475845545
 MonoBehaviour:
   m_ObjectHideFlags: 0
